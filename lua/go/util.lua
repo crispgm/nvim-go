@@ -17,8 +17,8 @@ function M.show_job_success(prefix, results)
     end
 end
 
-function M.show_job_error(prefix, return_val, results)
-    print(string.format('[%s] Error: %d', prefix, return_val))
+function M.show_job_error(prefix, code, results)
+    print(string.format('[%s] Error: %d', prefix, code))
     for _, v in ipairs(results) do
         print(v)
     end

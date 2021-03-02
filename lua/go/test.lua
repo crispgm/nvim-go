@@ -43,17 +43,16 @@ function M.test_func(opt)
     end
     local args = {'test', '-run', string.format('^%s$', func_name)}
     build_args(args)
-    local results, _ = Job:new({
+    local results, code = Job:new({
         command = 'go',
         args = args,
         cwd = cwd,
-        on_exit = function(j, return_val)
-            if return_val == 0 then
-                util.show_job_error('GoTestFunc', return_val, j:result())
-            end
-        end,
     }):sync()
-    util.show_job_success('GoTestFunc', results)
+    if code == 0 then
+        util.show_job_success('GoTestFunc', results)
+    else
+        util.show_job_error('GoTestFunc', code, results)
+    end
 end
 
 function M.test_file()
@@ -61,18 +60,16 @@ function M.test_file()
     local cwd = vim.fn.expand('%:p:h')
     local args = {'test', file_path}
     build_args(args)
-    Job:new({
+    local results, code = Job:new({
         command = 'go',
         args = args,
         cwd = cwd,
-        on_exit = function(j, return_val)
-            if return_val == 0 then
-                util.show_success('GoTestFile')
-            else
-                util.show_error('GoTestFile', return_val, j:result())
-            end
-        end,
     }):sync()
+    if code == 0 then
+        util.show_job_success('GoTestFile', results)
+    else
+        util.show_error('GoTestFile', code, results)
+    end
 end
 
 return M
