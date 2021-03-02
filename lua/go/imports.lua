@@ -15,7 +15,7 @@ function M.run(opt)
             if return_val == 0 then
                 print('[GoImports] Success')
             else
-                print(string.Format('[GoImports] Error %d: %s', return_val, Job:result()))
+                print(string.format('[GoImports] Error %d: %s', return_val, Job:result()))
             end
         end,
     }):sync()
