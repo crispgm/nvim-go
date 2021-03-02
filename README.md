@@ -19,6 +19,12 @@ Plug 'crispgm/nvim-go'
 
 ## Usage
 
+### Defaults
+
+opt = {
+    linter = 'goimports',
+}
+
 ### Work with LSP
 
 ## Plan
@@ -30,6 +36,7 @@ Plug 'crispgm/nvim-go'
 - [ ] Format
   - [ ] GoFormat: format with formatter
   - [x] GoFmt: run `gofmt`
+  - [x] GoImports: run `goimports`
 - [ ] Lint
   - [ ] GoMetaLint
   - [ ] GoLint

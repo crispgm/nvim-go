@@ -8,14 +8,14 @@ function M.run(opt)
     local cwd = vim.fn.expand('%:p:h')
     vim.api.nvim_exec('write', true)
     Job:new({
-        command = 'gofmt',
+        command = 'goimports',
         args = { '-w', filePath },
         cwd = cwd,
         on_exit = function(j, return_val)
             if return_val == 0 then
-                print('[GoFmt] Success')
+                print('[GoImports] Success')
             else
-                print(string.Format('[GoFmt] Error %d: %s', return_val, Job:result()))
+                print(string.Format('[GoImports] Error %d: %s', return_val, Job:result()))
             end
         end,
     }):sync()
