@@ -10,4 +10,10 @@ local go = setmetatable({}, {
   end
 })
 
+local vim = vim
+local config = require('go.config')
+function setup(opt)
+    config.options = vim.tbl_extend('force', config.options, opt)
+end
+
 return go

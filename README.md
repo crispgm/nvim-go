@@ -10,7 +10,7 @@ Neovim 0.5 embeds a built-in LSP and we are able to do most of vim-go's features
 
 Neovim nightly (0.5) is required for `nvim-go` to work.
 
-Vim-plug:
+With vim-plug:
 ```viml
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lua/popup.nvim'
@@ -19,22 +19,29 @@ Plug 'crispgm/nvim-go'
 
 ## Usage
 
-### Defaults
+Setup:
+```lua
+require('go').setup{}
+```
 
+Defaults:
+```lua
 opt = {
-    linter = 'goimports',
+    linter = 'golint',
+    formatter = 'goimports',
 }
+```
 
 ### Work with LSP
 
 ## Plan
 
 - [ ] Setup
-  - [ ] Options
+  - [x] Options
   - [ ] GoInstallBinaries
   - [ ] GoUpdateBinaries
 - [ ] Format
-  - [ ] GoFormat: format with formatter
+  - [x] GoFormat: format with formatter
   - [x] GoFmt: run `gofmt`
   - [x] GoImports: run `goimports`
 - [ ] Lint
