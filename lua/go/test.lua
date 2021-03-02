@@ -48,6 +48,9 @@ function M.test_func(opt)
         args = args,
         cwd = cwd,
     }):sync()
+    if config.options.test_popup then
+        return util.popup_job_result(results)
+    end
     if code == 0 then
         util.show_job_success('GoTestFunc', results)
     else

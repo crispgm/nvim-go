@@ -26,9 +26,15 @@ require('go').setup{}
 
 Defaults:
 ```lua
-opt = {
+require('go').setup{
     linter = 'golint',
+    -- formatter: goimports, gofmt
     formatter = 'goimports',
+    -- test flags: -count=1 will disable cache
+    test_flags = {'-v'},
+    test_timeout = '30s',
+    -- show test result with popup window
+    test_popup = true,
 }
 ```
 
@@ -44,10 +50,13 @@ opt = {
   - [x] GoFormat: format with formatter
   - [x] GoFmt: run `gofmt`
   - [x] GoImports: run `goimports`
+  - [x] auto command
 - [ ] Lint
   - [ ] GoMetaLint
   - [ ] GoLint
+  - [x] auto command
 - [ ] Test
+  - [x] show test result with popup window
   - [x] GoTestFunc
   - [ ] GoTestFile
   - [ ] GoTestPkg
