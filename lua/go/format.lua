@@ -10,7 +10,7 @@ function M.format(opt)
     return pcall(M[formatter], opt)
 end
 
-function M.gofmt(opt)
+function M.gofmt()
     local file_path = vim.api.nvim_buf_get_name(0)
     local cwd = vim.fn.expand('%:p:h')
     vim.api.nvim_exec('write', true)
@@ -22,14 +22,14 @@ function M.gofmt(opt)
             if return_val == 0 then
                 util.show_success('GoFmt')
             else
-                util.show_error('GoFmt', j, return_val)
+                util.show_job_error('GoFmt', return_val, j:result())
             end
         end,
     }):sync()
     vim.api.nvim_exec('edit!', true)
 end
 
-function M.goimports(opt)
+function M.goimports()
     local file_path = vim.api.nvim_buf_get_name(0)
     local cwd = vim.fn.expand('%:p:h')
     vim.api.nvim_exec('write', true)
@@ -41,7 +41,7 @@ function M.goimports(opt)
             if return_val == 0 then
                 util.show_success('GoImports')
             else
-                util.show_error('GoImports', j, return_val)
+                util.show_job_error('GoImports', return_val, j:result())
             end
         end,
     }):sync()

@@ -48,7 +48,7 @@ opt = {
   - [ ] GoMetaLint
   - [ ] GoLint
 - [ ] Test
-  - [ ] GoTestFunc
+  - [x] GoTestFunc
   - [ ] GoTestFile
   - [ ] GoTestPkg
   - [ ] GoTestOpen

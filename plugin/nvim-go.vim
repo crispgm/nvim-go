@@ -10,4 +10,5 @@ augroup nvim_go
   autocmd BufWritePre *.go GoFormat
 augroup END
 
+command! GoTestFunc lua require('go.test').test_func{}
 command! GoTestFile lua require('go.test').test_file{}
