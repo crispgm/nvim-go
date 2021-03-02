@@ -1,7 +1,8 @@
 local go = setmetatable({}, {
   __index = function(t, k)
-    local ok, val = pcall(require, string.format('go.%s', k))
+    if k == 'setup' then return setup end
 
+    local ok, val = pcall(require, string.format('go.%s', k))
     if ok then
       rawset(t, k, val)
     end
