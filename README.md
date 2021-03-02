@@ -28,16 +28,19 @@ Plug 'crispgm/nvim-go'
   - [ ] GoInstallBinaries
   - [ ] GoUpdateBinaries
 - [ ] Format
-  - [ ] GoFmt
+  - [ ] GoFormat: format with formatter
+  - [x] GoFmt: run `gofmt`
 - [ ] Lint
+  - [ ] GoMetaLint
   - [ ] GoLint
 - [ ] Test
   - [ ] GoTestFunc
   - [ ] GoTestFile
   - [ ] GoTestPkg
-  - [ ] GoToTest
+  - [ ] GoTestOpen
 - [ ] Import
   - [ ] GoImport
-  - [ ] GoToImport
+  - [ ] GoImportDoc
+  - [ ] GoImportOpen
 - [ ] Tag
 - [ ] Impl
