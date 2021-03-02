@@ -4,12 +4,12 @@ local vim = vim
 local Job = require('plenary.job')
 
 function M.run(opt)
-    local filePath = vim.api.nvim_buf_get_name(0)
+    local file_path = vim.api.nvim_buf_get_name(0)
     local cwd = vim.fn.expand('%:p:h')
     vim.api.nvim_exec('write', true)
     Job:new({
         command = 'goimports',
-        args = { '-w', filePath },
+        args = { '-w', file_path },
         cwd = cwd,
         on_exit = function(j, return_val)
             if return_val == 0 then
