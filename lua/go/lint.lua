@@ -22,7 +22,7 @@ function M.lint()
         local qf_list = {}
         for _, v in ipairs(results) do
             local o = vim.fn.split(v, ':')
-            local ln, col, msg = o[2], o[3], o[4]
+            local ln, col, msg = o[2], o[3], vim.trim(o[4])
             if config.options.lint_prompt_style == 'vt' then
                 vim.api.nvim_buf_set_virtual_text(bufnr, 0, ln-1, {{msg, 'WarningMsg'}}, {})
             else
