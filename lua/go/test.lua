@@ -4,6 +4,7 @@ local vim = vim
 local Job = require('plenary.job')
 local config = require('go.config')
 local util = require('go.util')
+local output = require('go.output')
 
 local function build_args(args)
     local test_timeout = config.options.test_timeout
@@ -22,7 +23,7 @@ end
 
 local function valid_func_name(func_name)
     if not func_name then return false end
-    if string.find(func_name, '^Test') or string.find(func_name, '^Example') then
+    if vim.startswith(func_name, 'Test') or vim.startswith(func_name, 'Example') then
         return true
     end
 
@@ -34,11 +35,17 @@ function M.test_func(opt)
     if opt and opt.func then
         func_name = opt.func
     else
-        func_name = util.current_word()
+        local line = vim.fn.search([[func \(Test\|Example\)]], 'bcnW')
+        if line == 0 then
+            output.show_error('GoTestFunc', string.format('Test func not found: %s', func_name))
+            return
+        end
+        local cur_line = util.current_line()
+        func_name = vim.fn.split(vim.fn.split(cur_line, ' ')[2], '(')[1]
     end
     local cwd = vim.fn.expand('%:p:h')
     if not valid_func_name(func_name) then
-        util.show_error('GoTestFunc', string.format('Invalid test func: %s', func_name))
+        output.show_error('GoTestFunc', string.format('Invalid test func: %s', func_name))
         return
     end
     local args = {'test', '-run', string.format('^%s$', func_name)}
@@ -49,12 +56,12 @@ function M.test_func(opt)
         cwd = cwd,
     }):sync()
     if config.options.test_popup then
-        return util.popup_job_result(results)
+        return output.popup_job_result(results)
     end
     if code == 0 then
-        util.show_job_success('GoTestFunc', results)
+        output.show_job_success('GoTestFunc', results)
     else
-        util.show_job_error('GoTestFunc', code, results)
+        output.show_job_error('GoTestFunc', code, results)
     end
 end
 
@@ -68,10 +75,13 @@ function M.test_file()
         args = args,
         cwd = cwd,
     }):sync()
+    if config.options.test_popup then
+        return output.popup_job_result(results)
+    end
     if code == 0 then
-        util.show_job_success('GoTestFile', results)
+        output.show_job_success('GoTestFile', results)
     else
-        util.show_error('GoTestFile', code, results)
+        output.show_error('GoTestFile', code, results)
     end
 end
 

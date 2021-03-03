@@ -3,7 +3,7 @@ local M = {}
 local vim = vim
 local Job = require('plenary.job')
 local config = require('go.config')
-local util = require('go.util')
+local output = require('go.output')
 
 function M.format(opt)
     local formatter = config.options.formatter
