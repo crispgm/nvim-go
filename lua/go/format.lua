@@ -20,9 +20,9 @@ function M.gofmt()
         cwd = cwd,
     }):sync()
     if code == 0 then
-        output.show_success('GoFmt')
+        output.show_success('gofmt')
     else
-        output.show_job_error('GoFmt', code, results)
+        output.show_job_error('gofmt', code, results)
     end
     vim.api.nvim_exec('edit!', true)
 end
@@ -37,9 +37,26 @@ function M.goimports()
         cwd = cwd,
     }):sync()
     if code == 0 then
-        output.show_success('GoImports')
+        output.show_success('goimports')
     else
-        output.show_job_error('GoImports', code, results)
+        output.show_job_error('goimports', code, results)
+    end
+    vim.api.nvim_exec('edit!', true)
+end
+
+function M.gofumpt()
+    local file_path = vim.api.nvim_buf_get_name(0)
+    local cwd = vim.fn.expand('%:p:h')
+    vim.api.nvim_exec('write', true)
+    local results, code = Job:new({
+        command = 'gofumpt',
+        args = { '-l', '-w', file_path },
+        cwd = cwd,
+    }):sync()
+    if code == 0 then
+        output.show_success('gofumpt')
+    else
+        output.show_job_error('gofumpt', code, results)
     end
     vim.api.nvim_exec('edit!', true)
 end

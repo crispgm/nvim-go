@@ -52,14 +52,14 @@ require('go').setup{
   - [x] GoInstallBinaries
 - [ ] Format
   - [x] GoFormat: format with formatter
-  - [x] GoFmt: run `gofmt`
-  - [x] GoImports: run `goimports`
-  - [ ] Gofumpt
+  - [x] Gofmt
+  - [x] Goimports
+  - [x] Gofumpt
   - [x] auto command
 - [ ] Lint
   - [x] show quickfix
   - [ ] show virtual text
-  - [ ] GoLint
+  - [ ] GoLint: lint with linters
   - [x] Golint
   - [ ] Govet
   - [ ] Errcheck
