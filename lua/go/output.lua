@@ -3,8 +3,12 @@ local M = {}
 local vim = vim
 local Popup = require('popup')
 
-function M.show_success(prefix)
-    print(string.format('[%s] Success', prefix))
+function M.show_success(prefix, msg)
+    local suc = 'Success'
+    if msg ~= nil then
+        suc = msg
+    end
+    print(string.format('[%s] %s', prefix, suc))
 end
 
 function M.show_error(prefix, msg)

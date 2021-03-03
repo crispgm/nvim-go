@@ -17,6 +17,8 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'crispgm/nvim-go'
 ```
 
+Run `:GoInstallBinaries` after plugin installed.
+
 ## Usage
 
 Setup:
@@ -27,8 +29,11 @@ require('go').setup{}
 Defaults:
 ```lua
 require('go').setup{
-    linter = 'golint',
-    -- formatter: goimports, gofmt
+    -- linters: golint, govet, errcheck, golangci-lint
+    linters = {'golint', 'govet', 'errcheck'},
+    -- lint_prompt_style: qf (quickfix), vt (virtual text)
+    lint_prompt_style = 'qf',
+    -- formatter: goimports, gofmt, gofumpt
     formatter = 'goimports',
     -- test flags: -count=1 will disable cache
     test_flags = {'-v'},
@@ -42,10 +47,9 @@ require('go').setup{
 
 ## Plan
 
-- [ ] Setup
+- [x] Setup
   - [x] Options
-  - [ ] GoInstallBinaries
-  - [ ] GoUpdateBinaries
+  - [x] GoInstallBinaries
 - [ ] Format
   - [x] GoFormat: format with formatter
   - [x] GoFmt: run `gofmt`
@@ -54,9 +58,9 @@ require('go').setup{
   - [x] auto command
 - [ ] Lint
   - [x] show quickfix
-  - [x] show virtual text (there is bug)
+  - [ ] show virtual text
   - [ ] GoLint
-  - [ ] Golint
+  - [x] Golint
   - [ ] Govet
   - [ ] Errcheck
   - [ ] Golangci-lint
