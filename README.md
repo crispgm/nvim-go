@@ -60,7 +60,7 @@ require('go').setup{
   - [x] GoTestFunc
   - [ ] GoTestFile
   - [ ] GoTestPkg
-  - [ ] GoTestOpen
+  - [x] GoTestOpen
 - [ ] Import
   - [ ] GoImport
   - [ ] GoImportDoc

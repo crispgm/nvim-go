@@ -75,4 +75,31 @@ function M.test_file()
     end
 end
 
+local function valid_file(fn)
+    if vim.endswith(fn, "_test.go") then
+        return 1
+    elseif vim.endswith(fn, ".go") then
+        return 0
+    end
+
+    return -1
+end
+
+function M.test_open()
+    local file_path = vim.api.nvim_buf_get_name(0)
+    local new_fn
+    local vf = valid_file(file_path)
+    if vf == 1 then
+        new_fn = file_path:gsub("_test.go$", ".go")
+    elseif vf == 0 then
+        new_fn = file_path:gsub(".go$", "_test.go")
+    else
+        -- not even a `.go file
+        return
+    end
+    print(new_fn)
+
+    vim.api.nvim_command('edit' .. new_fn)
+end
+
 return M

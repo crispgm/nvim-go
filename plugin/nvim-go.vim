@@ -12,3 +12,4 @@ augroup END
 
 command! GoTestFunc lua require('go.test').test_func{}
 command! GoTestFile lua require('go.test').test_file{}
+command! GoToTest lua require('go.test').test_open()
