@@ -1,7 +1,10 @@
 local M = {}
 
 M.options =  {
-    linter = 'golint',
+    -- linters: golint, govet, errcheck, golangci-lint
+    linters = {'golint', 'govet', 'errcheck'},
+    -- lint_prompt_style: qf (quickfix), vt (virtual text)
+    lint_prompt_style = 'qf',
     -- formatter: goimports, gofmt
     formatter = 'goimports',
     -- test flags: -count=1 will disable cache

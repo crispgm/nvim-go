@@ -1,9 +1,12 @@
 command! GoFormat lua require('go.format').format{}
-command! GoFmt lua require('go.format').gofmt{}
-command! GoImports lua require('go.format').goimports{}
+command! Gofmt lua require('go.format').gofmt{}
+command! Goimports lua require('go.format').goimports{}
+
+command! GoLint lua require('go.lint').lint{}
 
 augroup nvim_go
   autocmd!
+  autocmd BufWritePre *.go GoLint
   autocmd BufWritePre *.go GoFormat
 augroup END
 

@@ -50,10 +50,16 @@ require('go').setup{
   - [x] GoFormat: format with formatter
   - [x] GoFmt: run `gofmt`
   - [x] GoImports: run `goimports`
+  - [ ] Gofumpt
   - [x] auto command
 - [ ] Lint
-  - [ ] GoMetaLint
+  - [x] show quickfix
+  - [x] show virtual text (there is bug)
   - [ ] GoLint
+  - [ ] Golint
+  - [ ] Govet
+  - [ ] Errcheck
+  - [ ] Golangci-lint
   - [x] auto command
 - [ ] Test
   - [x] show test result with popup window
@@ -65,5 +71,6 @@ require('go').setup{
   - [ ] GoImport
   - [ ] GoImportDoc
   - [ ] GoImportOpen
-- [ ] Tag
+- [ ] Struct Tag
+- [ ] Paste as JSON
 - [ ] Impl
