@@ -30,6 +30,10 @@ local function valid_func_name(func_name)
     return false
 end
 
+local function split_file_name(str)
+    return vim.fn.split(vim.fn.split(str, ' ')[2], '(')[1]
+end
+
 function M.test_func(opt)
     local func_name = ''
     if opt and opt.func then
@@ -41,7 +45,7 @@ function M.test_func(opt)
             return
         end
         local cur_line = util.current_line()
-        func_name = vim.fn.split(vim.fn.split(cur_line, ' ')[2], '(')[1]
+        func_name = split_file_name(cur_line)
     end
     local cwd = vim.fn.expand('%:p:h')
     if not valid_func_name(func_name) then
@@ -66,9 +70,21 @@ function M.test_func(opt)
 end
 
 function M.test_file()
-    local file_path = vim.api.nvim_buf_get_name(0)
     local cwd = vim.fn.expand('%:p:h')
-    local args = {'test', file_path}
+    local pattern = vim.regex('^func [Test|Example]')
+    local lines = vim.api.nvim_buf_get_lines(vim.api.nvim_get_current_buf(), 1, -1, false)
+    local func_names = {}
+    if #lines == 0 then return end
+    for _, line in ipairs(lines) do
+        local col_from, _ = pattern:match_str(line)
+        if col_from then
+            local fn = split_file_name(line)
+            if valid_func_name(fn) then
+                table.insert(func_names, fn)
+            end
+        end
+    end
+    local args = {'test', '-run', string.format('^%s$', table.concat(func_names, '|'))}
     build_args(args)
     local results, code = Job:new({
         command = 'go',

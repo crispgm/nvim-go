@@ -58,7 +58,7 @@ require('go').setup{
 - [ ] Test
   - [x] show test result with popup window
   - [x] GoTestFunc
-  - [ ] GoTestFile
+  - [x] GoTestFile
   - [ ] GoTestPkg
   - [x] GoTestOpen
 - [ ] Import

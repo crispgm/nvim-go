@@ -20,9 +20,9 @@ function M.gofmt()
         cwd = cwd,
     }):sync()
     if code == 0 then
-        util.show_success('GoFmt')
+        output.show_success('GoFmt')
     else
-        util.show_job_error('GoFmt', code, results)
+        output.show_job_error('GoFmt', code, results)
     end
     vim.api.nvim_exec('edit!', true)
 end
@@ -37,9 +37,9 @@ function M.goimports()
         cwd = cwd,
     }):sync()
     if code == 0 then
-        util.show_success('GoImports')
+        output.show_success('GoImports')
     else
-        util.show_job_error('GoImports', code, results)
+        output.show_job_error('GoImports', code, results)
     end
     vim.api.nvim_exec('edit!', true)
 end
