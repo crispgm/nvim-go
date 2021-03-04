@@ -16,11 +16,9 @@ function M.gofmt()
         on_exit = function(_, code)
             if code == 0 then
                 vim.api.nvim_exec('edit!', true)
+            else
+                output.show_error('gofmt', string.format('Error: %d', code))
             end
-        end,
-        on_stdout = function(_, data)
-            local results = table.concat(data, "\n")
-            output.show_error('gofmt', results)
         end,
     })
 end
@@ -32,11 +30,9 @@ function M.goimports()
         on_exit = function(_, code)
             if code == 0 then
                 vim.api.nvim_exec('edit!', true)
+            else
+                output.show_error('goimports', string.format('Error: %d', code))
             end
-        end,
-        on_stdout = function(_, data)
-            local results = table.concat(data, "\n")
-            output.show_error('goimports', results)
         end,
     })
 end
@@ -48,11 +44,9 @@ function M.gofumpt()
         on_exit = function(_, code)
             if code == 0 then
                 vim.api.nvim_exec('edit!', true)
+            else
+                output.show_error('goimports', string.format('Error: %d', code))
             end
-        end,
-        on_stdout = function(_, data)
-            local results = table.concat(data, "\n")
-            output.show_error('gofumpt', results)
         end,
     })
 end
