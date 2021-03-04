@@ -1,7 +1,6 @@
 local M = {}
 
 local vim = vim
-local Job = require('plenary.job')
 local config = require('go.config')
 local output = require('go.output')
 
@@ -12,53 +11,53 @@ end
 
 function M.gofmt()
     local file_path = vim.api.nvim_buf_get_name(0)
-    local cwd = vim.fn.expand('%:p:h')
     vim.api.nvim_exec('write', true)
-    local results, code = Job:new({
-        command = 'gofmt',
-        args = { '-w', file_path },
-        cwd = cwd,
-    }):sync()
-    if code == 0 then
-        output.show_success('gofmt')
-    else
-        output.show_job_error('gofmt', code, results)
-    end
-    vim.api.nvim_exec('edit!', true)
+    vim.fn.jobstart({'gofmt', '-w', file_path}, {
+        on_exit = function(_, code)
+            if code == 0 then
+                output.show_success('gofmt')
+                vim.api.nvim_exec('edit!', true)
+            end
+        end,
+        on_stderr = function(_, data)
+            local results = table.concat(data, "\n")
+            output.show_error('gofmt', results)
+        end,
+    })
 end
 
 function M.goimports()
     local file_path = vim.api.nvim_buf_get_name(0)
-    local cwd = vim.fn.expand('%:p:h')
     vim.api.nvim_exec('write', true)
-    local results, code = Job:new({
-        command = 'goimports',
-        args = { '-w', file_path },
-        cwd = cwd,
-    }):sync()
-    if code == 0 then
-        output.show_success('goimports')
-    else
-        output.show_job_error('goimports', code, results)
-    end
-    vim.api.nvim_exec('edit!', true)
+    vim.fn.jobstart({'goimports', '-w', file_path}, {
+        on_exit = function(_, code)
+            if code == 0 then
+                output.show_success('goimports')
+                vim.api.nvim_exec('edit!', true)
+            end
+        end,
+        on_stderr = function(_, data)
+            local results = table.concat(data, "\n")
+            output.show_error('goimports', results)
+        end,
+    })
 end
 
 function M.gofumpt()
     local file_path = vim.api.nvim_buf_get_name(0)
-    local cwd = vim.fn.expand('%:p:h')
     vim.api.nvim_exec('write', true)
-    local results, code = Job:new({
-        command = 'gofumpt',
-        args = { '-l', '-w', file_path },
-        cwd = cwd,
-    }):sync()
-    if code == 0 then
-        output.show_success('gofumpt')
-    else
-        output.show_job_error('gofumpt', code, results)
-    end
-    vim.api.nvim_exec('edit!', true)
+    vim.fn.jobstart({'gofumpt', '-l', '-w', file_path}, {
+        on_exit = function(_, code)
+            if code == 0 then
+                output.show_success('gofumpt')
+                vim.api.nvim_exec('edit!', true)
+            end
+        end,
+        on_stderr = function(_, data)
+            local results = table.concat(data, "\n")
+            output.show_error('gofumpt', results)
+        end,
+    })
 end
 
 return M

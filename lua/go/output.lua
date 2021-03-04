@@ -15,6 +15,10 @@ function M.show_error(prefix, msg)
     vim.api.nvim_command(string.format('echohl ErrorMsg | echo "[%s] %s" | echohl None', prefix, msg))
 end
 
+function M.show_warning(prefix, msg)
+    vim.api.nvim_command(string.format('echohl WarningMsg | echo "[%s] %s" | echohl None', prefix, msg))
+end
+
 function M.show_job_success(prefix, results)
     print(string.format('[%s] Success', prefix))
     for _, v in ipairs(results) do
