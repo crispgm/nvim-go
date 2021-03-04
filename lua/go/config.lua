@@ -21,6 +21,7 @@ M.tools = {
     { name = 'gofumpt' ,      repo = 'mvdan.cc/gofumpt'},
     { name = 'errcheck' ,     repo = 'github.com/kisielk/errcheck'},
     { name = 'golangcilint' , repo = 'github.com/golangci/golangci-lint/cmd/golangci-lint'},
+    { name = 'gomodifytags' , repo = 'github.com/fatih/gomodifytags'},
 }
 
 return M
