@@ -9,8 +9,8 @@ command! GoLint lua require('go.lint').lint{}
 
 augroup nvim_go
   autocmd!
-  autocmd BufWritePre *.go GoLint
-  autocmd BufWritePre *.go GoFormat
+  autocmd BufWritePre <buffer> GoFormat
+  autocmd BufWritePost <buffer> GoLint
 augroup END
 
 command! GoTestFunc lua require('go.test').test_func{}

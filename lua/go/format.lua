@@ -15,11 +15,10 @@ function M.gofmt()
     vim.fn.jobstart({'gofmt', '-w', file_path}, {
         on_exit = function(_, code)
             if code == 0 then
-                output.show_success('gofmt')
                 vim.api.nvim_exec('edit!', true)
             end
         end,
-        on_stderr = function(_, data)
+        on_stdout = function(_, data)
             local results = table.concat(data, "\n")
             output.show_error('gofmt', results)
         end,
@@ -32,11 +31,10 @@ function M.goimports()
     vim.fn.jobstart({'goimports', '-w', file_path}, {
         on_exit = function(_, code)
             if code == 0 then
-                output.show_success('goimports')
                 vim.api.nvim_exec('edit!', true)
             end
         end,
-        on_stderr = function(_, data)
+        on_stdout = function(_, data)
             local results = table.concat(data, "\n")
             output.show_error('goimports', results)
         end,
@@ -49,11 +47,10 @@ function M.gofumpt()
     vim.fn.jobstart({'gofumpt', '-l', '-w', file_path}, {
         on_exit = function(_, code)
             if code == 0 then
-                output.show_success('gofumpt')
                 vim.api.nvim_exec('edit!', true)
             end
         end,
-        on_stderr = function(_, data)
+        on_stdout = function(_, data)
             local results = table.concat(data, "\n")
             output.show_error('gofumpt', results)
         end,

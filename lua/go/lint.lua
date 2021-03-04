@@ -16,12 +16,9 @@ function M.golint()
     local linter = 'golint'
     local file_path = vim.api.nvim_buf_get_name(0)
     local bufnr = vim.api.nvim_get_current_buf()
-    vim.api.nvim_exec('write', true)
     vim.fn.jobstart({linter, '-set_exit_status', file_path}, {
         on_exit = function(_, code)
-            if code == 0 then
-                output.show_success('GoLint')
-            else
+            if code ~= 0 then
                 output.show_warning('GoLint', string.format('error code: %d', code))
             end
         end,
