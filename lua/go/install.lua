@@ -1,7 +1,6 @@
 local M = {}
 
 local vim = vim
-local Job = require('plenary.job')
 local config = require('go.config')
 local output = require('go.output')
 
@@ -10,16 +9,17 @@ function M.install_binaries()
     print('[GoInstallBinaries] Starting...')
     for _, tool in ipairs(config.tools) do
         vim.api.nvim_command(string.format('echom "[GoInstallBinaries] Installing %s: %s ..."', tool.name, tool.repo))
-        local results, code = Job:new({
-            command = 'go',
-            args = { 'get', tool.repo },
-            cwd = '~',
-        }):sync(30000)
-        if code == 0 then
-            output.show_success('GoInstallBinaries', string.format('Installed %s', tool.name))
-        else
-            output.show_job_error('GoInstallBinaries', results)
-        end
+        vim.fn.jobstart({'go', 'get', tool.repo}, {
+            on_exit = function(_, code)
+                if code == 0 then
+                    output.show_success('GoInstallBinaries', string.format('Installed %s', tool.name))
+                end
+            end,
+            on_stderr = function(_, data)
+                local results = table.concat(data, "\n")
+                output.show_error('GoInstallBinaries', results)
+            end,
+        })
     end
 end
 
