@@ -4,30 +4,31 @@ local vim = vim
 local Popup = require('popup')
 
 function M.show_success(prefix, msg)
-    local suc = 'Success'
+    local succ = 'Success'
     if msg ~= nil then
-        suc = msg
+        succ = msg
     end
-    print(string.format('[%s] %s', prefix, suc))
+    print(string.format('[%s] %s', prefix, succ))
+    vim.api.nvim_echo({{prefix, 'healthSuccess'}, {' ' .. succ}}, true, {})
 end
 
 function M.show_error(prefix, msg)
-    vim.api.nvim_command(string.format('echohl ErrorMsg | echo "[%s] %s" | echohl None', prefix, msg))
+    vim.api.nvim_echo({{prefix, 'ErrorMsg'}, {' ' .. msg}}, true, {})
 end
 
 function M.show_warning(prefix, msg)
-    vim.api.nvim_command(string.format('echohl WarningMsg | echo "[%s] %s" | echohl None', prefix, msg))
+    vim.api.nvim_echo({{prefix, 'WarningMsg'}, {' ' .. msg}}, true, {})
 end
 
 function M.show_job_success(prefix, results)
-    print(string.format('[%s] Success', prefix))
+    M.show_success(prefix)
     for _, v in ipairs(results) do
         print(v)
     end
 end
 
 function M.show_job_error(prefix, code, results)
-    print(string.format('[%s] Error: %d', prefix, code))
+    M.show_error(prefix, string.format('Error: %d', code))
     for _, v in ipairs(results) do
         print(v)
     end
