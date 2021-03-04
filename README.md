@@ -1,6 +1,6 @@
 # nvim-go (WIP)
 
-![github-workflow-ci](https://github.com/crispgm/nvim-go/workflows/ci/badge.svg)
+[![build](https://github.com/crispgm/nvim-go/actions/workflows/ci.yml/badge.svg)](https://github.com/crispgm/nvim-go/actions/workflows/ci.yml)
 
 A minimal implementation of Golang development plugin, which handles features LSP not provide.
 
