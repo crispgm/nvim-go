@@ -1,4 +1,5 @@
 command! GoInstallBinaries lua require('go.install').install_binaries()
+command! GoUpdateBinaries lua require('go.install').update_binaries()
 
 command! GoFormat lua require('go.format').format{}
 command! Gofmt lua require('go.format').gofmt{}
