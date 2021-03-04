@@ -1,5 +1,7 @@
 # nvim-go (WIP)
 
+![github-workflow-ci](https://github.com/crispgm/nvim-go/workflows/ci/badge.svg)
+
 A minimal implementation of Golang development plugin, which handles features LSP not provide.
 
 Neovim 0.5 embeds a built-in LSP and we are able to do most of vim-go's features by LSP client like `gopls`.
