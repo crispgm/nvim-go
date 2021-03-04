@@ -10,7 +10,8 @@ function M.install_binaries()
         if vim.fn.executable(tool.name) == 1 then
             goto skip_to_next
         end
-        vim.api.nvim_echo({{string.format('[GoInstallBinaries] Installing %s: %s ...', tool.name, tool.repo)}}, true, {})
+        local msg = string.format('[GoInstallBinaries] Installing %s: %s ...', tool.name, tool.repo)
+        vim.api.nvim_echo({{msg}}, true, {})
         vim.fn.jobstart({'go', 'get', tool.repo}, {
             on_exit = function(_, code)
                 if code == 0 then
@@ -30,7 +31,8 @@ end
 -- Update binaries
 function M.update_binaries()
     for _, tool in ipairs(config.tools) do
-        vim.api.nvim_echo({{string.format('[GoUpdateBinaries] Installing %s: %s ...', tool.name, tool.repo)}}, true, {})
+        local msg = string.format('[GoUpdateBinaries] Installing %s: %s ...', tool.name, tool.repo)
+        vim.api.nvim_echo({{msg}}, true, {})
         vim.fn.jobstart({'go', 'get', '-u', tool.repo}, {
             on_exit = function(_, code)
                 if code == 0 then
