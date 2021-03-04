@@ -12,7 +12,7 @@ function M.show_success(prefix, msg)
 end
 
 function M.show_error(prefix, msg)
-    print(string.format('[%s] %s', prefix, msg))
+    vim.api.nvim_command(string.format('echohl ErrorMsg | echo "[%s] %s" | echohl None', prefix, msg))
 end
 
 function M.show_job_success(prefix, results)
