@@ -19,7 +19,7 @@ function M.golint()
     vim.fn.jobstart({linter, '-set_exit_status', file_path}, {
         on_exit = function(_, code)
             if code ~= 0 then
-                output.show_warning('GoLint', string.format('error code: %d', code))
+                output.show_warning('golint', string.format('error code: %d', code))
             end
         end,
         on_stdout = function(_, data)
@@ -47,13 +47,61 @@ function M.golint()
                 end
             end
             if #err_list > 0 then
-                output.show_error('GoLint', table.concat(err_list, '\n'))
+                output.show_error('golint', table.concat(err_list, '\n'))
             end
             if config.options.lint_prompt_style == 'qf' and #qf_list > 0 then
                 local height = 4
                 if #data < height then height = #data end
                 vim.api.nvim_command(string.format('copen %d', height))
-                local qf = {title = 'GoLint', items = qf_list}
+                local qf = {title = 'golint', items = qf_list}
+                vim.fn.setqflist({}, ' ', qf)
+            end
+        end,
+    })
+end
+
+function M.goerrcheck()
+    local linter = 'errcheck'
+    local file_path = vim.api.nvim_buf_get_name(0)
+    local bufnr = vim.api.nvim_get_current_buf()
+    vim.fn.jobstart({linter, file_path}, {
+        on_exit = function(_, code)
+            if code ~= 0 then
+                output.show_warning('errcheck', string.format('error code: %d', code))
+            end
+        end,
+        on_stdout = function(_, data)
+            local qf_list = {}
+            local err_list = {}
+            for _, v in ipairs(data) do
+                local o = vim.fn.split(v, ':')
+                if type(o) == 'table' and #o > 0 then
+                    local ln, col, msg = o[2], o[3], vim.trim(o[4])
+                    if config.options.lint_prompt_style == 'vt' then
+                        vim.api.nvim_buf_set_virtual_text(bufnr, 0, ln-1, {{msg, 'WarningMsg'}}, {})
+                    else
+                        table.insert(qf_list, {
+                            bufnr = bufnr,
+                            filename = file_path,
+                            type = 'W',
+                            lnum = ln,
+                            col = col,
+                            text = msg})
+                    end
+                else
+                    if string.len(v) > 0 then
+                        table.insert(err_list, v)
+                    end
+                end
+            end
+            if #err_list > 0 then
+                output.show_error('errcheck', table.concat(err_list, '\n'))
+            end
+            if config.options.lint_prompt_style == 'qf' and #qf_list > 0 then
+                local height = 4
+                if #data < height then height = #data end
+                vim.api.nvim_command(string.format('copen %d', height))
+                local qf = {title = 'errcheck', items = qf_list}
                 vim.fn.setqflist({}, ' ', qf)
             end
         end,

@@ -31,8 +31,8 @@ require('go').setup{}
 Defaults:
 ```lua
 require('go').setup{
-    -- linters: golint, govet, errcheck, golangci-lint
-    linters = {'golint', 'govet', 'errcheck'},
+    -- linters: golint, errcheck, golangci-lint
+    linters = {'golint', 'errcheck'},
     -- lint_prompt_style: qf (quickfix), vt (virtual text)
     lint_prompt_style = 'qf',
     -- formatter: goimports, gofmt, gofumpt
@@ -52,7 +52,7 @@ require('go').setup{
 - [x] Setup
   - [x] Options
   - [x] GoInstallBinaries
-- [ ] Format
+- [x] Format
   - [x] GoFormat: format with formatter
   - [x] Gofmt
   - [x] Goimports
@@ -63,10 +63,11 @@ require('go').setup{
   - [ ] show virtual text
   - [x] GoLint: lint with linters
   - [x] Golint
-  - [ ] Govet
-  - [ ] Errcheck
+  - ~~Govet~~ supported by LSP
+  - [x] Errcheck
   - [ ] Golangci-lint
   - [x] auto command
+  - [ ] multiple linters
 - [ ] Test
   - [x] show test result with popup window
   - [x] GoTestFunc

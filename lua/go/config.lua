@@ -1,8 +1,8 @@
 local M = {}
 
 M.options =  {
-    -- linters: golint, govet, errcheck, golangci-lint
-    linters = {'golint', 'govet', 'errcheck'},
+    -- linters: golint, errcheck, golangci-lint
+    linters = {'golint', 'errcheck'},
     -- lint_prompt_style: qf (quickfix), vt (virtual text)
     lint_prompt_style = 'qf',
     -- formatter: goimports, gofmt, gofumpt
