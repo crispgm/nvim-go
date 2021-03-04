@@ -5,11 +5,19 @@ local config = require('go.config')
 local output = require('go.output')
 
 function M.lint()
-    local formatter = 'golint'
+    -- local linters = config.options.linters
+    local linters = {'golint'}
+    for _, linter in ipairs(linters) do
+        pcall(M[linter], {})
+    end
+end
+
+function M.golint()
+    local linter = 'golint'
     local file_path = vim.api.nvim_buf_get_name(0)
     local bufnr = vim.api.nvim_get_current_buf()
     vim.api.nvim_exec('write', true)
-    vim.fn.jobstart({formatter, '-set_exit_status', file_path}, {
+    vim.fn.jobstart({linter, '-set_exit_status', file_path}, {
         on_exit = function(_, code)
             if code == 0 then
                 output.show_success('GoLint')

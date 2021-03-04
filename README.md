@@ -59,7 +59,7 @@ require('go').setup{
 - [ ] Lint
   - [x] show quickfix
   - [ ] show virtual text
-  - [ ] GoLint: lint with linters
+  - [x] GoLint: lint with linters
   - [x] Golint
   - [ ] Govet
   - [ ] Errcheck
