@@ -2,6 +2,7 @@ local M = {}
 
 local vim = vim
 local config = require('go.config')
+local system = require('go.system')
 local output = require('go.output')
 local util = require('go.util')
 
@@ -14,13 +15,7 @@ local function do_fmt(formatter, args)
     if not util.binary_exists(formatter) then return end
     local file_path = vim.api.nvim_buf_get_name(0)
     vim.api.nvim_exec('write', true)
-    local cmd = {formatter}
-    if #args > 0 then
-        for _, arg in ipairs(args) do
-            table.insert(cmd, arg)
-        end
-    end
-    table.insert(cmd, file_path)
+    local cmd = system.wrap_file_command(formatter, args, file_path)
     vim.fn.jobstart(cmd, {
         on_exit = function(_, code)
             if code == 0 then
