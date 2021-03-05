@@ -13,11 +13,11 @@ function M.show_success(prefix, msg)
 end
 
 function M.show_error(prefix, msg)
-    vim.api.nvim_echo({{prefix, 'ErrorMsg'}, {' ' .. msg}}, true, {})
+    vim.api.nvim_echo({{prefix, 'healthError'}, {' ' .. msg}}, true, {})
 end
 
 function M.show_warning(prefix, msg)
-    vim.api.nvim_echo({{prefix, 'WarningMsg'}, {' ' .. msg}}, true, {})
+    vim.api.nvim_echo({{prefix, 'healthWarning'}, {' ' .. msg}}, true, {})
 end
 
 function M.show_job_success(prefix, results)
