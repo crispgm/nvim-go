@@ -35,6 +35,8 @@ local function split_file_name(str)
 end
 
 function M.test_func(opt)
+    if not util.binary_exists('go') then return end
+
     local func_name = ''
     if opt and opt.func then
         func_name = opt.func
@@ -70,6 +72,8 @@ function M.test_func(opt)
 end
 
 function M.test_file()
+    if not util.binary_exists('go') then return end
+
     local cwd = vim.fn.expand('%:p:h')
     local pattern = vim.regex('^func [Test|Example]')
     local lines = vim.api.nvim_buf_get_lines(vim.api.nvim_get_current_buf(), 1, -1, false)

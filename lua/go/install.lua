@@ -6,6 +6,10 @@ local output = require('go.output')
 
 -- Install binaries
 function M.install_binaries()
+    if vim.fn.executable('go') == 0 then
+        output.show_error('GoInstallBinaries', 'Install Golang at first')
+    end
+
     for _, tool in ipairs(config.tools) do
         if vim.fn.executable(tool.name) == 1 then
             goto skip_to_next
