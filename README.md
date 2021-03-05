@@ -65,9 +65,9 @@ require('go').setup{
   - [x] Golint
   - ~~Govet~~ supported by LSP
   - [x] Errcheck
+  - [ ] staticcheck
   - [ ] Golangci-lint
   - [x] auto command
-  - [ ] multiple linters
 - [ ] Test
   - [x] show test result with popup window
   - [x] GoTestFunc
