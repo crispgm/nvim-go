@@ -75,6 +75,7 @@ require('go').setup{
   - [ ] GoTestPkg
   - [x] GoTestOpen
 - [ ] Import
+  - [x] GoGet
   - [ ] GoImport
   - [ ] GoImportDoc
   - [ ] GoImportOpen

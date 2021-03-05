@@ -67,7 +67,7 @@ function M.golint()
     do_lint('golint', {'-set_exit_status'})
 end
 
-function M.goerrcheck()
+function M.errcheck()
     do_lint('errcheck', {})
 end
 
