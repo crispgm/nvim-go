@@ -68,4 +68,8 @@ function M.errcheck()
     do_lint('errcheck', {})
 end
 
+function M.staticcheck()
+    do_lint('staticcheck', {'-checks=all'})
+end
+
 return M

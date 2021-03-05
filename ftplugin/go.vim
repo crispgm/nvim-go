@@ -7,7 +7,7 @@ command! Goimports     lua require('go.format').goimports{}
 command! Gofumpt       lua require('go.format').gofumpt{}
 command! Golint        lua require('go.lint').golint{}
 command! Goerrcheck    lua require('go.lint').errcheck{}
-command! Gostatischeck lua require('go.lint').statischeck{}
+command! Gostaticcheck lua require('go.lint').staticcheck{}
 " testing
 command! GoTestFunc  lua require('go.test').test_func{}
 command! GoTestFile  lua require('go.test').test_file{}
