@@ -32,7 +32,7 @@ Defaults:
 ```lua
 require('go').setup{
     -- linters: golint, errcheck, golangci-lint
-    linters = {'golint', 'errcheck'},
+    linter = 'golint',
     -- lint_prompt_style: qf (quickfix), vt (virtual text)
     lint_prompt_style = 'qf',
     -- formatter: goimports, gofmt, gofumpt
@@ -61,7 +61,7 @@ require('go').setup{
 - [ ] Lint
   - [x] show quickfix
   - [ ] show virtual text
-  - [x] GoLint: lint with linters
+  - [x] GoLint: lint with linter
   - [x] Golint
   - ~~Govet~~ supported by LSP
   - [x] Errcheck

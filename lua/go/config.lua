@@ -1,8 +1,8 @@
 local M = {}
 
 M.options =  {
-    -- linters: golint, errcheck, golangci-lint
-    linters = {'golint', 'errcheck'},
+    -- linter: golint, errcheck, golangci-lint
+    linter = {'golint'},
     -- lint_prompt_style: qf (quickfix), vt (virtual text)
     lint_prompt_style = 'qf',
     -- formatter: goimports, gofmt, gofumpt
@@ -16,10 +16,11 @@ M.options =  {
 
 M.tools = {
     { name = 'gopls',         repo = 'golang.org/x/tools/gopls@latest'},
-    { name = 'golint' ,       repo = 'golang.org/x/lint/golint'},
-    { name = 'goimports' ,    repo = 'golang.org/x/tools/cmd/goimports'},
-    { name = 'gofumpt' ,      repo = 'mvdan.cc/gofumpt'},
-    { name = 'errcheck' ,     repo = 'github.com/kisielk/errcheck'},
+    { name = 'golint',        repo = 'golang.org/x/lint/golint'},
+    { name = 'goimports',     repo = 'golang.org/x/tools/cmd/goimports'},
+    { name = 'gofumpt',       repo = 'mvdan.cc/gofumpt'},
+    { name = 'errcheck',      repo = 'github.com/kisielk/errcheck'},
+    { name = 'staticheck',    repo = 'honnef.co/go/tools/cmd/staticcheck'},
     { name = 'golangci-lint', repo = 'github.com/golangci/golangci-lint/cmd/golangci-lint'},
     { name = 'gomodifytags',  repo = 'github.com/fatih/gomodifytags'},
 }
