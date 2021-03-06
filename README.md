@@ -1,12 +1,27 @@
-# nvim-go (WIP)
+# nvim-go
 
 [![build](https://github.com/crispgm/nvim-go/actions/workflows/ci.yml/badge.svg)](https://github.com/crispgm/nvim-go/actions/workflows/ci.yml)
 
-A minimal implementation of Golang development plugin, which handles features LSP not provide.
+A minimal implementation of Golang development plugin,
+which handles features that LSP (Language Server Protocol) client not provide.
 
-Neovim 0.5 embeds a built-in LSP and we are able to do most of vim-go's features by LSP client like `gopls`.
+Neovim 0.5 embeds a built-in LSP client and we are able to do most of vim-go's features by LSP client like `gopls`,
+`nvim-go` collaborates with these features to get Golang development done.
+
+This project is still under early development and you may use at your own risk.
 
 ## Features
+
+- Auto format with `:GoFormat` when saving
+- Run linters with `:GoLint` (via `golangci-lint`) automatically
+- Quickly test with `:GoTestFunc` and `:GoTestFile`
+
+### LSP Client
+
+We recommend `gopls` LSP client to handle the following:
+- Code Completion
+- Definitions, references, and other language parts
+- Diagnosis
 
 ## Installation
 
@@ -14,18 +29,31 @@ Neovim nightly (0.5) is required for `nvim-go` to work.
 
 With vim-plug:
 ```viml
+-- dependencies
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lua/popup.nvim'
+-- nvim-go
 Plug 'crispgm/nvim-go'
+-- LSP client config
+Plug 'neovim/nvim-lspconfig'
 ```
 
-Run `:GoInstallBinaries` after plugin installed.
+Run:
+```shell
+nvim +PlugInstall
+```
+
+Finally, run `:GoInstallBinaries` after plugin installed.
 
 ## Usage
 
 Setup:
 ```lua
+-- setup nvim-go
 require('go').setup{}
+
+-- setup lsp client
+require'lspconfig'.gopls.setup{}
 ```
 
 Defaults:
@@ -44,8 +72,6 @@ require('go').setup{
     test_popup = true,
 }
 ```
-
-### Work with LSP
 
 ## Plan
 
@@ -73,16 +99,17 @@ require('go').setup{
   - [x] GoTestFunc
   - [x] GoTestFile
   - [x] GoTestOpen
+
+### v0.2
+
 - [ ] Import
   - [x] GoGet
   - [ ] GoImport
   - [ ] GoImportDoc
   - [ ] GoImportOpen
 - [ ] Struct Tag
-
-### v0.2
-
 - [ ] GoTest: GoTestPkg
-- [ ] GoLint: show virtual text
+- [ ] GoRename
 - [ ] GoImpl
 - [ ] Paste as JSON
+- [ ] GoLint: show virtual text
