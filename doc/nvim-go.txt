@@ -3,79 +3,79 @@
 ==============================================================================
   nvim-go
 ==============================================================================
-CONTENTS                                                      *nvim-go-contents*
+CONTENTS                                                    *nvim-go-contents*
 
-  Introduction ·········································· |nvim-go-introduction|
-  Requirements ·········································· |nvim-go-requirements|
-  Limitations and known issues ···················· |nvim-go-limitations-issues|
-  Usage ························································ |nvim-go-usage|
-    Commands ················································ |nvim-go-commands|
-    Lua API ·················································· |nvim-go-lua-api|
-  Configuration ··············································· |nvim-go-config|
-  License ···················································· |nvim-go-license|
-
-==============================================================================
-INTRODUCTION                                    *nvim-go* *nvim-go-introduction*
+  Introduction ········································ |nvim-go-introduction|
+  Requirements ········································ |nvim-go-requirements|
+  Limitations and known issues ······························ |nvim-go-issues|
+  Usage ······················································ |nvim-go-usage|
+    Commands ·············································· |nvim-go-commands|
+    Lua API ················································ |nvim-go-lua-api|
+  Configuration ············································· |nvim-go-config|
+  License ·················································· |nvim-go-license|
 
 ==============================================================================
-REQUIREMENTS                                              *nvim-go-requirements*
+INTRODUCTION                                  *nvim-go* *nvim-go-introduction*
+
+==============================================================================
+REQUIREMENTS                                            *nvim-go-requirements*
 
 nvim-go works only with Neovim and was written Neovim-0.5, so it is highly
 recommended to use Neovim version 0.5+.
 
 ==============================================================================
-LIMITATIONS AND KNOWN ISSUES                        *nvim-go-limitations-issues*
+LIMITATIONS AND KNOWN ISSUES                                  *nvim-go-issues*
 
 ==============================================================================
-USAGE                                                            *nvim-go-usage*
+USAGE                                                          *nvim-go-usage*
 
-                                                              *nvim-go-commands*
+                                                            *nvim-go-commands*
 Commands~
 
-`:GoLint`                                                                *:GoLint*
+`:GoLint`                                                            *:GoLint*
     Lint with linter. Default linter is `golangci-lint`. If there are issues,
     it will be prompt with quickfixes.
 
-`:Golangcilint`                                                    *:Golangcilint*
+`:Golangcilint`                                                *:Golangcilint*
     Lint with `golangci-lint`. Notice that we recommend `golangci-lint`, because
     it is able to run multiple linters including all the following linters and
     easier to apply custom configurations.
 
-`:Golint`                                                                *:Golint*
+`:Golint`                                                            *:Golint*
     Lint with `golint`.
 
-`:Goerrcheck`                                                        *:Goerrcheck*
+`:Goerrcheck`                                                    *:Goerrcheck*
     Lint with `golint`.
 
-`:Gostaticcheck`                                                  *:Gostaticcheck*
+`:Gostaticcheck`                                              *:Gostaticcheck*
     Lint with `golint`.
 
-`:GoFormat`                                                            *:GoFormat*
+`:GoFormat`                                                        *:GoFormat*
     Format with formatter. Default formatter is `goimports`.
 
-`:Goimports`                                                          *:Goimports*
+`:Goimports`                                                      *:Goimports*
     Format with `goimports`.
 
-`:Gofmt`                                                                  *:GoFmt*
+`:Gofmt`                                                              *:GoFmt*
     Format with `gofmt`.
 
-`:Gofumpt`                                                              *:GoFumpt*
+`:Gofumpt`                                                          *:GoFumpt*
     Format with `gofumpt`.
 
-`:GoTestFunc`                                                        *:GoTestFunc*
+`:GoTestFunc`                                                    *:GoTestFunc*
     Run the test function where the cursor is on.
 
-`:GoTestFile`                                                        *:GoTestFile*
+`:GoTestFile`                                                    *:GoTestFile*
     Run current `*_test.go` file.
 
-`:GoToTest`                                                          *:GoTestFile*
+`:GoToTest`                                                      *:GoTestFile*
     Go from `*.go` to `*_test.go` or go back. It will create new file if
     `*_test.go` does not exist.
 
-                                                               *nvim-go-lua-api*
+                                                             *nvim-go-lua-api*
 Lua API~
 
-`go.setup(`{opts}`)`                                                 *nvim-go.setup*
+`go.setup(`{opts}`)`                                           *nvim-go.setup*
     Setup the library with options.
 
     This functional will setup the Lua API and commands in a way that respects
@@ -84,7 +84,7 @@ Lua API~
     The list of available options is available in the |nvim-go-config| section.
 
 ==============================================================================
-LICENSE                                                        *nvim-go-license*
+LICENSE                                                      *nvim-go-license*
 
 Copyright (c) 2021 David Zhang
 
