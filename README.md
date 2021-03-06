@@ -32,7 +32,7 @@ Defaults:
 ```lua
 require('go').setup{
     -- linters: golint, errcheck, golangci-lint
-    linter = 'golint',
+    linter = 'golangci-lint',
     -- lint_prompt_style: qf (quickfix), vt (virtual text)
     lint_prompt_style = 'qf',
     -- formatter: goimports, gofmt, gofumpt
@@ -49,6 +49,8 @@ require('go').setup{
 
 ## Plan
 
+### v0.1
+
 - [x] Setup
   - [x] Options
   - [x] GoInstallBinaries
@@ -58,21 +60,18 @@ require('go').setup{
   - [x] Goimports
   - [x] Gofumpt
   - [x] auto command
-- [ ] Lint
+- [x] Lint
   - [x] show quickfix
-  - [ ] show virtual text
   - [x] GoLint: lint with linter
   - [x] Golint
-  - ~~Govet~~ supported by LSP
   - [x] Errcheck
   - [x] staticcheck
-  - [ ] Golangci-lint
+  - [x] Golangci-lint
   - [x] auto command
-- [ ] Test
+- [x] Test
   - [x] show test result with popup window
   - [x] GoTestFunc
   - [x] GoTestFile
-  - [ ] GoTestPkg
   - [x] GoTestOpen
 - [ ] Import
   - [x] GoGet
@@ -80,5 +79,10 @@ require('go').setup{
   - [ ] GoImportDoc
   - [ ] GoImportOpen
 - [ ] Struct Tag
+
+### v0.2
+
+- [ ] GoTest: GoTestPkg
+- [ ] GoLint: show virtual text
+- [ ] GoImpl
 - [ ] Paste as JSON
-- [ ] Impl

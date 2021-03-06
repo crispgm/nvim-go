@@ -7,7 +7,7 @@ local output = require('go.output')
 local util = require('go.util')
 
 function M.lint()
-    local linter = config.options.linter
+    local linter = config.options.linter:gsub('-', '_')
     pcall(M[linter], {})
 end
 
@@ -19,7 +19,7 @@ local function do_lint(linter, args)
     vim.fn.jobstart(cmd, {
         on_exit = function(_, code)
             if code ~= 0 then
-                output.show_warning('golint', string.format('error code: %d', code))
+                output.show_warning(linter, string.format('error code: %d', code))
             end
         end,
         on_stdout = function(_, data)
@@ -47,17 +47,21 @@ local function do_lint(linter, args)
                 end
             end
             if #err_list > 0 then
-                output.show_error('golint', table.concat(err_list, '\n'))
+                output.show_error(linter, table.concat(err_list, '\n'))
             end
             if config.options.lint_prompt_style == 'qf' and #qf_list > 0 then
                 local height = 4
                 if #data < height then height = #data end
                 vim.api.nvim_command(string.format('copen %d', height))
-                local qf = {title = 'golint', items = qf_list}
+                local qf = {title = linter, items = qf_list}
                 vim.fn.setqflist({}, ' ', qf)
             end
         end,
     })
+end
+
+function M.golangci_lint()
+    do_lint('golangci-lint', {'--out-format=line-number', '--print-issued-lines=false', 'run'})
 end
 
 function M.golint()

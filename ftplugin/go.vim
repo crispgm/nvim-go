@@ -5,6 +5,7 @@ command! GoLint   lua require('go.lint').lint{}
 command! Gofmt         lua require('go.format').gofmt{}
 command! Goimports     lua require('go.format').goimports{}
 command! Gofumpt       lua require('go.format').gofumpt{}
+command! Golangcilint  lua require('go.lint').golangci_lint{}
 command! Golint        lua require('go.lint').golint{}
 command! Goerrcheck    lua require('go.lint').errcheck{}
 command! Gostaticcheck lua require('go.lint').staticcheck{}
