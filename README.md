@@ -29,12 +29,12 @@ Neovim nightly (0.5) is required for `nvim-go` to work.
 
 With vim-plug:
 ```viml
--- dependencies
+" dependencies
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lua/popup.nvim'
--- nvim-go
+" nvim-go
 Plug 'crispgm/nvim-go'
--- LSP client config
+" LSP client config
 Plug 'neovim/nvim-lspconfig'
 ```
 
