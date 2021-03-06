@@ -35,21 +35,20 @@ function M.show_job_error(prefix, code, results)
 end
 
 local function calc_popup_size()
-    local winnr = vim.fn.winbufnr('')
-    local win_width = vim.fn.winwidth(winnr)
-    local win_height = vim.fn.winheight(winnr)
+    local win_width = vim.fn.winwidth(0)
+    local win_height = vim.fn.winheight(0)
     local width = 80
     if win_width < width then width = win_width end
-    local top_offset = win_height - 11
-    return top_offset, width
+    local top = win_height - 11
+    return top, width
 end
 
 function M.popup_job_result(results)
     local bufnr = vim.api.nvim_create_buf(false, false)
     vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, results)
-    local top_offset, width = calc_popup_size()
+    local top, width = calc_popup_size()
     Popup.create(bufnr, {
-        line = top_offset,
+        line = top,
         col = 2,
         border = { 1, 1, 1, 1 },
         cursorline = true,
