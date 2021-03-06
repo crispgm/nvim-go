@@ -12,16 +12,16 @@ This project is still under early development and you may use at your own risk.
 
 ## Features
 
-- Auto format with `:GoFormat` when saving
-- Run linters with `:GoLint` (via `golangci-lint`) automatically
-- Quickly test with `:GoTestFunc` and `:GoTestFile`
+- Auto format with `:GoFormat` when saving. (LSP supports this but it lacks `goimports`)
+- Run linters with `:GoLint` (via `golangci-lint`) automatically.
+- Quickly test with `:GoTestFunc` and `:GoTestFile`.
+- And more features are under development.
 
 ### LSP Client
 
-We recommend `gopls` LSP client to handle the following:
-- Code Completion
-- Definitions, references, and other language parts
-- Diagnosis
+We recommend `gopls` LSP client to handle language features:
+- Code Completion (with `nvim-compe` or `completion.nvim`).
+- Declaration, definition, implementation, references, and etc.
 
 ## Installation
 
