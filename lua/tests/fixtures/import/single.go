@@ -1,0 +1,3 @@
+package single
+
+import "fmt"

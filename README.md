@@ -15,6 +15,7 @@ This project is still under early development and you may use at your own risk.
 - Auto format with `:GoFormat` when saving. (LSP supports this but it lacks `goimports`)
 - Run linters with `:GoLint` (via `golangci-lint`) automatically.
 - Quickly test with `:GoTestFunc` and `:GoTestFile`.
+- Import packages with `:GoGet` and `:GoImport`.
 - And more features are under development.
 
 ### LSP Client
@@ -100,16 +101,15 @@ require('go').setup{
   - [x] GoTestFile
   - [x] GoTestOpen
 
-### v0.2
 
+### v0.2
 - [ ] Import
   - [x] GoGet
-  - [ ] GoImport
-  - [ ] GoImportDoc
-  - [ ] GoImportOpen
+  - [x] GoImport
 - [ ] Struct Tag
 - [ ] GoTest: GoTestPkg
 - [ ] GoRename
 - [ ] GoImpl
 - [ ] Paste as JSON
 - [ ] GoLint: show virtual text
+- [ ] Doc
