@@ -35,7 +35,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lua/popup.nvim'
 " nvim-go
 Plug 'crispgm/nvim-go'
-" LSP client config
+" (recommend) LSP config
 Plug 'neovim/nvim-lspconfig'
 ```
 
@@ -62,7 +62,7 @@ Defaults:
 require('go').setup{
     -- linters: golint, errcheck, golangci-lint
     linter = 'golangci-lint',
-    -- lint_prompt_style: qf (quickfix), vt (virtual text)
+    -- lint_prompt_style: qf (quickfix), vt (virtual text, not implemented yet)
     lint_prompt_style = 'qf',
     -- formatter: goimports, gofmt, gofumpt
     formatter = 'goimports',
@@ -76,40 +76,16 @@ require('go').setup{
 
 ## Plan
 
-### v0.1
-
-- [x] Setup
-  - [x] Options
-  - [x] GoInstallBinaries
-- [x] Format
-  - [x] GoFormat: format with formatter
-  - [x] Gofmt
-  - [x] Goimports
-  - [x] Gofumpt
-  - [x] auto command
-- [x] Lint
-  - [x] show quickfix
-  - [x] GoLint: lint with linter
-  - [x] Golint
-  - [x] Errcheck
-  - [x] staticcheck
-  - [x] Golangci-lint
-  - [x] auto command
-- [x] Test
-  - [x] show test result with popup window
-  - [x] GoTestFunc
-  - [x] GoTestFile
-  - [x] GoTestOpen
-
-
 ### v0.2
-- [ ] Import
-  - [x] GoGet
-  - [x] GoImport
+
+- [x] Import
 - [ ] Struct Tag
 - [ ] GoTest: GoTestPkg
 - [ ] GoRename
 - [ ] GoImpl
 - [ ] Paste as JSON
+
+### v0.3
+
 - [ ] GoLint: show virtual text
 - [ ] Doc
