@@ -11,6 +11,14 @@ function M.lint()
     pcall(M[linter], {})
 end
 
+local function show_quickfix(title, qf_list)
+    local height = 4
+    if #qf_list < height then height = #qf_list end
+    vim.api.nvim_command(string.format('copen %d', height))
+    local qf = {title = title, items = qf_list}
+    vim.fn.setqflist({}, ' ', qf)
+end
+
 local function do_lint(linter, args)
     if not util.binary_exists(linter) then return end
     local file_path = vim.api.nvim_buf_get_name(0)
@@ -21,6 +29,13 @@ local function do_lint(linter, args)
             if code ~= 0 then
                 output.show_warning(linter, string.format('error code: %d', code))
             end
+        end,
+        on_stderr = function(_, data)
+            local qf_list = {}
+            for _, v in ipairs(data) do
+                table.insert(qf_list, {type = 'W', text = v})
+            end
+            show_quickfix(linter, qf_list)
         end,
         on_stdout = function(_, data)
             local qf_list = {}
@@ -42,7 +57,9 @@ local function do_lint(linter, args)
                     end
                 else
                     if string.len(v) > 0 then
-                        table.insert(err_list, v)
+                        table.insert(qf_list, {
+                            type = 'W',
+                            text = v})
                     end
                 end
             end
@@ -50,13 +67,11 @@ local function do_lint(linter, args)
                 output.show_error(linter, table.concat(err_list, '\n'))
             end
             if config.options.lint_prompt_style == 'qf' and #qf_list > 0 then
-                local height = 4
-                if #data < height then height = #data end
-                vim.api.nvim_command(string.format('copen %d', height))
-                local qf = {title = linter, items = qf_list}
-                vim.fn.setqflist({}, ' ', qf)
+                show_quickfix(linter, qf_list)
             end
         end,
+        stdout_buffered = true,
+        stderr_buffered = true,
     })
 end
 
