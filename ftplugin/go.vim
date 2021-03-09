@@ -1,17 +1,17 @@
 " actions with default
 command! GoFormat lua require('go.format').format{}
-command! GoLint   lua require('go.lint').lint{}
+command! GoLint   lua require('go.lint').lint()
 " specific linter/formatter
 command! Gofmt         lua require('go.format').gofmt{}
-command! Goimports     lua require('go.format').goimports{}
-command! Gofumpt       lua require('go.format').gofumpt{}
-command! Golangcilint  lua require('go.lint').golangci_lint{}
-command! Golint        lua require('go.lint').golint{}
-command! Goerrcheck    lua require('go.lint').errcheck{}
-command! Gostaticcheck lua require('go.lint').staticcheck{}
+command! Goimports     lua require('go.format').goimports()
+command! Gofumpt       lua require('go.format').gofumpt()
+command! Golangcilint  lua require('go.lint').golangci_lint()
+command! Golint        lua require('go.lint').golint()
+command! Goerrcheck    lua require('go.lint').errcheck()
+command! Gostaticcheck lua require('go.lint').staticcheck()
 " testing
 command! GoTestFunc  lua require('go.test').test_func{}
-command! GoTestFile  lua require('go.test').test_file{}
+command! GoTestFile  lua require('go.test').test_file()
 command! GoToTest    lua require('go.test').test_open()
 " import
 command! -nargs=1 GoGet    lua require('go.import').get(<f-args>)
