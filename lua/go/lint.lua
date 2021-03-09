@@ -9,12 +9,15 @@ local util = require('go.util')
 -- virtual text ns_id
 local ns_id = 0
 
+local qf_list = {}
+
 function M.lint()
     local linter = config.options.linter:gsub('-', '_')
     pcall(M[linter], {})
 end
 
-local function show_quickfix(title, qf_list)
+local function show_quickfix(title)
+    if not qf_list then return end
     local height = 4
     if #qf_list < height then height = #qf_list end
     vim.api.nvim_command(string.format('copen %d', height))
@@ -35,9 +38,8 @@ local function do_lint(linter, args)
     local bufnr = vim.api.nvim_get_current_buf()
     local cmd = system.wrap_file_command(linter, args, file_path)
     -- clear former prompt
-    if config.options.lint_prompt_style == 'vt' then
-        clear_virtual_text()
-    end
+    clear_virtual_text()
+    qf_list = {}
     -- job
     vim.fn.jobstart(cmd, {
         on_exit = function(_, code)
@@ -46,14 +48,19 @@ local function do_lint(linter, args)
             end
         end,
         on_stderr = function(_, data)
-            local qf_list = {}
+            if #data == 1 and data[1] == '' then return end
             for _, v in ipairs(data) do
-                table.insert(qf_list, {type = 'W', text = v})
+                if string.len(v) > 0 then
+                    table.insert(qf_list, {
+                        bufnr = bufnr,
+                        lnum = 1,
+                        type = 'E',
+                        text = v})
+                end
             end
-            show_quickfix(linter, qf_list)
+            show_quickfix(linter)
         end,
         on_stdout = function(_, data)
-            local qf_list = {}
             local err_list = {}
             for _, v in ipairs(data) do
                 local o = vim.fn.split(v, ':')
@@ -83,7 +90,7 @@ local function do_lint(linter, args)
                 output.show_error(linter, table.concat(err_list, '\n'))
             end
             if config.options.lint_prompt_style == 'qf' and #qf_list > 0 then
-                show_quickfix(linter, qf_list)
+                show_quickfix(linter)
             end
         end,
         stdout_buffered = true,
