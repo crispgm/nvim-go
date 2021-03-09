@@ -68,7 +68,7 @@ Commands~
 `:GoTestFile`                                                    *:GoTestFile*
     Run current `*_test.go` file.
 
-`:GoToTest`                                                      *:GoTestFile*
+`:GoToTest`                                                      *:GoToTest*
     Go from `*.go` to `*_test.go` or go back. It will create new file if
     `*_test.go` does not exist.
 
