@@ -74,6 +74,10 @@ require('go').setup{
 }
 ```
 
+## Known Issues
+
+- Upstream Issue: `golangci-lint` may mess up quickfix dute to stderr output [#3](https://github.com/crispgm/nvim-go/issues/3)
+
 ## Plan
 
 ### v0.1
@@ -93,3 +97,7 @@ require('go').setup{
 
 - [ ] Paste as JSON
 - [ ] Doc
+
+## License
+
+[MIT](/LICENSE)
