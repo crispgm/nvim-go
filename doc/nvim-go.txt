@@ -17,6 +17,9 @@ CONTENTS                                                    *nvim-go-contents*
 ==============================================================================
 INTRODUCTION                                  *nvim-go* *nvim-go-introduction*
 
+nvim-go is a minimal implementation of Golang development plugin, which
+handles features that LSP (Language Server Protocol) client not provides.
+
 ==============================================================================
 REQUIREMENTS                                            *nvim-go-requirements*
 
@@ -26,9 +29,28 @@ recommended to use Neovim version 0.5+.
 ==============================================================================
 LIMITATIONS AND KNOWN ISSUES                                  *nvim-go-issues*
 
+* Upstream Issue: `golangci-lint` may mess up quickfix dute to stderr output.
+
 ==============================================================================
 USAGE                                                          *nvim-go-usage*
 
+                                                              *nvim-go-config*
+For basic setup:
+>
+    require('go').setup{}
+<
+Configuration can be passed to the setup function. Here is the default
+settings:
+>
+    require('go').setup{
+        linter = 'golangci-lint',
+        lint_prompt_style = 'qf',
+        formatter = 'goimports',
+        test_flags = {'-v'},
+        test_timeout = '30s',
+        test_popup = true,
+    }
+<
                                                             *nvim-go-commands*
 Commands~
 
@@ -45,10 +67,10 @@ Commands~
     Lint with `golint`.
 
 `:Goerrcheck`                                                    *:Goerrcheck*
-    Lint with `golint`.
+    Lint with `errcheck`.
 
 `:Gostaticcheck`                                              *:Gostaticcheck*
-    Lint with `golint`.
+    Lint with `staticcheck`.
 
 `:GoFormat`                                                        *:GoFormat*
     Format with formatter. Default formatter is `goimports`.
@@ -61,6 +83,13 @@ Commands~
 
 `:Gofumpt`                                                          *:GoFumpt*
     Format with `gofumpt`.
+
+`:GoGet`                                                              *:GoGet*
+    Get a Go package in a project.
+
+`:GoImport`                                                        *:GoImport*
+    Import a Go package and add it to import statement. `:GoGet` will be
+    performed before import.
 
 `:GoTestFunc`                                                    *:GoTestFunc*
     Run the test function where the cursor is on.

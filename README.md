@@ -3,7 +3,7 @@
 [![build](https://github.com/crispgm/nvim-go/actions/workflows/ci.yml/badge.svg)](https://github.com/crispgm/nvim-go/actions/workflows/ci.yml)
 
 A minimal implementation of Golang development plugin,
-which handles features that LSP (Language Server Protocol) client not provide.
+which handles features that LSP (Language Server Protocol) client not provides.
 
 Neovim 0.5 embeds a built-in LSP client and we are able to do most of vim-go's features by LSP client like `gopls`,
 `nvim-go` collaborates with these features to get Golang development done.
