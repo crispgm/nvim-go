@@ -62,7 +62,7 @@ Defaults:
 require('go').setup{
     -- linters: golint, errcheck, golangci-lint
     linter = 'golangci-lint',
-    -- lint_prompt_style: qf (quickfix), vt (virtual text, not implemented yet)
+    -- lint_prompt_style: qf (quickfix), vt (virtual text)
     lint_prompt_style = 'qf',
     -- formatter: goimports, gofmt, gofumpt
     formatter = 'goimports',
@@ -76,16 +76,20 @@ require('go').setup{
 
 ## Plan
 
-### v0.2
+### v0.1
 
 - [x] Import
+- [x] GoLint: show virtual text
+- [ ] Bug fixes and polishing
+
+### v0.2
+
 - [ ] Struct Tag
 - [ ] GoTest: GoTestPkg
 - [ ] GoRename
 - [ ] GoImpl
-- [ ] Paste as JSON
 
 ### v0.3
 
-- [ ] GoLint: show virtual text
+- [ ] Paste as JSON
 - [ ] Doc
