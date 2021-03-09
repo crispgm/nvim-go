@@ -90,8 +90,7 @@ local function switch_import(pkg)
     if append_line >= 0 then
         if insert_mode == 'add' then
             vim.fn.append(append_line, string.format('\t"%s"', pkg))
-        end
-        if insert_mode == 'edit' then
+        elseif insert_mode == 'edit' then
             vim.fn.setline(append_line, 'import (')
             vim.fn.append(append_line, ')')
             vim.fn.append(append_line, string.format('\t%s', former_pkg))
