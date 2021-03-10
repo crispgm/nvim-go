@@ -1,7 +1,6 @@
 local M = {}
 
 local vim = vim
-local Job = require('plenary.job')
 local config = require('go.config')
 local util = require('go.util')
 local output = require('go.output')
@@ -34,47 +33,74 @@ local function split_file_name(str)
     return vim.fn.split(vim.fn.split(str, ' ')[2], '(')[1]
 end
 
+local function do_test(prefix, cmd)
+    -- calc popup window size here
+    local top, width = output.calc_popup_size()
+    local function on_event(_, data, event)
+        if config.options.test_popup then
+            return output.popup_job_result(data, {top = top, width = width})
+        else
+            local outputs = {}
+            for _, v in ipairs(data) do
+                if string.len(v) > 0 then
+                    table.insert(outputs, v)
+                end
+            end
+            if #outputs > 0 then
+                local msg = table.concat(output, '\n')
+                if event == 'stdout' then
+                    output.show_info(prefix, msg)
+                elseif event == 'stderr' then
+                    output.show_error(prefix, msg)
+                end
+            end
+        end
+    end
+
+    local cwd = vim.fn.expand('%:p:h')
+    vim.fn.jobstart(cmd, {
+        on_exit = function(_, code, _)
+            if code ~= 0 then
+                output.show_warning(prefix, string.format('error code: %d', code))
+            end
+        end,
+        cwd = cwd,
+        on_stdout = on_event,
+        on_stderr = on_event,
+        stdout_buffered = true,
+        stderr_buffered = true,
+    })
+end
+
 function M.test_func(opt)
     if not util.binary_exists('go') then return end
 
+    local prefix = 'GoTestFunc'
     local func_name = ''
     if opt and opt.func then
         func_name = opt.func
     else
         local line = vim.fn.search([[func \(Test\|Example\)]], 'bcnW')
         if line == 0 then
-            output.show_error('GoTestFunc', string.format('Test func not found: %s', func_name))
+            output.show_error(prefix, string.format('Test func not found: %s', func_name))
             return
         end
         local cur_line = util.current_line()
         func_name = split_file_name(cur_line)
     end
-    local cwd = vim.fn.expand('%:p:h')
     if not valid_func_name(func_name) then
         output.show_error('GoTestFunc', string.format('Invalid test func: %s', func_name))
         return
     end
-    local args = {'test', '-run', string.format('^%s$', func_name)}
-    build_args(args)
-    local results, code = Job:new({
-        command = 'go',
-        args = args,
-        cwd = cwd,
-    }):sync()
-    if config.options.test_popup then
-        return output.popup_job_result(results)
-    end
-    if code == 0 then
-        output.show_job_success('GoTestFunc', results)
-    else
-        output.show_job_error('GoTestFunc', code, results)
-    end
+    local cmd = {'go', 'test', '-run', string.format('^%s$', func_name)}
+    build_args(cmd)
+    do_test(prefix, cmd)
 end
 
 function M.test_file()
     if not util.binary_exists('go') then return end
 
-    local cwd = vim.fn.expand('%:p:h')
+    local prefix = 'GoTestFunc'
     local pattern = vim.regex('^func [Test|Example]')
     local lines = vim.api.nvim_buf_get_lines(vim.api.nvim_get_current_buf(), 1, -1, false)
     local func_names = {}
@@ -88,21 +114,9 @@ function M.test_file()
             end
         end
     end
-    local args = {'test', '-run', string.format('^%s$', table.concat(func_names, '|'))}
-    build_args(args)
-    local results, code = Job:new({
-        command = 'go',
-        args = args,
-        cwd = cwd,
-    }):sync()
-    if config.options.test_popup then
-        return output.popup_job_result(results)
-    end
-    if code == 0 then
-        output.show_job_success('GoTestFile', results)
-    else
-        output.show_error('GoTestFile', code, results)
-    end
+    local cmd = {'go', 'test', '-run', string.format('^%s$', table.concat(func_names, '|'))}
+    build_args(cmd)
+    do_test(prefix, cmd)
 end
 
 local function valid_file(fn)

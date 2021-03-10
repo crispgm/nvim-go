@@ -4,6 +4,10 @@ local vim = vim
 local popup = require('popup')
 local config = require('go.config')
 
+function M.show_info(prefix, msg)
+    vim.api.nvim_echo({{prefix}, {' ' .. msg}}, true, {})
+end
+
 function M.show_success(prefix, msg)
     local succ = 'Success'
     if msg ~= nil then
@@ -45,7 +49,7 @@ function M.calc_popup_size()
     if config.options.popup_width then
         width = tonumber(config.options.popup_width)
     else
-        local cc = tonumber(vim.wo.colorcolumn)
+        local cc = tonumber(vim.wo.colorcolumn) or 0
         if cc >= width then
             width = cc
         end
