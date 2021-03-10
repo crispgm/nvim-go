@@ -43,6 +43,8 @@ Configuration can be passed to the setup function. Here is the default
 settings:
 >
     require('go').setup{
+        auto_format = true,
+        auto_lint = true,
         linter = 'golangci-lint',
         lint_prompt_style = 'qf',
         formatter = 'goimports',

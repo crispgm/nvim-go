@@ -1,6 +1,9 @@
 local M = {}
 
 M.options =  {
+    -- auto commands
+    auto_lint = true,
+    auto_format = true,
     -- linter: golint, errcheck, golangci-lint
     linter = 'golangci-lint',
     -- lint_prompt_style: qf (quickfix), vt (virtual text)

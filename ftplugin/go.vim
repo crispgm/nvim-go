@@ -17,8 +17,17 @@ command! GoToTest    lua require('go.test').test_open()
 command! -nargs=1 GoGet    lua require('go.import').get(<f-args>)
 command! -nargs=1 GoImport lua require('go.import').import(<f-args>)
 
-augroup nvim_go
-  autocmd!
-  autocmd BufWritePre  <buffer> GoFormat
-  autocmd BufWritePost <buffer> GoLint
-augroup END
+lua << EOB
+local config = require('go.config')
+local api = vim.api
+print(config.options.auto_lint)
+api.nvim_command([[augroup nvim_go]])
+api.nvim_command([[  autocmd!]])
+if config.options.auto_format then
+  api.nvim_command([[autocmd BufWritePre  <buffer> GoFormat]])
+end
+if config.options.auto_lint then
+  api.nvim_command([[autocmd BufWritePost <buffer> GoLint]])
+end
+api.nvim_command([[augroup END]])
+EOB

@@ -60,7 +60,10 @@ require'lspconfig'.gopls.setup{}
 Defaults:
 ```lua
 require('go').setup{
-    -- linters: golint, errcheck, golangci-lint
+    -- auto commands
+    auto_format = true,
+    auto_lint = true,
+    -- linters: golint, errcheck, staticcheck, golangci-lint
     linter = 'golangci-lint',
     -- lint_prompt_style: qf (quickfix), vt (virtual text)
     lint_prompt_style = 'qf',
