@@ -49,16 +49,15 @@ local function do_lint(linter, args)
         end,
         on_stderr = function(_, data)
             if #data == 1 and data[1] == '' then return end
+            local err_list = {}
             for _, v in ipairs(data) do
                 if string.len(v) > 0 then
-                    table.insert(qf_list, {
-                        bufnr = bufnr,
-                        lnum = 1,
-                        type = 'E',
-                        text = v})
+                    table.insert(err_list, v)
+                end
+                if #err_list > 0 then
+                    output.show_error(linter, table.concat(err_list, '\n'))
                 end
             end
-            show_quickfix(linter)
         end,
         on_stdout = function(_, data)
             local err_list = {}
