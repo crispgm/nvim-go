@@ -17,8 +17,12 @@ CONTENTS                                                    *nvim-go-contents*
 ==============================================================================
 INTRODUCTION                                  *nvim-go* *nvim-go-introduction*
 
-nvim-go is a minimal implementation of Golang development plugin, which
-handles features that LSP (Language Server Protocol) client not provides.
+A minimal implementation of Golang development plugin written in Lua for neovim
+nightly (0.5).
+
+Neovim 0.5 embeds a built-in LSP (Language Server Protocol) client so that
+we are able to do most of vim-go's features by LSP client,
+`nvim-go` collaborates with these features to get Golang development done.
 
 ==============================================================================
 REQUIREMENTS                                            *nvim-go-requirements*

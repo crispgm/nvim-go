@@ -2,15 +2,15 @@
 
 [![build](https://github.com/crispgm/nvim-go/actions/workflows/ci.yml/badge.svg)](https://github.com/crispgm/nvim-go/actions/workflows/ci.yml)
 
-A minimal implementation of Golang development plugin,
-which handles features that LSP (Language Server Protocol) client not provides.
+A minimal implementation of Golang development plugin written in Lua for neovim nightly (0.5).
 
-Neovim 0.5 embeds a built-in LSP client and we are able to do most of vim-go's features by LSP client like `gopls`,
+Neovim 0.5 embeds a built-in LSP (Language Server Protocol) client so that
+we are able to do most of vim-go's features by LSP client,
 `nvim-go` collaborates with these features to get Golang development done.
 
 This project is still under early development and you may use at your own risk.
 
-## Features
+## Plugin Features
 
 - Auto format with `:GoFormat` when saving. (LSP supports this but it lacks `goimports`)
 - Run linters with `:GoLint` (via `golangci-lint`) automatically.
@@ -18,17 +18,29 @@ This project is still under early development and you may use at your own risk.
 - Import packages with `:GoGet` and `:GoImport`.
 - And more features are under development.
 
-### LSP Client
+## Langauge Features
 
-We recommend `gopls` LSP client to handle language features:
-- Code Completion (with `nvim-compe` or `completion.nvim`).
-- Declaration, definition, implementation, references, and etc.
+Language server provides useful language features to make Golang development easy.
+`nvim-go` does not provide these features but collaborates with them.
+
+This section can be considered as a guide or common practice to develop with `nvim-go` and `gopls`:
+- Code Completion via `nvim-compe` or `completion.nvim`
+- Declaration: `vim.lsp.buf.declaration()`
+- Definition: `vim.lsp.buf.definition()` and `vim.lsp.buf.type_definition()`
+- Implementation: 'vim.lsp.buf.implementation()'
+- Hover: `vim.lsp.buf.hover()`
+- Signature: `vim.lsp.buf.signature_help()`
+- References: `vim.lsp.buf.reference()`
+- Symbols: `vim.lsp.buf.document_symbol()` and `vim.lsp.buf.workspace_symbol()`
+- Rename: `vim.lsp.buf.rename()`
 
 ## Installation
 
-Neovim nightly (0.5) is required for `nvim-go` to work.
+Prerequisites:
+- Neovim nightly (0.5)
+- [`gopls`](https://pkg.go.dev/golang.org/x/tools/gopls)
 
-With vim-plug:
+Install with vim-plug:
 ```viml
 " dependencies
 Plug 'nvim-lua/plenary.nvim'
@@ -93,7 +105,6 @@ require('go').setup{
 
 - [ ] Struct Tag
 - [ ] GoTest: GoTestPkg
-- [ ] GoRename
 - [ ] GoImpl
 
 ### v0.3
