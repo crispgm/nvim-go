@@ -8,7 +8,7 @@ local util = require('go.util')
 
 -- virtual text ns_id
 local ns_id = 0
-
+-- quickfix list
 local qf_list = {}
 
 function M.lint()
@@ -42,24 +42,24 @@ local function do_lint(linter, args)
     qf_list = {}
     -- job
     vim.fn.jobstart(cmd, {
-        on_exit = function(_, code)
+        on_exit = function(_, code, _)
             if code ~= 0 then
                 output.show_warning(linter, string.format('error code: %d', code))
             end
         end,
-        on_stderr = function(_, data)
+        on_stderr = function(_, data, _)
             if #data == 1 and data[1] == '' then return end
             local err_list = {}
             for _, v in ipairs(data) do
                 if string.len(v) > 0 then
                     table.insert(err_list, v)
                 end
-                if #err_list > 0 then
-                    output.show_error(linter, table.concat(err_list, '\n'))
-                end
+            end
+            if #err_list > 0 then
+                output.show_error(linter, table.concat(err_list, '\n'))
             end
         end,
-        on_stdout = function(_, data)
+        on_stdout = function(_, data, _)
             local err_list = {}
             for _, v in ipairs(data) do
                 local o = vim.fn.split(v, ':')
