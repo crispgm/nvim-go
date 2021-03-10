@@ -2,6 +2,7 @@ local M = {}
 
 local vim = vim
 local popup = require('popup')
+local config = require('go.config')
 
 function M.show_success(prefix, msg)
     local succ = 'Success'
@@ -34,12 +35,26 @@ function M.show_job_error(prefix, code, results)
     end
 end
 
-local function calc_popup_size()
-    local win_width = vim.fn.winwidth(0)
-    local win_height = vim.fn.winheight(0)
+function M.calc_popup_size()
+    local buf_nr = vim.api.nvim_get_current_buf()
+    local win_height = vim.fn.winheight(buf_nr)
+    local top = 0
     local width = 80
-    if win_width < width then width = win_width end
-    local top = win_height - 11
+    -- config first, but default none
+    -- then follows colorcolumn
+    if config.options.popup_width then
+        width = tonumber(config.options.popup_width)
+    else
+        local cc = tonumber(vim.wo.colorcolumn)
+        if cc >= width then
+            width = cc
+        end
+    end
+    -- min width= 80
+    if width < 80 then width = 80 end
+    if win_height > -1 then
+        top = win_height - 11
+    end
     return top, width
 end
 
@@ -56,10 +71,10 @@ function M.close_popup(win_id, bufnr)
     vim.api.nvim_win_close(win_id, true)
 end
 
-function M.popup_job_result(results)
+function M.popup_job_result(results, opts)
     local bufnr = vim.api.nvim_create_buf(false, false)
     vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, results)
-    local top, width = calc_popup_size()
+    local top, width = opts.top or 1, opts.width or 80
     local popup_win, _ = popup.create(bufnr, {
         line = top,
         col = 2,
