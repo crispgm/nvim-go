@@ -124,10 +124,9 @@ function M.test_open()
     elseif vf == 0 then
         new_fn = file_path:gsub(".go$", "_test.go")
     else
-        -- not even a `.go file
+        output.show_error('GoTestOpen', 'not a `.go` file')
         return
     end
-    print(new_fn)
 
     vim.api.nvim_command('edit' .. new_fn)
 end
