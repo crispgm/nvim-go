@@ -27,7 +27,7 @@ This section can be considered as a guide or common practice to develop with `nv
 - Code Completion via `nvim-compe` or `completion.nvim`
 - Declaration: `vim.lsp.buf.declaration()`
 - Definition: `vim.lsp.buf.definition()` and `vim.lsp.buf.type_definition()`
-- Implementation: 'vim.lsp.buf.implementation()'
+- Implementation: `vim.lsp.buf.implementation()`
 - Hover: `vim.lsp.buf.hover()`
 - Signature: `vim.lsp.buf.signature_help()`
 - References: `vim.lsp.buf.reference()`
