@@ -84,7 +84,7 @@ function M.popup_job_result(results, opts)
         col = 2,
         border = { 1, 1, 1, 1 },
         cursorline = true,
-        minheight = 10,
+        maxheight = 10,
         minwidth = width,
         highlight = 'Normal',
     })
