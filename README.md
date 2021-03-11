@@ -18,7 +18,7 @@ This project is still under early development and you may use at your own risk.
 - Import packages with `:GoGet` and `:GoImport`.
 - And more features are under development.
 
-## Langauge Features
+## Language Features
 
 Language server provides useful language features to make Golang development easy.
 `nvim-go` does not provide these features but collaborates with them.
