@@ -8,21 +8,19 @@ local util = require('go.util')
 
 -- virtual text ns_id
 local ns_id = 0
--- quickfix list
-local qf_list = {}
 
 function M.lint()
     local linter = config.options.linter:gsub('-', '_')
     pcall(M[linter], {})
 end
 
-local function show_quickfix(title)
+local function show_quickfix(qf_list)
     if not qf_list then return end
+
     local height = 4
-    if #qf_list < height then height = #qf_list end
+    if #qf_list > 0 and #qf_list < height then height = #qf_list end
     vim.api.nvim_command(string.format('copen %d', height))
-    local qf = {title = title, items = qf_list}
-    vim.fn.setqflist({}, ' ', qf)
+    vim.fn.setqflist(qf_list, 'r')
 end
 
 local function clear_virtual_text()
@@ -34,12 +32,12 @@ end
 
 local function do_lint(linter, args)
     if not util.binary_exists(linter) then return end
-    local file_path = vim.api.nvim_buf_get_name(0)
-    local bufnr = vim.api.nvim_get_current_buf()
+    local buf_nr = vim.api.nvim_get_current_buf()
+    local file_path = vim.api.nvim_buf_get_name(buf_nr)
     local cmd = system.wrap_file_command(linter, args, file_path)
     -- clear former prompt
     clear_virtual_text()
-    qf_list = {}
+    local qf_list = {}
     -- job
     vim.fn.jobstart(cmd, {
         on_exit = function(_, code, _)
@@ -67,10 +65,10 @@ local function do_lint(linter, args)
                     local ln, col, msg = o[2], o[3], vim.trim(o[4])
                     if config.options.lint_prompt_style == 'vt' then
                         ns_id = vim.api.nvim_create_namespace('NvimGoLint')
-                        vim.api.nvim_buf_set_virtual_text(bufnr, ns_id, ln-1, {{msg, 'WarningMsg'}}, {})
+                        vim.api.nvim_buf_set_virtual_text(buf_nr, ns_id, ln-1, {{msg, 'WarningMsg'}}, {})
                     else
                         table.insert(qf_list, {
-                            bufnr = bufnr,
+                            buf_nr = buf_nr,
                             filename = file_path,
                             type = 'W',
                             lnum = ln,
@@ -80,6 +78,8 @@ local function do_lint(linter, args)
                 else
                     if string.len(v) > 0 then
                         table.insert(qf_list, {
+                            buf_nr = buf_nr,
+                            filename = file_path,
                             type = 'W',
                             text = v})
                     end
@@ -89,7 +89,7 @@ local function do_lint(linter, args)
                 output.show_error(linter, table.concat(err_list, '\n'))
             end
             if config.options.lint_prompt_style == 'qf' and #qf_list > 0 then
-                show_quickfix(linter)
+                show_quickfix(qf_list)
             end
         end,
         stdout_buffered = true,
