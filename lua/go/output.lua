@@ -62,10 +62,10 @@ function M.calc_popup_size()
     return top, width
 end
 
-function M.close_popup(win_id, bufnr)
-    if vim.api.nvim_buf_is_valid(bufnr)
-        and not vim.api.nvim_buf_get_option(bufnr, 'buflisted') then
-        vim.cmd(string.format("silent! bdelete! %s", bufnr))
+function M.close_popup(win_id, buf_nr)
+    if vim.api.nvim_buf_is_valid(buf_nr)
+        and not vim.api.nvim_buf_get_option(buf_nr, 'buflisted') then
+        vim.cmd(string.format("silent! bdelete! %s", buf_nr))
     end
 
     if not vim.api.nvim_win_is_valid(win_id) then
@@ -76,10 +76,10 @@ function M.close_popup(win_id, bufnr)
 end
 
 function M.popup_job_result(results, opts)
-    local bufnr = vim.api.nvim_create_buf(false, false)
-    vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, results)
+    local buf_nr = vim.api.nvim_create_buf(false, false)
+    vim.api.nvim_buf_set_lines(buf_nr, 0, -1, false, results)
     local top, width = opts.top or 1, opts.width or 80
-    local popup_win, _ = popup.create(bufnr, {
+    local popup_win, _ = popup.create(buf_nr, {
         line = top,
         col = 2,
         border = { 1, 1, 1, 1 },
