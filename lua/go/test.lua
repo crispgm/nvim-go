@@ -130,7 +130,8 @@ local function valid_file(fn)
 end
 
 function M.test_open()
-    local file_path = vim.api.nvim_buf_get_name(0)
+    local buf_nr = vim.api.nvim_get_current_buf()
+    local file_path = vim.api.nvim_buf_get_name(buf_nr)
     local new_fn
     local vf = valid_file(file_path)
     if vf == 1 then

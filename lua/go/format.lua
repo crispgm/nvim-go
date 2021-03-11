@@ -13,7 +13,8 @@ end
 
 local function do_fmt(formatter, args)
     if not util.binary_exists(formatter) then return end
-    local file_path = vim.api.nvim_buf_get_name(0)
+    local buf_nr = vim.api.nvim_get_current_buf()
+    local file_path = vim.api.nvim_buf_get_name(buf_nr)
     vim.api.nvim_exec('write', true)
     local cmd = system.wrap_file_command(formatter, args, file_path)
     vim.fn.jobstart(cmd, {
