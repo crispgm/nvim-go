@@ -89,17 +89,14 @@ require('go').setup{
 }
 ```
 
+Manual:
+Display within neovim with `:help nvim-go`
+
 ## Known Issues
 
 - Upstream Issue: `golangci-lint` may mess up quickfix dute to stderr output [#3](https://github.com/crispgm/nvim-go/issues/3)
 
 ## Plan
-
-### v0.1
-
-- [x] Import
-- [x] GoLint: show virtual text
-- [ ] Bug fixes and polishing
 
 ### v0.2
 
