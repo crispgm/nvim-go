@@ -17,10 +17,11 @@ end
 local function show_quickfix(qf_list)
     if not qf_list then return end
 
+    local win_nr = vim.fn.winnr()
     local height = 4
     if #qf_list > 0 and #qf_list < height then height = #qf_list end
-    vim.api.nvim_command(string.format('copen %d', height))
-    vim.fn.setqflist(qf_list, 'r')
+    vim.fn.setloclist(win_nr, qf_list, 'r')
+    vim.api.nvim_command(string.format('lopen %d', height))
 end
 
 local function clear_virtual_text()
