@@ -34,6 +34,10 @@ This section can be considered as a guide or common practice to develop with `nv
 - Symbols: `vim.lsp.buf.document_symbol()` and `vim.lsp.buf.workspace_symbol()`
 - Rename: `vim.lsp.buf.rename()`
 
+## Other Features
+
+- Debug: we recommend [vim-delve](https://github.com/sebdah/vim-delve)
+
 ## Installation
 
 Prerequisites:
