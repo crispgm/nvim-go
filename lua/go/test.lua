@@ -38,7 +38,7 @@ local function do_test(prefix, cmd)
     local top, width = output.calc_popup_size()
     local function on_event(_, data, event)
         if config.options.test_popup then
-            return output.popup_job_result(data, {top = top, width = width})
+            return output.popup_job_result(data, {title = prefix, top = top, width = width})
         else
             local outputs = {}
             for _, v in ipairs(data) do
