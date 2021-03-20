@@ -106,13 +106,19 @@ Commands~
     Import a Go package and add it to import statement. `:GoGet` will be
     performed before import.
 
+`:GoTest`                                                            *:GoTest*
+    Run the test for current package.
+
+`:GoTestAll`                                                      *:GoTestAll*
+    Run the test for current package.
+
 `:GoTestFunc`                                                    *:GoTestFunc*
     Run the test function where the cursor is on.
 
 `:GoTestFile`                                                    *:GoTestFile*
     Run current `*_test.go` file.
 
-`:GoToTest`                                                      *:GoToTest*
+`:GoToTest`                                                        *:GoToTest*
     Go from `*.go` to `*_test.go` or go back. It will create new file if
     `*_test.go` does not exist.
 

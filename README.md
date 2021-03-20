@@ -14,7 +14,7 @@ This project is still under early development and you may use at your own risk.
 
 - Auto format with `:GoFormat` when saving. (LSP supports this but it lacks `goimports`)
 - Run linters with `:GoLint` (via `golangci-lint`) automatically.
-- Quickly test with `:GoTestFunc` and `:GoTestFile`.
+- Quickly test with `:GoTest`, `:GoTestFunc`, `:GoTestFile` and `:GoTestAll`.
 - Import packages with `:GoGet` and `:GoImport`.
 - And more features are under development.
 
@@ -100,8 +100,8 @@ Display within neovim with `:help nvim-go`
 
 ### v0.2
 
+- [x] GoTest: GoTestPkg
 - [ ] Struct Tag
-- [ ] GoTest: GoTestPkg
 - [ ] GoImpl
 
 ### v0.3

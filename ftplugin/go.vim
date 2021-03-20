@@ -10,6 +10,8 @@ command! Golint        lua require('go.lint').golint()
 command! Goerrcheck    lua require('go.lint').errcheck()
 command! Gostaticcheck lua require('go.lint').staticcheck()
 " testing
+command! GoTest      lua require('go.test').test()
+command! GoTestAll   lua require('go.test').test_all()
 command! GoTestFunc  lua require('go.test').test_func{}
 command! GoTestFile  lua require('go.test').test_file()
 command! GoToTest    lua require('go.test').test_open()

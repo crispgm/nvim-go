@@ -72,6 +72,24 @@ local function do_test(prefix, cmd)
     })
 end
 
+function M.test()
+    if not util.binary_exists('go') then return end
+
+    local prefix = 'GoTest'
+    local cmd = {'go', 'test'}
+    build_args(cmd)
+    do_test(prefix, cmd)
+end
+
+function M.test_all()
+    if not util.binary_exists('go') then return end
+
+    local prefix = 'GoTest'
+    local cmd = {'go', 'test', './...'}
+    build_args(cmd)
+    do_test(prefix, cmd)
+end
+
 function M.test_func(opt)
     if not util.binary_exists('go') then return end
 
