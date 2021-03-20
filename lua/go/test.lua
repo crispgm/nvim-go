@@ -84,7 +84,7 @@ end
 function M.test_all()
     if not util.binary_exists('go') then return end
 
-    local prefix = 'GoTest'
+    local prefix = 'GoTestAll'
     local cmd = {'go', 'test', './...'}
     build_args(cmd)
     do_test(prefix, cmd)
@@ -118,7 +118,7 @@ end
 function M.test_file()
     if not util.binary_exists('go') then return end
 
-    local prefix = 'GoTestFunc'
+    local prefix = 'GoTestFile'
     local pattern = vim.regex('^func [Test|Example]')
     local lines = vim.api.nvim_buf_get_lines(vim.api.nvim_get_current_buf(), 1, -1, false)
     local func_names = {}
