@@ -58,7 +58,8 @@ local function do_test(prefix, cmd)
     end
 
     local cwd = vim.fn.expand('%:p:h')
-    vim.fn.jobstart(cmd, {
+    local env = config.options.test_env
+    local opts = {
         on_exit = function(_, code, _)
             if code ~= 0 then
                 output.show_warning(prefix, string.format('error code: %d', code))
@@ -69,7 +70,11 @@ local function do_test(prefix, cmd)
         on_stderr = on_event,
         stdout_buffered = true,
         stderr_buffered = true,
-    })
+    }
+    if env ~= nil and next(env) ~= nil then
+        opts['env'] = env
+    end
+    vim.fn.jobstart(cmd, opts)
 end
 
 function M.test()
