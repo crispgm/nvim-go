@@ -40,8 +40,7 @@ function M.show_job_error(prefix, code, results)
 end
 
 function M.calc_popup_size()
-    local buf_nr = vim.api.nvim_get_current_buf()
-    local win_height = vim.fn.winheight(buf_nr)
+    local win_height = vim.fn.winheight(0)
     local top = 0
     local width = 80
     -- config first, but default none
