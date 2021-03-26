@@ -5,7 +5,7 @@ M.options =  {
     auto_lint = true,
     auto_format = true,
     -- linter: golint, errcheck, golangci-lint
-    linter = 'golangci-lint',
+    linter = 'golint',
     -- lint_prompt_style: qf (quickfix), vt (virtual text)
     lint_prompt_style = 'qf',
     -- formatter: goimports, gofmt, gofumpt

@@ -80,7 +80,7 @@ require('go').setup{
     auto_format = true,
     auto_lint = true,
     -- linters: golint, errcheck, staticcheck, golangci-lint
-    linter = 'golangci-lint',
+    linter = 'golint',
     -- lint_prompt_style: qf (quickfix), vt (virtual text)
     lint_prompt_style = 'qf',
     -- formatter: goimports, gofmt, gofumpt
@@ -99,7 +99,7 @@ Display within neovim with `:help nvim-go`
 
 ## Known Issues
 
-- Upstream Issue: `golangci-lint` may mess up quickfix dute to stderr output [#3](https://github.com/crispgm/nvim-go/issues/3)
+- Upstream Issue: `golangci-lint` may mess up quickfix due to stderr output [#3](https://github.com/crispgm/nvim-go/issues/3)
 
 ## Plan
 

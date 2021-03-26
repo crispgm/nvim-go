@@ -58,7 +58,7 @@ settings:
     require('go').setup{
         auto_format = true,
         auto_lint = true,
-        linter = 'golangci-lint',
+        linter = 'golint',
         lint_prompt_style = 'qf',
         formatter = 'goimports',
         test_flags = {'-v'},
@@ -71,7 +71,7 @@ settings:
 Commands~
 
 `:GoLint`                                                            *:GoLint*
-    Lint with linter. Default linter is `golangci-lint`. If there are issues,
+    Lint with linter. Default linter is `golint`. If there are issues,
     it will be prompt with quickfixes.
 
 `:Golangcilint`                                                *:Golangcilint*
