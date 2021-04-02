@@ -169,4 +169,10 @@ function M.test_open()
     vim.api.nvim_command('edit' .. new_fn)
 end
 
+-- export for testing
+M._valid_file = valid_file
+M._valid_func_name = valid_func_name
+M._split_file_name = split_file_name
+M._build_args = build_args
+
 return M
