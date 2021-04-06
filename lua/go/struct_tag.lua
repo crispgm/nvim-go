@@ -5,7 +5,10 @@ local config = require('go.config')
 local output = require('go.output')
 local util = require('go.util')
 
-local function operate_tags(prefix, file_path, line_start, line_end)
+local function operate_tags(prefix, args)
+    local line_start = args[1]
+    local line_end = args[2]
+    local file_path = vim.fn.expand('%:p')
     local cmd = {'gomodifytags', '-w', '-file', file_path}
     if line_start == line_end then
         local line = vim.fn.getline(line_start)
@@ -19,14 +22,20 @@ local function operate_tags(prefix, file_path, line_start, line_end)
         table.insert(cmd, string.format('%d,%d', line_start, line_end))
     end
 
+    -- TODO: support other manual postfix
     local opt = config.options.struct_tag
     if prefix == 'GoAddTags' then
-        if opt.tags then
-            table.insert(cmd, '-add-tags')
-            table.insert(cmd, opt.tags)
+        local tag = ''
+        if #args >= 4 then
+            tag = args[4]
+        elseif opt.tags then
+            tag = opt.tags
         else
+            output.show_error(prefix, 'tag name should be presented')
             return
         end
+        table.insert(cmd, '-add-tags')
+        table.insert(cmd, tag)
         if opt.transform then
             table.insert(cmd, '-transform')
             table.insert(cmd, opt.transform)
@@ -40,6 +49,10 @@ local function operate_tags(prefix, file_path, line_start, line_end)
         if opt.skip_unexported then
             table.insert(cmd, '-skip-unexported')
         end
+    elseif prefix == 'GoRemoveTags' then
+        local tags = args[4]
+        table.insert(cmd, '-remove-tags')
+        table.insert(cmd, tags)
     else
         table.insert(cmd, '-clear-tags')
     end
@@ -61,19 +74,32 @@ end
 
 function M.add_tags(args)
     if not util.binary_exists('gomodifytags') then return end
-    local line_start = args[1]
-    local line_end = args[2]
-    -- TODO: support other manual postfix
-    local file_path = vim.fn.expand('%:p')
-    operate_tags('GoAddTags', file_path, line_start, line_end)
+    local prefix = 'GoAddTags'
+    if #args < 2 then
+        output.show_error(prefix, 'line number should be presented')
+        return
+    end
+    operate_tags(prefix, args)
+end
+
+function M.remove_tags(args)
+    if not util.binary_exists('gomodifytags') then return end
+    local prefix = 'GoRemoveTags'
+    if #args < 4 then
+        output.show_error(prefix, 'tag name should be presented')
+        return
+    end
+    operate_tags(prefix, args)
 end
 
 function M.clear_tags(args)
     if not util.binary_exists('gomodifytags') then return end
-    local line_start = args[1]
-    local line_end = args[2]
-    local file_path = vim.fn.expand('%:p')
-    operate_tags('GoClearTags', file_path, line_start, line_end)
+    local prefix = 'GoClearTags'
+    if #args < 2 then
+        output.show_error(prefix, 'line number should be presented')
+        return
+    end
+    operate_tags(prefix, args)
 end
 
 return M
