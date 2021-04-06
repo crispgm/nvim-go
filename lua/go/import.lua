@@ -1,7 +1,6 @@
 local M = {}
 
 local vim = vim
--- local output = require('go.output')
 local util = require('go.util')
 
 local function delimit_pkg(pkg)
@@ -96,7 +95,6 @@ local function switch_import(pkg)
             vim.fn.append(append_line, string.format('\t%s', former_pkg))
             vim.fn.append(append_line, string.format('\t"%s"', pkg))
         end
-        print(former_pkg, insert_mode)
     end
     if insert_mode == '' and pkg_line >= 0 then
         vim.fn.append(pkg_line, ')')
