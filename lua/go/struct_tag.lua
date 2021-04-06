@@ -11,6 +11,7 @@ local function operate_tags(prefix, args)
     local file_path = vim.fn.expand('%:p')
     local cmd = {'gomodifytags', '-w', '-file', file_path}
     if line_start == line_end then
+        -- this means it might be a `type SomeObject struct` line, so use -struct with struct name
         local line = vim.fn.getline(line_start)
         local matches = vim.fn.matchlist(line, '^type\\s\\+\\(\\S\\+\\)\\s\\+struct')
         if matches ~= nil and #matches >= 2 then
@@ -18,6 +19,7 @@ local function operate_tags(prefix, args)
             table.insert(cmd, matches[2])
         end
     else
+        -- just modify by line numbers
         table.insert(cmd, '-line')
         table.insert(cmd, string.format('%d,%d', line_start, line_end))
     end
@@ -25,17 +27,15 @@ local function operate_tags(prefix, args)
     -- TODO: support other manual postfix
     local opt = config.options.struct_tag
     if prefix == 'GoAddTags' then
-        local tag = ''
+        table.insert(cmd, '-add-tags')
         if #args >= 4 then
-            tag = args[4]
+            table.insert(cmd, args[4])
         elseif opt.tags then
-            tag = opt.tags
+            table.insert(cmd, opt.tags)
         else
             output.show_error(prefix, 'tag name should be presented')
             return
         end
-        table.insert(cmd, '-add-tags')
-        table.insert(cmd, tag)
         if opt.transform then
             table.insert(cmd, '-transform')
             table.insert(cmd, opt.transform)
@@ -53,8 +53,10 @@ local function operate_tags(prefix, args)
         local tags = args[4]
         table.insert(cmd, '-remove-tags')
         table.insert(cmd, tags)
-    else
+    elseif prefix == 'GoClearTags' then
         table.insert(cmd, '-clear-tags')
+    else
+        return
     end
 
     vim.api.nvim_exec('write', true)
