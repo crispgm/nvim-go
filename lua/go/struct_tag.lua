@@ -7,8 +7,12 @@ local util = require('go.util')
 local function operate_tags(prefix, file_path, line_start, line_end)
     local cmd = {'!gomodifytags', '-w', '-file', file_path}
     if line_start == line_end then
-        table.insert(cmd, '-struct')
-        -- TODO: support operate on struct line
+        local line = vim.fn.getline(line_start)
+        local matches = vim.fn.matchlist(line, '^type\\s\\+\\(\\S\\+\\)\\s\\+struct')
+        if matches ~= nil and #matches >= 2 then
+            table.insert(cmd, '-struct')
+            table.insert(cmd, matches[2])
+        end
     else
         table.insert(cmd, '-line')
         table.insert(cmd, string.format('%d,%d', line_start, line_end))
