@@ -2,10 +2,11 @@ local M = {}
 
 local vim = vim
 local config = require('go.config')
+local output = require('go.output')
 local util = require('go.util')
 
 local function operate_tags(prefix, file_path, line_start, line_end)
-    local cmd = {'!gomodifytags', '-w', '-file', file_path}
+    local cmd = {'gomodifytags', '-w', '-file', file_path}
     if line_start == line_end then
         local line = vim.fn.getline(line_start)
         local matches = vim.fn.matchlist(line, '^type\\s\\+\\(\\S\\+\\)\\s\\+struct')
@@ -42,9 +43,20 @@ local function operate_tags(prefix, file_path, line_start, line_end)
     else
         table.insert(cmd, '-clear-tags')
     end
+
     vim.api.nvim_exec('write', true)
-    vim.api.nvim_command(table.concat(cmd, ' '))
-    vim.api.nvim_exec('edit!', true)
+    vim.fn.jobstart(cmd, {
+        on_exit = function(_, code)
+            if code == 0 then
+                output.show_success(prefix, 'Success')
+                vim.api.nvim_exec('edit!', true)
+            end
+        end,
+        on_stderr = function(_, data)
+            local results = table.concat(data, '\n')
+            output.show_error(prefix, results)
+        end,
+    })
 end
 
 function M.add_tags(args)

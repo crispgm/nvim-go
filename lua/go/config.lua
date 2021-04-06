@@ -16,6 +16,7 @@ M.options =  {
     test_env = {},
     -- show test result with popup window
     test_popup = true,
+    -- struct tags
     struct_tag = {
         tags = 'json',
         options = {'json=omitempty'},

@@ -106,11 +106,11 @@ Display within neovim with `:help nvim-go`
 ### v0.2
 
 - [x] GoTest: GoTestPkg
-- [ ] Struct Tag
-- [ ] GoImpl
+- [x] Struct Tag
 
 ### v0.3
 
+- [ ] GoImpl
 - [ ] Paste as JSON
 - [ ] Doc
 
