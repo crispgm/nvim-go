@@ -13,7 +13,6 @@ function M.show_success(prefix, msg)
     if msg ~= nil then
         succ = msg
     end
-    print(string.format('[%s] %s', prefix, succ))
     vim.api.nvim_echo({{prefix, 'Function'}, {' ' .. succ}}, true, {})
 end
 
