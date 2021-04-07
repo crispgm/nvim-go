@@ -96,7 +96,7 @@ require('go').setup{
     struct_tag = {
         tags = 'json',
         options = {'json=omitempty'},
-        transform = 'camelcase',
+        transform = 'snakecase',
         skip_unexported = true,
     },
 }
