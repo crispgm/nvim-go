@@ -27,10 +27,9 @@ jobs:
           git clone --depth 1 https://github.com/nvim-lua/popup.nvim.git ~/.local/share/nvim/site/pack/vendor/start/popup.nvim
           git clone --depth 1 https://github.com/junegunn/vader.vim.git ~/.local/share/nvim/site/pack/vendor/start/vader.vim
           ln -s $(pwd) ~/.local/share/nvim/site/pack/vendor/start
-      - name: Run Lua Tests
+      - name: Run Tests
         run: |
           curl -OL https://raw.githubusercontent.com/norcalli/bot-ci/master/scripts/github-actions-setup.sh
           source github-actions-setup.sh nightly-x64
           make test
-      - name: Run Vader Tests
-        run: make vader
+          make vader
