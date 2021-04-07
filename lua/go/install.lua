@@ -23,7 +23,7 @@ function M.install_binaries()
                 end
             end,
             on_stderr = function(_, data)
-                local results = table.concat(data, "\n")
+                local results = table.concat(data, '\n')
                 output.show_error('GoInstallBinaries', results)
             end,
         })
@@ -44,7 +44,7 @@ function M.update_binaries()
                 end
             end,
             on_stderr = function(_, data)
-                local results = table.concat(data, "\n")
+                local results = table.concat(data, '\n')
                 output.show_error('GoUpdateBinaries', results)
             end,
         })

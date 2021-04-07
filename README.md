@@ -13,9 +13,10 @@ This project is still under early development and you may use at your own risk.
 ## Plugin Features
 
 - Auto format with `:GoFormat` when saving. (LSP supports this but it lacks `goimports`)
-- Run linters with `:GoLint` (via `golangci-lint`) automatically.
+- Run linters with `:GoLint` (via `golint`) automatically.
 - Quickly test with `:GoTest`, `:GoTestFunc`, `:GoTestFile` and `:GoTestAll`.
 - Import packages with `:GoGet` and `:GoImport`.
+- Modify struct tags with `:GoAddTags`, `:GoRemoveTags`, `:GoClearTags`, `:GoAddTagOptions`, `:GoRemoveTagOptions` and `:GoClearTagOptions`.
 - And more features are under development.
 
 ## Language Features
@@ -91,6 +92,13 @@ require('go').setup{
     test_env = {},
     -- show test result with popup window
     test_popup = true,
+    -- struct tags
+    struct_tag = {
+        tags = 'json',
+        options = {'json=omitempty'},
+        transform = 'camelcase',
+        skip_unexported = true,
+    },
 }
 ```
 
@@ -106,11 +114,11 @@ Display within neovim with `:help nvim-go`
 ### v0.2
 
 - [x] GoTest: GoTestPkg
-- [ ] Struct Tag
-- [ ] GoImpl
+- [x] Struct Tag
 
 ### v0.3
 
+- [ ] GoImpl
 - [ ] Paste as JSON
 - [ ] Doc
 
