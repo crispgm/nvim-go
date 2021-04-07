@@ -22,6 +22,10 @@ command! -nargs=1 GoImport lua require('go.import').import(<f-args>)
 command! -nargs=* -range GoAddTags    lua require('go.struct_tag').add_tags{<line1>, <line2>, <count>, <f-args>}
 command! -nargs=* -range GoRemoveTags lua require('go.struct_tag').remove_tags{<line1>, <line2>, <count>, <f-args>}
 command! -nargs=* -range GoClearTags  lua require('go.struct_tag').clear_tags{<line1>, <line2>, <count>, <f-args>}
+" struct tag options
+command! -nargs=* -range GoAddTagOptions    lua require('go.struct_tag').add_options{<line1>, <line2>, <count>, <f-args>}
+command! -nargs=* -range GoRemoveTagOptions lua require('go.struct_tag').remove_options{<line1>, <line2>, <count>, <f-args>}
+command! -nargs=* -range GoClearTagOptions  lua require('go.struct_tag').clear_options{<line1>, <line2>, <count>, <f-args>}
 
 lua << EOB
 local config = require('go.config')
