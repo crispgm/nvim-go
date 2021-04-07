@@ -1,0 +1,123 @@
+# Empty
+Given:
+  package _import
+
+Execute:
+  GoImport fmt
+
+Expect:
+  package _import
+
+  import (
+  	"fmt"
+  )
+
+# Single
+Given:
+  package _import
+
+  import "fmt"
+
+Execute:
+  GoImport strings
+
+Expect:
+  package _import
+
+  import (
+  	"strings"
+  	"fmt"
+  )
+
+# Single with dot
+Given:
+  package _import
+
+  import . "fmt"
+
+Execute:
+  GoImport strings
+
+Expect:
+  package _import
+
+  import (
+  	"strings"
+  	. "fmt"
+  )
+
+# Single with underline
+Given:
+  package _import
+
+  import _ "fmt"
+
+Execute:
+  GoImport strings
+
+Expect:
+  package _import
+
+  import (
+  	"strings"
+  	_ "fmt"
+  )
+
+# Single with parenthesis
+Given:
+  package _import
+
+  import (f "fmt")
+
+Execute:
+  GoImport strings
+
+Expect:
+  package _import
+
+  import (
+  	"strings"
+  	f "fmt"
+  )
+
+# Multiple
+Given:
+  package _import
+
+  import (
+  	"strings"
+  	"fmt"
+  )
+
+Execute:
+  GoImport encoding/json
+
+Expect:
+  package _import
+
+  import (
+  	"encoding/json"
+  	"strings"
+  	"fmt"
+  )
+
+# Multiple complicated
+Given:
+  package _import
+
+  import (
+  	"strings"
+  	_ "fmt"
+  )
+
+Execute:
+  GoImport encoding/json
+
+Expect:
+  package _import
+
+  import (
+  	"encoding/json"
+  	"strings"
+  	_ "fmt"
+  )

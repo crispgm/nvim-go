@@ -23,11 +23,13 @@ jobs:
       - uses: actions/checkout@v2
       - name: Provision
         run: |
-          git clone --depth 1 https://github.com/nvim-lua/plenary.nvim ~/.local/share/nvim/site/pack/vendor/start/plenary.nvim
-          git clone --depth 1 https://github.com/nvim-lua/popup.nvim ~/.local/share/nvim/site/pack/vendor/start/popup.nvim
+          git clone --depth 1 https://github.com/nvim-lua/plenary.nvim.git ~/.local/share/nvim/site/pack/vendor/start/plenary.nvim
+          git clone --depth 1 https://github.com/nvim-lua/popup.nvim.git ~/.local/share/nvim/site/pack/vendor/start/popup.nvim
+          git clone --depth 1 https://github.com/junegunn/vader.vim.git ~/.local/share/nvim/site/pack/vendor/start/vader.vim
           ln -s $(pwd) ~/.local/share/nvim/site/pack/vendor/start
-      - name: Run tests
+      - name: Run Tests
         run: |
           curl -OL https://raw.githubusercontent.com/norcalli/bot-ci/master/scripts/github-actions-setup.sh
           source github-actions-setup.sh nightly-x64
           make test
+          make vader
