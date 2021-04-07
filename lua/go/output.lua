@@ -14,15 +14,15 @@ function M.show_success(prefix, msg)
         succ = msg
     end
     print(string.format('[%s] %s', prefix, succ))
-    vim.api.nvim_echo({{prefix, 'healthSuccess'}, {' ' .. succ}}, true, {})
+    vim.api.nvim_echo({{prefix, 'Function'}, {' ' .. succ}}, true, {})
 end
 
 function M.show_error(prefix, msg)
-    vim.api.nvim_echo({{prefix, 'healthError'}, {' ' .. msg}}, true, {})
+    vim.api.nvim_echo({{prefix, 'ErrorMsg'}, {' ' .. msg}}, true, {})
 end
 
 function M.show_warning(prefix, msg)
-    vim.api.nvim_echo({{prefix, 'healthWarning'}, {' ' .. msg}}, true, {})
+    vim.api.nvim_echo({{prefix, 'WarningMsg'}, {' ' .. msg}}, true, {})
 end
 
 function M.show_job_success(prefix, results)
