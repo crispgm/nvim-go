@@ -5,6 +5,13 @@ local config = require('go.config')
 local output = require('go.output')
 local util = require('go.util')
 
+local function get_extra_args(args, start, cmd)
+    if #args < start then return end
+    for i = start, #args do
+        table.insert(cmd, args[i])
+    end
+end
+
 local function modify_tags(prefix, args)
     local line_start = args[1]
     local line_end = args[2]
@@ -24,7 +31,6 @@ local function modify_tags(prefix, args)
         table.insert(cmd, string.format('%d,%d', line_start, line_end))
     end
 
-    -- TODO: support other manual postfix
     local opt = config.options.struct_tag
     if prefix == 'GoAddTags' then
         table.insert(cmd, '-add-tags')
@@ -49,18 +55,22 @@ local function modify_tags(prefix, args)
         if opt.skip_unexported then
             table.insert(cmd, '-skip-unexported')
         end
+        get_extra_args(args, 5, cmd)
     elseif prefix == 'GoRemoveTags' then
         local tags = args[4]
         table.insert(cmd, '-remove-tags')
         table.insert(cmd, tags)
+        get_extra_args(args, 5, cmd)
     elseif prefix == 'GoClearTags' then
         table.insert(cmd, '-clear-tags')
     elseif prefix == 'GoAddTagOptions' then
         table.insert(cmd, '-add-options')
         table.insert(cmd, args[4])
+        get_extra_args(args, 5, cmd)
     elseif prefix == 'GoRemoveTagOptions' then
         table.insert(cmd, '-remove-options')
         table.insert(cmd, args[4])
+        get_extra_args(args, 5, cmd)
     elseif prefix == 'GoClearTagOptions' then
         table.insert(cmd, '-clear-options')
     else
@@ -68,7 +78,6 @@ local function modify_tags(prefix, args)
     end
 
     vim.api.nvim_exec('write', true)
-    print(table.concat(cmd, ' '))
     vim.fn.jobstart(cmd, {
         on_exit = function(_, code)
             if code == 0 then
@@ -117,7 +126,7 @@ function M.add_options(args)
     if not util.binary_exists('gomodifytags') then return end
     local prefix = 'GoAddTagOptions'
     if #args < 4 then
-        output.show_error(prefix, 'tag name should be presented')
+        output.show_error(prefix, 'tag option should be presented')
         return
     end
     modify_tags(prefix, args)
@@ -127,7 +136,7 @@ function M.remove_options(args)
     if not util.binary_exists('gomodifytags') then return end
     local prefix = 'GoRemoveTagOptions'
     if #args < 4 then
-        output.show_error(prefix, 'tag name should be presented')
+        output.show_error(prefix, 'tag option should be presented')
         return
     end
     modify_tags(prefix, args)
