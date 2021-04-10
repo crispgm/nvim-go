@@ -1,5 +1,8 @@
-# Empty
-Given:
+###################
+# Test GoImport   #
+###################
+
+Given go (empty file to import):
   package _import
 
 Execute:
@@ -12,8 +15,7 @@ Expect:
   	"fmt"
   )
 
-# Single
-Given:
+Given go (file with single import):
   package _import
 
   import "fmt"
@@ -29,8 +31,7 @@ Expect:
   	"fmt"
   )
 
-# Single with dot
-Given:
+Given go (file with single import with dot):
   package _import
 
   import . "fmt"
@@ -46,8 +47,7 @@ Expect:
   	. "fmt"
   )
 
-# Single with underline
-Given:
+Given go (file with single import with underline):
   package _import
 
   import _ "fmt"
@@ -63,8 +63,7 @@ Expect:
   	_ "fmt"
   )
 
-# Single with parenthesis
-Given:
+Given go (file with single import with parenthesis):
   package _import
 
   import (f "fmt")
@@ -80,8 +79,7 @@ Expect:
   	f "fmt"
   )
 
-# Multiple
-Given:
+Given go (file with simple multiple imports):
   package _import
 
   import (
@@ -101,8 +99,7 @@ Expect:
   	"fmt"
   )
 
-# Multiple complicated
-Given:
+Given go (file with complicated multiple imports):
   package _import
 
   import (
