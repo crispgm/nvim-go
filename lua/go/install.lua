@@ -5,7 +5,7 @@ local config = require('go.config')
 local output = require('go.output')
 
 local function build_cmd(tool, update)
-    local cmd = {}
+    local cmd
     local pkg_mgr = 'go'
     if tool.pkg_mgr ~= nil then
         pkg_mgr = tool.pkg_mgr
