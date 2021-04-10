@@ -26,6 +26,8 @@ command! -nargs=* -range GoClearTags  lua require('go.struct_tag').clear_tags{<l
 command! -nargs=* -range GoAddTagOptions    lua require('go.struct_tag').add_options{<line1>, <line2>, <count>, <f-args>}
 command! -nargs=* -range GoRemoveTagOptions lua require('go.struct_tag').remove_options{<line1>, <line2>, <count>, <f-args>}
 command! -nargs=* -range GoClearTagOptions  lua require('go.struct_tag').clear_options{<line1>, <line2>, <count>, <f-args>}
+" quicktype
+command! -nargs=* -complete=file GoQuickType lua require('go.quick_type').quick_type(<count>, <f-args>)
 
 lua << EOB
 local config = require('go.config')
