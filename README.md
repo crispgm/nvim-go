@@ -17,6 +17,7 @@ This project is still under early development and you may use at your own risk.
 - Quickly test with `:GoTest`, `:GoTestFunc`, `:GoTestFile` and `:GoTestAll`.
 - Import packages with `:GoGet` and `:GoImport`.
 - Modify struct tags with `:GoAddTags`, `:GoRemoveTags`, `:GoClearTags`, `:GoAddTagOptions`, `:GoRemoveTagOptions` and `:GoClearTagOptions`.
+- Generates models (e.g. JSON) with `:GoQuickType` (via `quicktype`).
 - And more features are under development.
 
 ## Language Features
@@ -65,7 +66,8 @@ Finally, run `:GoInstallBinaries` after plugin installed.
 
 ## Usage
 
-Setup:
+### Setup
+
 ```lua
 -- setup nvim-go
 require('go').setup{}
@@ -74,7 +76,8 @@ require('go').setup{}
 require'lspconfig'.gopls.setup{}
 ```
 
-Defaults:
+### Defaults
+
 ```lua
 require('go').setup{
     -- auto commands
@@ -102,25 +105,16 @@ require('go').setup{
 }
 ```
 
-Manual:
-Display within neovim with `:help nvim-go`
+### Manual
+
+Display within neovim with:
+```vim
+:help nvim-go
+```
 
 ## Known Issues
 
 - Upstream Issue: `golangci-lint` may mess up quickfix due to stderr output [#3](https://github.com/crispgm/nvim-go/issues/3)
-
-## Plan
-
-### v0.2
-
-- [x] GoTest: GoTestPkg
-- [x] Struct Tag
-
-### v0.3
-
-- [ ] GoImpl
-- [ ] Paste as JSON
-- [ ] Doc
 
 ## License
 

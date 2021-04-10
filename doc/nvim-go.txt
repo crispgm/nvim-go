@@ -152,10 +152,14 @@ Commands~
 `:GoClearTagOptions`                                      *:GoClearTagOptions*
     Clear struct tag options of an object or selected fields.
 
+`:GoQuickType`                                                  *:GoQuickType*
+    Generates strongly-typed models and serializers from JSON, JSON Schema,
+    TypeScript, and GraphQL queries via quicktype.
+
                                                              *nvim-go-lua-api*
 Lua API~
 
-`go.setup(`{opts}`)`                                           *nvim-go.setup*
+`go.setup(`{opts}`)`                                             *nvim-go.setup*
     Setup the library with options.
 
     This functional will setup the Lua API and commands in a way that respects

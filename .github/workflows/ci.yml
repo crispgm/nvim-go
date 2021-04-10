@@ -21,6 +21,12 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - run: |
+          yarn global add quicktype
+          echo "$(yarn global bin)" >> $GITHUB_PATH
       - name: Provision
         run: |
           git clone --depth 1 https://github.com/nvim-lua/plenary.nvim.git ~/.local/share/nvim/site/pack/vendor/start/plenary.nvim

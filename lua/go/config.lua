@@ -23,17 +23,20 @@ M.options =  {
         transform = 'snakecase',
         skip_unexported = true,
     },
+    -- quick type
+    quick_type_flags = {'--just-types-and-package'},
 }
 
 M.tools = {
-    { name = 'gopls',         repo = 'golang.org/x/tools/gopls@latest'},
-    { name = 'golint',        repo = 'golang.org/x/lint/golint'},
-    { name = 'goimports',     repo = 'golang.org/x/tools/cmd/goimports'},
-    { name = 'gofumpt',       repo = 'mvdan.cc/gofumpt'},
-    { name = 'errcheck',      repo = 'github.com/kisielk/errcheck'},
-    { name = 'staticheck',    repo = 'honnef.co/go/tools/cmd/staticcheck'},
-    { name = 'golangci-lint', repo = 'github.com/golangci/golangci-lint/cmd/golangci-lint'},
-    { name = 'gomodifytags',  repo = 'github.com/fatih/gomodifytags'},
+    { name = 'gopls',         src = 'golang.org/x/tools/gopls@latest'},
+    { name = 'golint',        src = 'golang.org/x/lint/golint'},
+    { name = 'goimports',     src = 'golang.org/x/tools/cmd/goimports'},
+    { name = 'gofumpt',       src = 'mvdan.cc/gofumpt'},
+    { name = 'errcheck',      src = 'github.com/kisielk/errcheck'},
+    { name = 'staticheck',    src = 'honnef.co/go/tools/cmd/staticcheck'},
+    { name = 'golangci-lint', src = 'github.com/golangci/golangci-lint/cmd/golangci-lint'},
+    { name = 'gomodifytags',  src = 'github.com/fatih/gomodifytags'},
+    { name = 'quicktype',     src = 'quicktype', pkg_mgr = 'yarn'},
 }
 
 return M
