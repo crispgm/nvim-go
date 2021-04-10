@@ -5,7 +5,7 @@ local config = require('go.config')
 local output = require('go.output')
 
 function M.quick_type(_, src, pkg_name, top_level)
-    local prefix = 'GoJSONAsCode'
+    local prefix = 'GoQuickType'
     local cur_line = vim.fn.line('.')
     local cmd = {'quicktype', '--src', src, '--lang', 'go'}
     if pkg_name ~= nil and #pkg_name > 0 then
