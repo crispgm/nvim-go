@@ -7,7 +7,7 @@ local output = require('go.output')
 function M.quick_type(_, src, pkg_name, top_level)
     local prefix = 'GoQuickType'
     local cur_line = vim.fn.line('.')
-    local cmd = {'quicktype', '--src', src, '--lang', 'go'}
+    local cmd = {'quicktype', '--src', src, '--lang', 'go', '--src-lang', 'json'}
     if pkg_name ~= nil and #pkg_name > 0 then
         table.insert(cmd, '--package')
         table.insert(cmd, pkg_name)

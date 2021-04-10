@@ -75,6 +75,14 @@ settings:
                                                             *nvim-go-commands*
 Commands~
 
+`:GoInstallBinaries`                                      *:GoInstallBinaries*
+    Install dependent binaries for nvim-go. `go` and `yarn` is required in
+    advance. It will not install again if binary exists. And you may also
+    install them manually.
+
+`:GoUpdateBinaries`                                        *:GoUpdateBinaries*
+    Perform updates for dependent binaries.
+
 `:GoLint`                                                            *:GoLint*
     Lint with linter. Default linter is `golint`. If there are issues,
     it will be prompt with quickfixes.
@@ -105,10 +113,10 @@ Commands~
 `:Gofumpt`                                                          *:GoFumpt*
     Format with `gofumpt`.
 
-`:GoGet`                                                              *:GoGet*
+`:GoGet(pkg)`                                                         *:GoGet*
     Get a Go package in a project.
 
-`:GoImport`                                                        *:GoImport*
+`:GoImport(pkg)`                                                   *:GoImport*
     Import a Go package and add it to import statement. `:GoGet` will be
     performed before import.
 
@@ -116,7 +124,7 @@ Commands~
     Run the test for current package.
 
 `:GoTestAll`                                                      *:GoTestAll*
-    Run the test for current package.
+    Run all the tests. (`go test ./...`)
 
 `:GoTestFunc`                                                    *:GoTestFunc*
     Run the test function where the cursor is on.
@@ -128,32 +136,32 @@ Commands~
     Go from `*.go` to `*_test.go` or go back. It will create new file if
     `*_test.go` does not exist.
 
-`:GoAddTags`                                                      *:GoAddTags*
+`:GoAddTags([tag, [args...]])`                                    *:GoAddTags*
     Add struct tag to an object or selected fields.
     Extra arguments would be passed to command line arguments. e.g. `-sort`.
 
-`:GoRemoveTags`                                                *:GoRemoveTags*
+`:GoRemoveTags([args...])`                                     *:GoRemoveTags*
     Remove struct tag from an object or selected fields.
     Extra arguments would be passed to command line arguments.
 
 `:GoClearTags`                                                  *:GoClearTags*
     Clear struct tag of an object or selected fields.
 
-`:GoAddTagOptions`                                          *:GoAddTagOptions*
+`:GoAddTagOptions(option_name)`                             *:GoAddTagOptions*
     Add struct tag options (e.g. json=omitempty) to an object or selected
     fields.
     Extra arguments would be passed to command line arguments.
 
-`:GoRemoveTagOptions`                                    *:GoRemoveTagOptions*
+`:GoRemoveTagOptions(option_name)`                       *:GoRemoveTagOptions*
     Remove struct tag options from an object or selected fields.
     Extra arguments would be passed to command line arguments.
 
 `:GoClearTagOptions`                                      *:GoClearTagOptions*
     Clear struct tag options of an object or selected fields.
 
-`:GoQuickType`                                                  *:GoQuickType*
-    Generates strongly-typed models and serializers from JSON, JSON Schema,
-    TypeScript, and GraphQL queries via quicktype.
+`:GoQuickType(src, [package, [top_level]])`                     *:GoQuickType*
+    Generates strongly-typed models and serializers from JSON via quicktype.
+    Other format that supported by quicktype has not been implemented yet.
 
                                                              *nvim-go-lua-api*
 Lua API~

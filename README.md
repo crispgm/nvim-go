@@ -15,7 +15,7 @@ we are able to do most of vim-go's features by LSP client,
 - Quickly test with `:GoTest`, `:GoTestFunc`, `:GoTestFile` and `:GoTestAll`.
 - Import packages with `:GoGet` and `:GoImport`.
 - Modify struct tags with `:GoAddTags`, `:GoRemoveTags`, `:GoClearTags`, `:GoAddTagOptions`, `:GoRemoveTagOptions` and `:GoClearTagOptions`.
-- Generates models (e.g. JSON) with `:GoQuickType` (via `quicktype`).
+- Generates JSON models with `:GoQuickType` (via `quicktype`).
 - And more features are under development.
 
 ## Language Features
