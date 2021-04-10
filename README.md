@@ -8,8 +8,6 @@ Neovim 0.5 embeds a built-in LSP (Language Server Protocol) client so that
 we are able to do most of vim-go's features by LSP client,
 `nvim-go` collaborates with these features to get Golang development done.
 
-This project is still under early development and you may use at your own risk.
-
 ## Plugin Features
 
 - Auto format with `:GoFormat` when saving. (LSP supports this but it lacks `goimports`)
@@ -44,7 +42,7 @@ This section can be considered as a guide or common practice to develop with `nv
 
 Prerequisites:
 - Neovim nightly (0.5)
-- [`gopls`](https://pkg.go.dev/golang.org/x/tools/gopls)
+- [yarn](http://yarnpkg.com) (for quicktype)
 
 Install with vim-plug:
 ```viml
