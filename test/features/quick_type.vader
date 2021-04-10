@@ -5,7 +5,7 @@
 Given go (file with nothing):
 
 Execute:
-  GoQuickType test/fixtures/quicktype/random.json
+  GoQuickType test/fixtures/quicktype/json.json
   sleep 2
 
 Expect (generate a struct from json):
@@ -13,7 +13,7 @@ Expect (generate a struct from json):
 
   package main
 
-  type Random struct {
+  type JSON struct {
   	Hello     string `json:"hello"`    
   	Greetting int64  `json:"greetting"`
   }
@@ -23,7 +23,7 @@ Given (file with package on top):
   package json
 
 Execute (generate a struct from json with the package name presents on top):
-  GoQuickType test/fixtures/quicktype/random.json
+  GoQuickType test/fixtures/quicktype/json.json
   sleep 2
 
 Expect:
@@ -31,7 +31,7 @@ Expect:
 
   package json
 
-  type Random struct {
+  type JSON struct {
   	Hello     string `json:"hello"`    
   	Greetting int64  `json:"greetting"`
   }
@@ -40,7 +40,7 @@ Expect:
 Given (file with nothing):
 
 Execute (generate a struct from json with package name specified):
-  GoQuickType test/fixtures/quicktype/random.json json
+  GoQuickType test/fixtures/quicktype/json.json json
   sleep 2
 
 Expect:
@@ -48,7 +48,7 @@ Expect:
 
   package json
 
-  type Random struct {
+  type JSON struct {
   	Hello     string `json:"hello"`    
   	Greetting int64  `json:"greetting"`
   }
@@ -57,7 +57,7 @@ Expect:
 Given (file with nothing):
 
 Execute (generate a struct from json with package and struct name specified):
-  GoQuickType test/fixtures/quicktype/random.json json MyObject
+  GoQuickType test/fixtures/quicktype/json.json json MyObject
   sleep 2
 
 Expect:
