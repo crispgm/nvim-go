@@ -17,12 +17,10 @@ M.options =  {
     -- show test result with popup window
     test_popup = true,
     -- struct tags
-    struct_tag = {
-        tags = 'json',
-        options = {'json=omitempty'},
-        transform = 'snakecase',
-        skip_unexported = true,
-    },
+    tags_name = 'json',
+    tags_options = {'json=omitempty'},
+    tags_transform = 'snakecase',
+    tags_flags = {'-skip-unexported'},
     -- quick type
     quick_type_flags = {'--just-types-and-package'},
 }

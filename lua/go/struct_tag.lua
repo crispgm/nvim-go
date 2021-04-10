@@ -31,29 +31,31 @@ local function modify_tags(prefix, args)
         table.insert(cmd, string.format('%d,%d', line_start, line_end))
     end
 
-    local opt = config.options.struct_tag
+    local opt = config.options
     if prefix == 'GoAddTags' then
         table.insert(cmd, '-add-tags')
         if #args >= 4 then
             table.insert(cmd, args[4])
-        elseif opt.tags then
-            table.insert(cmd, opt.tags)
+        elseif opt.tags_name then
+            table.insert(cmd, opt.tags_name)
         else
             output.show_error(prefix, 'tag name should be presented')
             return
         end
-        if opt.transform then
+        if opt.tags_transform then
             table.insert(cmd, '-transform')
-            table.insert(cmd, opt.transform)
+            table.insert(cmd, opt.tags_transform)
         end
-        if opt.options then
-            for _, option in ipairs(opt.options) do
+        if opt.tags_options then
+            for _, option in ipairs(opt.tags_options) do
                 table.insert(cmd, '-add-options')
                 table.insert(cmd, option)
             end
         end
-        if opt.skip_unexported then
-            table.insert(cmd, '-skip-unexported')
+        if opt.tags_flags ~= nil and #opt.tags_flags > 0 then
+            for _, flag in ipairs(opt.tags_flags) do
+                table.insert(cmd, flag)
+            end
         end
         get_extra_args(args, 5, cmd)
     elseif prefix == 'GoRemoveTags' then

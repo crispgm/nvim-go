@@ -1,3 +1,5 @@
+.PHONY: lint test vader
+
 init:
 	luarocks install luacheck
 

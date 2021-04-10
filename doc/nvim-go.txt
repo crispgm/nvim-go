@@ -65,12 +65,11 @@ settings:
         test_timeout = '30s',
         test_env = {},
         test_popup = true,
-        struct_tag = {
-            tags = 'json',
-            options = {'json=omitempty'},
-            transform = 'snakecase',
-            skip_unexported = true,
-        },
+        tags_name = 'json',
+        tags_options = {'json=omitempty'},
+        tags_transform = 'snakecase',
+        tags_flags = {'-skip-unexported'},
+        quick_type_flags = {'--just-types-and-package'},
     }
 <
                                                             *nvim-go-commands*
@@ -159,7 +158,7 @@ Commands~
                                                              *nvim-go-lua-api*
 Lua API~
 
-`go.setup(`{opts}`)`                                             *nvim-go.setup*
+`go.setup(`{opts}`)`                                           *nvim-go.setup*
     Setup the library with options.
 
     This functional will setup the Lua API and commands in a way that respects

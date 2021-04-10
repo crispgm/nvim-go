@@ -26,8 +26,9 @@ function M.quick_type(_, src, pkg_name, top_level)
         table.insert(cmd, top_level)
     end
     -- add extra args
-    if config.options.quick_type_flags ~= nil and config.options.quick_type_flags then
-        for _, flag in ipairs(config.options.quick_type_flags) do
+    local opt = config.options
+    if opt.quick_type_flags ~= nil and opt.quick_type_flags then
+        for _, flag in ipairs(opt.quick_type_flags) do
             table.insert(cmd, flag)
         end
     end
