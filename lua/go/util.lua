@@ -17,4 +17,15 @@ function M.binary_exists(bin)
     return false
 end
 
+function M.empty_output(data)
+    if #data == 0 then
+        return true
+    end
+    if #data == 1 and data[1] == '' then
+        return true
+    end
+
+    return false
+end
+
 return M

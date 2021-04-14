@@ -37,7 +37,7 @@ local function do_test(prefix, cmd)
     -- calc popup window size here
     local top, width = output.calc_popup_size()
     local function on_event(_, data, event)
-        if config.options.test_popup then
+        if config.options.test_popup and not util.empty_output(data) then
             return output.popup_job_result(data, {title = prefix, top = top, width = width})
         else
             local outputs = {}
