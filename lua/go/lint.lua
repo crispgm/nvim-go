@@ -24,6 +24,12 @@ local function show_quickfix(qf_list)
     vim.api.nvim_command(string.format('lopen %d', height))
 end
 
+local function clear_quickfix()
+    local win_nr = vim.fn.winnr()
+    vim.fn.setloclist(win_nr, {})
+    vim.api.nvim_command('lclose')
+end
+
 local function clear_virtual_text()
     if ns_id > 0 then
         vim.api.nvim_buf_clear_namespace(0, ns_id, 0, -1)
@@ -89,8 +95,12 @@ local function do_lint(linter, args)
             if #err_list > 0 then
                 output.show_error(linter, table.concat(err_list, '\n'))
             end
-            if config.options.lint_prompt_style == 'qf' and #qf_list > 0 then
-                show_quickfix(qf_list)
+            if config.options.lint_prompt_style == 'qf' then
+                if #qf_list > 0 then
+                    show_quickfix(qf_list)
+                else
+                    clear_quickfix()
+                end
             end
         end,
         stdout_buffered = true,
