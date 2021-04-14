@@ -91,17 +91,15 @@ function M.popup_job_result(results, opts)
         cursorline = true,
         maxheight = 10,
         minwidth = width,
-        highlight = 'Normal',
+        highlight = 'GoTestResult',
     })
     vim.api.nvim_win_set_option(popup_win, 'wrap', false)
-    vim.api.nvim_win_set_option(popup_win, 'winhl', 'Normal:GoTestResult')
+    local popup_bufnr = buf_nr
+    local border_bufnr = popup_opts.border and popup_opts.border.bufnr
     local border_win = popup_opts.border and popup_opts.border.win_id
     if border_win then
         vim.api.nvim_win_set_option(border_win, 'winhl', 'Normal:GoTestResultBorder')
     end
-
-    local popup_bufnr = buf_nr
-    local border_bufnr = vim.api.nvim_win_get_buf(border_win)
 
     local on_buf_leave = string.format(
     [[  autocmd BufLeave <buffer> ++nested ++once :silent lua require('go.output').close_popups(%s,%s,%s,%s)]],
