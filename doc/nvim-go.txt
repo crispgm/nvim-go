@@ -69,7 +69,7 @@ settings:
         tags_options = {'json=omitempty'},
         tags_transform = 'snakecase',
         tags_flags = {'-skip-unexported'},
-        quick_type_flags = {'--just-types-and-package'},
+        quick_type_flags = {'--just-types'},
     }
 <
                                                             *nvim-go-commands*

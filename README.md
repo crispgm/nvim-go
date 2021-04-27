@@ -99,7 +99,7 @@ require('go').setup{
     tags_transform = 'snakecase',
     tags_flags = {'-skip-unexported'},
     -- quick type
-    quick_type_flags = {'--just-types-and-package'},
+    quick_type_flags = {'--just-types'},
 }
 ```
 
