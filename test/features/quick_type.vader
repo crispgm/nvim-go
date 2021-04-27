@@ -11,8 +11,6 @@ Execute:
 Expect (generate a struct from json):
 
 
-  package main
-
   type JSON struct {
   	Hello     string `json:"hello"`    
   	Greetting int64  `json:"greetting"`
@@ -27,8 +25,6 @@ Execute (generate a struct from json with the package name presents on top):
   sleep 2
 
 Expect:
-  package json
-
   package json
 
   type JSON struct {
@@ -46,8 +42,6 @@ Execute (generate a struct from json with package name specified):
 Expect:
 
 
-  package json
-
   type JSON struct {
   	Hello     string `json:"hello"`    
   	Greetting int64  `json:"greetting"`
@@ -62,8 +56,6 @@ Execute (generate a struct from json with package and struct name specified):
 
 Expect:
 
-
-  package json
 
   type MyObject struct {
   	Hello     string `json:"hello"`    

@@ -30,16 +30,16 @@ command! -nargs=* -range GoClearTagOptions  lua require('go.struct_tag').clear_o
 command! -nargs=* -complete=file GoQuickType lua require('go.quick_type').quick_type(<count>, <f-args>)
 
 lua << EOB
-local config = require('go.config')
-local api = vim.api
+local opt = require('go.config').options
+local cmd = vim.api.nvim_command
 
-api.nvim_command([[augroup nvim_go]])
-api.nvim_command([[  autocmd!]])
-if config.options.auto_format then
-  api.nvim_command([[autocmd BufWritePre  <buffer> GoFormat]])
+cmd([[augroup nvim_go]])
+cmd([[  autocmd!]])
+if opt.auto_format then
+  cmd([[autocmd BufWritePre  <buffer> GoFormat]])
 end
-if config.options.auto_lint then
-  api.nvim_command([[autocmd BufWritePost <buffer> GoLint]])
+if opt.auto_lint then
+  cmd([[autocmd BufWritePost <buffer> GoLint]])
 end
-api.nvim_command([[augroup END]])
+cmd([[augroup END]])
 EOB
