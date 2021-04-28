@@ -79,7 +79,7 @@ local function modify_tags(prefix, args)
         return
     end
 
-    vim.api.nvim_exec('write', true)
+    vim.api.nvim_exec('noautocmd write', true)
     vim.fn.jobstart(cmd, {
         on_exit = function(_, code)
             if code == 0 then
