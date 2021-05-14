@@ -6,7 +6,7 @@ local go = setmetatable({}, {
         end
 
         return val
-    end
+    end,
 })
 
 local vim = vim

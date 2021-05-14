@@ -12,15 +12,15 @@ local function build_cmd(tool, update)
     end
     if pkg_mgr == 'go' then
         if update then
-            cmd = {'go', 'get', '-u', tool.src}
+            cmd = { 'go', 'get', '-u', tool.src }
         else
-            cmd = {'go', 'get', tool.src}
+            cmd = { 'go', 'get', tool.src }
         end
     elseif pkg_mgr == 'yarn' then
         if update then
-            cmd = {'yarn', 'global', 'upgrade', tool.src}
+            cmd = { 'yarn', 'global', 'upgrade', tool.src }
         else
-            cmd = {'yarn', 'global', 'add', tool.src}
+            cmd = { 'yarn', 'global', 'add', tool.src }
         end
     else
         return nil
@@ -40,16 +40,27 @@ function M.install_binaries()
         if vim.fn.executable(tool.name) == 1 then
             goto skip_to_next
         end
-        local msg = string.format('[%s] Installing %s: %s ...', prefix, tool.name, tool.src)
-        vim.api.nvim_echo({{msg}}, true, {})
+        local msg = string.format(
+            '[%s] Installing %s: %s ...',
+            prefix,
+            tool.name,
+            tool.src
+        )
+        vim.api.nvim_echo({ { msg } }, true, {})
         local cmd = build_cmd(tool, false)
         if cmd == nil then
-            output.show_error(prefix, string.format('%s is not supported', tool.pkg_mgr))
+            output.show_error(
+                prefix,
+                string.format('%s is not supported', tool.pkg_mgr)
+            )
         end
         vim.fn.jobstart(cmd, {
             on_exit = function(_, code)
                 if code == 0 then
-                    output.show_success(prefix, string.format('Installed %s', tool.name))
+                    output.show_success(
+                        prefix,
+                        string.format('Installed %s', tool.name)
+                    )
                 end
             end,
             on_stderr = function(_, data)
@@ -66,16 +77,27 @@ end
 function M.update_binaries()
     local prefix = 'GoInstallBinaries'
     for _, tool in ipairs(config.tools) do
-        local msg = string.format('[%s] Installing %s: %s ...', prefix, tool.name, tool.src)
-        vim.api.nvim_echo({{msg}}, true, {})
+        local msg = string.format(
+            '[%s] Installing %s: %s ...',
+            prefix,
+            tool.name,
+            tool.src
+        )
+        vim.api.nvim_echo({ { msg } }, true, {})
         local cmd = build_cmd(tool, true)
         if cmd == nil then
-            output.show_error(prefix, string.format('%s is not supported', tool.pkg_mgr))
+            output.show_error(
+                prefix,
+                string.format('%s is not supported', tool.pkg_mgr)
+            )
         end
         vim.fn.jobstart(cmd, {
             on_exit = function(_, code)
                 if code == 0 then
-                    output.show_success(prefix, string.format('Installed %s', tool.name))
+                    output.show_success(
+                        prefix,
+                        string.format('Installed %s', tool.name)
+                    )
                 end
             end,
             on_stderr = function(_, data)

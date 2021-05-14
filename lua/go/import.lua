@@ -4,16 +4,18 @@ local vim = vim
 local util = require('go.util')
 
 local function delimit_pkg(pkg)
-    if not pkg then return '' end
+    if not pkg then
+        return ''
+    end
 
     if vim.startswith(pkg, '"') then
         pkg = string.sub(pkg, 2)
     end
     if vim.endswith(pkg, '"') then
-        pkg = string.sub(pkg, 1, #pkg-1)
+        pkg = string.sub(pkg, 1, #pkg - 1)
     end
     if vim.endswith(pkg, '/') then
-        pkg = string.sub(pkg, 1, #pkg-1)
+        pkg = string.sub(pkg, 1, #pkg - 1)
     end
 
     return pkg
@@ -28,9 +30,13 @@ local function need_go_get(pkg)
 end
 
 function M.get(pkg)
-    if not util.binary_exists('go') then return end
+    if not util.binary_exists('go') then
+        return
+    end
 
-    if not pkg then return end
+    if not pkg then
+        return
+    end
     vim.api.nvim_command('!go get -u -v ' .. pkg)
 end
 
@@ -105,10 +111,14 @@ local function switch_import(pkg)
 end
 
 function M.import(pkg)
-    if not util.binary_exists('go') then return end
+    if not util.binary_exists('go') then
+        return
+    end
 
     pkg = delimit_pkg(pkg)
-    if not pkg then return end
+    if not pkg then
+        return
+    end
     if need_go_get(pkg) then
         M.get(pkg)
     end

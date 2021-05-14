@@ -7,14 +7,25 @@ local output = require('go.output')
 function M.quick_type(_, src, pkg_name, top_level)
     local prefix = 'GoQuickType'
     local cur_line = vim.fn.line('.')
-    local cmd = {'quicktype', '--src', src, '--lang', 'go', '--src-lang', 'json'}
+    local cmd = {
+        'quicktype',
+        '--src',
+        src,
+        '--lang',
+        'go',
+        '--src-lang',
+        'json',
+    }
     if pkg_name ~= nil and #pkg_name > 0 then
         table.insert(cmd, '--package')
         table.insert(cmd, pkg_name)
     else
         -- auto detect package name
         local first_line = vim.fn.getline(1)
-        local matches = vim.fn.matchlist(first_line, '^package\\s\\+\\(\\S\\+\\)$')
+        local matches = vim.fn.matchlist(
+            first_line,
+            '^package\\s\\+\\(\\S\\+\\)$'
+        )
         if matches ~= nil and #matches >= 2 then
             pkg_name = matches[2]
             table.insert(cmd, '--package')
@@ -41,8 +52,8 @@ function M.quick_type(_, src, pkg_name, top_level)
         end,
         on_stdout = function(_, data)
             if data and #data > 0 then
-                for i=1, #data do
-                    vim.fn.append(cur_line, data[#data+1-i])
+                for i = 1, #data do
+                    vim.fn.append(cur_line, data[#data + 1 - i])
                 end
             end
         end,

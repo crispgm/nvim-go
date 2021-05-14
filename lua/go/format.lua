@@ -12,7 +12,9 @@ function M.format(opt)
 end
 
 local function do_fmt(formatter, args)
-    if not util.binary_exists(formatter) then return end
+    if not util.binary_exists(formatter) then
+        return
+    end
     local buf_nr = vim.api.nvim_get_current_buf()
     local file_path = vim.api.nvim_buf_get_name(buf_nr)
     vim.api.nvim_exec('write', true)
@@ -29,15 +31,15 @@ local function do_fmt(formatter, args)
 end
 
 function M.gofmt()
-    do_fmt('gofmt', {'-w'})
+    do_fmt('gofmt', { '-w' })
 end
 
 function M.goimports()
-    do_fmt('goimports', {'-w'})
+    do_fmt('goimports', { '-w' })
 end
 
 function M.gofumpt()
-    do_fmt('gofumpt', {'-l', '-w'})
+    do_fmt('gofumpt', { '-l', '-w' })
 end
 
 return M
