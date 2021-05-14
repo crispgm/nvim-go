@@ -6,7 +6,9 @@ local output = require('go.output')
 local util = require('go.util')
 
 local function get_extra_args(args, start, cmd)
-    if #args < start then return end
+    if #args < start then
+        return
+    end
     for i = start, #args do
         table.insert(cmd, args[i])
     end
@@ -16,11 +18,14 @@ local function modify_tags(prefix, args)
     local line_start = args[1]
     local line_end = args[2]
     local file_path = vim.fn.expand('%:p')
-    local cmd = {'gomodifytags', '-w', '-file', file_path}
+    local cmd = { 'gomodifytags', '-w', '-file', file_path }
     if line_start == line_end then
         -- this means it might be a `type SomeObject struct` line, so use -struct with struct name
         local line = vim.fn.getline(line_start)
-        local matches = vim.fn.matchlist(line, '^type\\s\\+\\(\\S\\+\\)\\s\\+struct')
+        local matches = vim.fn.matchlist(
+            line,
+            '^type\\s\\+\\(\\S\\+\\)\\s\\+struct'
+        )
         if matches ~= nil and #matches >= 2 then
             table.insert(cmd, '-struct')
             table.insert(cmd, matches[2])
@@ -95,7 +100,9 @@ local function modify_tags(prefix, args)
 end
 
 function M.add_tags(args)
-    if not util.binary_exists('gomodifytags') then return end
+    if not util.binary_exists('gomodifytags') then
+        return
+    end
     local prefix = 'GoAddTags'
     if #args < 2 then
         output.show_error(prefix, 'line number should be presented')
@@ -105,7 +112,9 @@ function M.add_tags(args)
 end
 
 function M.remove_tags(args)
-    if not util.binary_exists('gomodifytags') then return end
+    if not util.binary_exists('gomodifytags') then
+        return
+    end
     local prefix = 'GoRemoveTags'
     if #args < 4 then
         output.show_error(prefix, 'tag name should be presented')
@@ -115,7 +124,9 @@ function M.remove_tags(args)
 end
 
 function M.clear_tags(args)
-    if not util.binary_exists('gomodifytags') then return end
+    if not util.binary_exists('gomodifytags') then
+        return
+    end
     local prefix = 'GoClearTags'
     if #args < 2 then
         output.show_error(prefix, 'line number should be presented')
@@ -125,7 +136,9 @@ function M.clear_tags(args)
 end
 
 function M.add_options(args)
-    if not util.binary_exists('gomodifytags') then return end
+    if not util.binary_exists('gomodifytags') then
+        return
+    end
     local prefix = 'GoAddTagOptions'
     if #args < 4 then
         output.show_error(prefix, 'tag option should be presented')
@@ -135,7 +148,9 @@ function M.add_options(args)
 end
 
 function M.remove_options(args)
-    if not util.binary_exists('gomodifytags') then return end
+    if not util.binary_exists('gomodifytags') then
+        return
+    end
     local prefix = 'GoRemoveTagOptions'
     if #args < 4 then
         output.show_error(prefix, 'tag option should be presented')
@@ -145,7 +160,9 @@ function M.remove_options(args)
 end
 
 function M.clear_options(args)
-    if not util.binary_exists('gomodifytags') then return end
+    if not util.binary_exists('gomodifytags') then
+        return
+    end
     local prefix = 'GoClearTagOptions'
     if #args < 2 then
         output.show_error(prefix, 'line number should be presented')

@@ -15,11 +15,15 @@ function M.lint()
 end
 
 local function show_quickfix(qf_list)
-    if not qf_list then return end
+    if not qf_list then
+        return
+    end
 
     local win_nr = vim.fn.winnr()
     local height = 4
-    if #qf_list > 0 and #qf_list < height then height = #qf_list end
+    if #qf_list > 0 and #qf_list < height then
+        height = #qf_list
+    end
     vim.fn.setloclist(win_nr, qf_list, 'r')
     vim.api.nvim_command(string.format('lopen %d', height))
 end
@@ -38,7 +42,9 @@ local function clear_virtual_text()
 end
 
 local function do_lint(linter, args)
-    if not util.binary_exists(linter) then return end
+    if not util.binary_exists(linter) then
+        return
+    end
     local buf_nr = vim.api.nvim_get_current_buf()
     local file_path = vim.api.nvim_buf_get_name(buf_nr)
     local cmd = system.wrap_file_command(linter, args, file_path)
@@ -49,11 +55,16 @@ local function do_lint(linter, args)
     vim.fn.jobstart(cmd, {
         on_exit = function(_, code, _)
             if code ~= 0 then
-                output.show_warning(linter, string.format('error code: %d', code))
+                output.show_warning(
+                    linter,
+                    string.format('error code: %d', code)
+                )
             end
         end,
         on_stderr = function(_, data, _)
-            if #data == 1 and data[1] == '' then return end
+            if #data == 1 and data[1] == '' then
+                return
+            end
             local err_list = {}
             for _, v in ipairs(data) do
                 if string.len(v) > 0 then
@@ -72,7 +83,9 @@ local function do_lint(linter, args)
                     local ln, col, msg = o[2], o[3], vim.trim(o[4])
                     if config.options.lint_prompt_style == 'vt' then
                         ns_id = vim.api.nvim_create_namespace('NvimGoLint')
-                        vim.api.nvim_buf_set_virtual_text(buf_nr, ns_id, ln-1, {{msg, 'WarningMsg'}}, {})
+                        vim.api.nvim_buf_set_virtual_text(buf_nr, ns_id, ln - 1, {
+                            { msg, 'WarningMsg' },
+                        }, {})
                     else
                         table.insert(qf_list, {
                             buf_nr = buf_nr,
@@ -80,7 +93,8 @@ local function do_lint(linter, args)
                             type = 'W',
                             lnum = ln,
                             col = col,
-                            text = msg})
+                            text = msg,
+                        })
                     end
                 else
                     if string.len(v) > 0 then
@@ -88,7 +102,8 @@ local function do_lint(linter, args)
                             buf_nr = buf_nr,
                             filename = file_path,
                             type = 'W',
-                            text = v})
+                            text = v,
+                        })
                     end
                 end
             end
@@ -109,11 +124,15 @@ local function do_lint(linter, args)
 end
 
 function M.golangci_lint()
-    do_lint('golangci-lint', {'--out-format=line-number', '--print-issued-lines=false', 'run'})
+    do_lint('golangci-lint', {
+        '--out-format=line-number',
+        '--print-issued-lines=false',
+        'run',
+    })
 end
 
 function M.golint()
-    do_lint('golint', {'-set_exit_status'})
+    do_lint('golint', { '-set_exit_status' })
 end
 
 function M.errcheck()
@@ -121,7 +140,7 @@ function M.errcheck()
 end
 
 function M.staticcheck()
-    do_lint('staticcheck', {'-checks=all'})
+    do_lint('staticcheck', { '-checks=all' })
 end
 
 return M
