@@ -14,9 +14,9 @@ jobs:
         id: cache
         uses: actions/cache@v2
         with:
-        path: |
-          ~/.cargo/bin
-          key: ${{ runner.os }}-cargo-${{ hashFiles('weekly') }}
+          path: |
+            ~/.cargo/bin
+            key: ${{ runner.os }}-cargo-${{ hashFiles('weekly') }}
 
       - name: Install
         if: steps.cache.outputs.cache-hit != 'true'
