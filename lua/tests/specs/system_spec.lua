@@ -2,8 +2,11 @@ local system = require('go.system')
 
 describe('wrap_file_command', function()
     it('should wrap command with file and args', function()
-        local command =
-            system.wrap_file_command('ls', { '-l' }, '/path/to/file')
+        local command = system.wrap_file_command(
+            'ls',
+            { '-l' },
+            '/path/to/file'
+        )
         assert.are.same({ 'ls', '-l', '/path/to/file' }, command)
     end)
 
