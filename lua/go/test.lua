@@ -16,8 +16,10 @@ local function build_args(args)
             table.insert(args, f)
         end
     end
+    -- redirect stderr to stdout so neovim won't crash
+    table.insert(args, '2>&1')
 
-    return args
+    return table.concat(args, ' ')
 end
 
 local function valid_func_name(func_name)
@@ -96,8 +98,7 @@ function M.test()
 
     local prefix = 'GoTest'
     local cmd = { 'go', 'test' }
-    build_args(cmd)
-    do_test(prefix, cmd)
+    do_test(prefix, build_args(cmd))
 end
 
 function M.test_all()
@@ -107,8 +108,7 @@ function M.test_all()
 
     local prefix = 'GoTestAll'
     local cmd = { 'go', 'test', './...' }
-    build_args(cmd)
-    do_test(prefix, cmd)
+    do_test(prefix, build_args(cmd))
 end
 
 function M.test_func(opt)
@@ -140,8 +140,7 @@ function M.test_func(opt)
         return
     end
     local cmd = { 'go', 'test', '-run', string.format('^%s$', func_name) }
-    build_args(cmd)
-    do_test(prefix, cmd)
+    do_test(prefix, build_args(cmd))
 end
 
 function M.test_file()
@@ -176,8 +175,7 @@ function M.test_file()
         '-run',
         string.format('^%s$', table.concat(func_names, '|')),
     }
-    build_args(cmd)
-    do_test(prefix, cmd)
+    do_test(prefix, build_args(cmd))
 end
 
 local function valid_file(fn)
