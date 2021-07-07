@@ -7,7 +7,7 @@ describe('test utilities', function()
             test_timeout = '1s',
         })
         assert.are.same(
-            { 'go', 'test', '-timeout=1s', '-count=1' },
+            'go test -timeout=1s -count=1 2>&1',
             test._build_args({ 'go', 'test' })
         )
     end)

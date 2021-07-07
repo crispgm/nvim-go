@@ -8,7 +8,10 @@ describe('package delimitation', function()
 
     it('should delimit slash', function()
         local pkg = 'github.com/crispgm/go-g/'
-        assert.are.same('github.com/crispgm/go-g', import._test_delimit_pkg(pkg))
+        assert.are.same(
+            'github.com/crispgm/go-g',
+            import._test_delimit_pkg(pkg)
+        )
     end)
 end)
 
