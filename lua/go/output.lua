@@ -39,32 +39,27 @@ function M.show_job_error(prefix, code, results)
 end
 
 function M.calc_popup_size()
+	local win_height = vim.fn.winheigth(0)
 	local win_width = vim.fn.winwidth(0)
 	local pos_opts = {
-		win_height = vim.fn.winheight(0),
-		height = 10,
-		width = 80,
+		height = tonumber(config.options.popup_height),
+		width = tonumber(config.options.popup_width),
 	}
     -- config first, but default none
     -- then follows colorcolumn
-    if config.options.popup_width then
-        pos_opts.width = tonumber(config.options.popup_width)
-    else
+    if not config.options.popup_width then
         local cc = tonumber(vim.wo.colorcolumn) or 0
         if cc >= pos_opts.width then
             pos_opts.width = cc
         end
     end
-	if config.options.popup_height then
-		pos_opts.height = tonumber(config.options.popup_height)
-	end
     -- Check that we do not exceed win boundaries
 	if win_width > -1 and pos_opts.width > (win_width - 2) then
 		pos_opts.width = win_width - 4
 	end
-    if pos_opts.win_height > -1 then
-		if pos_opts.height > (pos_opts.win_height - 2) then
-			pos_opts.height = pos_opts.win_height - 2
+    if win_height > -1 then
+		if pos_opts.height > (win_height - 2) then
+			pos_opts.height = win_height - 2
 		end
     end
     return pos_opts
@@ -91,13 +86,14 @@ function M.close_popups(popup_win, popup_buf, border_win, border_buf)
 end
 
 function M.popup_job_result(results, opts)
+	local win_height = vim.fn.winheigth(0)
     local buf_nr = vim.api.nvim_create_buf(false, true)
     vim.api.nvim_buf_set_option(buf_nr, 'bufhidden', 'wipe')
     vim.api.nvim_buf_set_lines(buf_nr, 0, -1, true, results)
     local actual_content_height = vim.api.nvim_buf_line_count(buf_nr)
     local title = opts.title
     local pos_opts = opts.pos_opts
-	local top = pos_opts.win_height - (math.min(pos_opts.height, actual_content_height) + 1)
+	local top = win_height - (math.min(pos_opts.height, actual_content_height) + 1)
     local popup_win, popup_opts = popup.create(buf_nr, {
         title = title,
         line = top,

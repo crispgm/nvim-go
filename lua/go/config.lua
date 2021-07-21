@@ -23,6 +23,9 @@ M.options = {
     tags_flags = { '-skip-unexported' },
     -- quick type
     quick_type_flags = { '--just-types' },
+	-- default popup size
+	popup_width = 80,
+	popup_heigth = 10,
 }
 
 M.tools = {
