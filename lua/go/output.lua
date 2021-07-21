@@ -39,27 +39,35 @@ function M.show_job_error(prefix, code, results)
 end
 
 function M.calc_popup_size()
-    local win_height = vim.fn.winheight(0)
-    local top = 0
-    local width = 80
+	local win_width = vim.fn.winwidth(0)
+	local pos_opts = {
+		win_height = vim.fn.winheight(0),
+		height = 10,
+		width = 80,
+	}
     -- config first, but default none
     -- then follows colorcolumn
     if config.options.popup_width then
-        width = tonumber(config.options.popup_width)
+        pos_opts.width = tonumber(config.options.popup_width)
     else
         local cc = tonumber(vim.wo.colorcolumn) or 0
-        if cc >= width then
-            width = cc
+        if cc >= pos_opts.width then
+            pos_opts.width = cc
         end
     end
-    -- min width= 80
-    if width < 80 then
-        width = 80
+	if config.options.popup_height then
+		pos_opts.height = tonumber(config.options.popup_height)
+	end
+    -- Check that we do not exceed win boundaries
+	if win_width > -1 and pos_opts.width > (win_width - 2) then
+		pos_opts.width = win_width - 4
+	end
+    if pos_opts.win_height > -1 then
+		if pos_opts.height > (pos_opts.win_height - 2) then
+			pos_opts.height = pos_opts.win_height - 2
+		end
     end
-    if win_height > -1 then
-        top = win_height - 11
-    end
-    return top, width
+    return pos_opts
 end
 
 function M.close_popup(win_id, buf_nr)
@@ -86,16 +94,19 @@ function M.popup_job_result(results, opts)
     local buf_nr = vim.api.nvim_create_buf(false, true)
     vim.api.nvim_buf_set_option(buf_nr, 'bufhidden', 'wipe')
     vim.api.nvim_buf_set_lines(buf_nr, 0, -1, true, results)
+    local actual_content_height = vim.api.nvim_buf_line_count(buf_nr)
     local title = opts.title
-    local top, width = opts.top or 1, opts.width or 80
+    local pos_opts = opts.pos_opts
+	local top = pos_opts.win_height - (math.min(pos_opts.height, actual_content_height) + 1)
     local popup_win, popup_opts = popup.create(buf_nr, {
         title = title,
         line = top,
         col = 2,
         border = { 1, 1, 1, 1 },
         cursorline = true,
-        maxheight = 10,
-        minwidth = width,
+        maxheight = pos_opts.height,
+        minwidth = 80,
+		width = pos_opts.width,
         highlight = 'GoTestResult',
     })
     vim.api.nvim_win_set_option(popup_win, 'wrap', false)
