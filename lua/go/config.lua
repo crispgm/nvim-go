@@ -16,6 +16,8 @@ M.options = {
     test_env = {},
     -- show test result with popup window
     test_popup = true,
+    popup_width = 80,
+    popup_height = 10,
     -- struct tags
     tags_name = 'json',
     tags_options = { 'json=omitempty' },
@@ -23,9 +25,6 @@ M.options = {
     tags_flags = { '-skip-unexported' },
     -- quick type
     quick_type_flags = { '--just-types' },
-    -- default popup size
-    popup_width = 80,
-    popup_heigth = 10,
 }
 
 M.tools = {
