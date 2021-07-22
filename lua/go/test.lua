@@ -40,7 +40,20 @@ local function split_file_name(str)
     return vim.fn.split(vim.fn.split(str, ' ')[2], '(')[1]
 end
 
+local function valid_buf()
+    local buf_nr = vim.api.nvim_get_current_buf()
+    if vim.api.nvim_buf_is_valid(buf_nr)
+        and vim.api.nvim_buf_get_option(buf_nr, 'buflisted') then
+        return true
+    end
+
+    return false
+end
+
 local function do_test(prefix, cmd)
+    if not valid_buf() then
+        return
+    end
     -- calc popup window size here
     local pos_opts = output.calc_popup_size()
     local function on_event(_, data, event)
@@ -138,7 +151,12 @@ function M.test_func(opt)
         )
         return
     end
-    local cmd = { 'go', 'test', '-run', string.format('^%s$', func_name) }
+    local cmd = {
+        'go',
+        'test',
+        '-run',
+        vim.fn.shellescape(string.format('^%s$', func_name)),
+    }
     do_test(prefix, build_args(cmd))
 end
 
@@ -172,7 +190,7 @@ function M.test_file()
         'go',
         'test',
         '-run',
-        string.format('^%s$', table.concat(func_names, '|')),
+        vim.fn.shellescape(string.format('^%s$', table.concat(func_names, '|'))),
     }
     do_test(prefix, build_args(cmd))
 end
