@@ -42,12 +42,12 @@ end
 
 local function do_test(prefix, cmd)
     -- calc popup window size here
-	local pos_opts = output.calc_popup_size()
+    local pos_opts = output.calc_popup_size()
     local function on_event(_, data, event)
         if config.options.test_popup and not util.empty_output(data) then
             return output.popup_job_result(data, {
                 title = prefix,
-				pos_opts = pos_opts,
+                pos_opts = pos_opts,
             })
         else
             local outputs = {}
