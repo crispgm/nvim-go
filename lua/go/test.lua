@@ -42,8 +42,10 @@ end
 
 local function valid_buf()
     local buf_nr = vim.api.nvim_get_current_buf()
-    if vim.api.nvim_buf_is_valid(buf_nr)
-        and vim.api.nvim_buf_get_option(buf_nr, 'buflisted') then
+    if
+        vim.api.nvim_buf_is_valid(buf_nr)
+        and vim.api.nvim_buf_get_option(buf_nr, 'buflisted')
+    then
         return true
     end
 
