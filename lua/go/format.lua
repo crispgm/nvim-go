@@ -17,12 +17,14 @@ local function do_fmt(formatter, args)
     end
     local buf_nr = vim.api.nvim_get_current_buf()
     local file_path = vim.api.nvim_buf_get_name(buf_nr)
+    local view = vim.fn.winsaveview()
     vim.api.nvim_exec('write', true)
     local cmd = system.wrap_file_command(formatter, args, file_path)
     vim.fn.jobstart(cmd, {
         on_exit = function(_, code)
             if code == 0 then
                 vim.api.nvim_exec('edit!', true)
+                vim.fn.winrestview(view)
             else
                 output.show_error(formatter, string.format('Error: %d', code))
             end
