@@ -29,6 +29,9 @@ local function modify_tags(prefix, args)
         if matches ~= nil and #matches >= 2 then
             table.insert(cmd, '-struct')
             table.insert(cmd, matches[2])
+        else -- treat it as just a line number
+            table.insert(cmd, '-line')
+            table.insert(cmd, string.format('%d,%d', line_start, line_end))
         end
     else
         -- just modify by line numbers
