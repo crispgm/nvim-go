@@ -47,16 +47,16 @@ function M.calc_popup_size()
         width = 10,
     }
     -- config first, if config is none then follows colorcolumn
-    if config.options.popup_width and config.options.popup_width > 0 then
-        opts.width = tonumber(config.options.popup_width)
+    if config.options.test_popup_width and config.options.test_popup_width > 0 then
+        opts.width = tonumber(config.options.test_popup_width)
     else
         local cc = tonumber(vim.wo.colorcolumn) or 0
         if cc > opts.width then
             opts.width = cc
         end
     end
-    if config.options.popup_height and config.options.popup_height > 0 then
-        opts.height = tonumber(config.options.popup_height)
+    if config.options.test_popup_height and config.options.test_popup_height > 0 then
+        opts.height = tonumber(config.options.test_popup_height)
     end
     -- check that we do not exceed win boundaries
     if win_width > -1 and opts.width > (win_width - 2) then
