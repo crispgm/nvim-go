@@ -26,18 +26,18 @@ CONTENTS                                                    *nvim-go-contents*
 ==============================================================================
 INTRODUCTION                                  *nvim-go* *nvim-go-introduction*
 
-A minimal implementation of Golang development plugin written in Lua for neovim
-nightly (0.5).
+A minimal implementation of Golang development plugin written in Lua for
+Neovim.
 
-Neovim 0.5 embeds a built-in LSP (Language Server Protocol) client so that
-we are able to do most of vim-go's features by LSP client,
+Neovim starts to embed a built-in LSP (Language Server Protocol) client from
+v0.5 so that we are able to do most of vim-go's features by LSP client,
 `nvim-go` collaborates with these features to get Golang development done.
 
 ==============================================================================
 REQUIREMENTS                                            *nvim-go-requirements*
 
-nvim-go works only with Neovim and was written Neovim-0.5, so it is highly
-recommended to use Neovim version 0.5+.
+nvim-go works only with Neovim and was written in Lua, so it requires Neovim
+version 0.5+.
 
 ==============================================================================
 LIMITATIONS AND KNOWN ISSUES                                  *nvim-go-issues*
@@ -168,7 +168,7 @@ Commands~
                                                              *nvim-go-lua-api*
 Lua API~
 
-`go.setup(`{opts}`)`                                           *nvim-go.setup*
+`go.setup(`{opts}`)`                                               *nvim-go.setup*
     Setup the library with options.
 
     This functional will setup the Lua API and commands in a way that respects

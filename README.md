@@ -2,7 +2,7 @@
 
 [![build](https://github.com/crispgm/nvim-go/actions/workflows/ci.yml/badge.svg)](https://github.com/crispgm/nvim-go/actions/workflows/ci.yml)
 
-A minimal implementation of Golang development plugin written in Lua for neovim nightly (0.5).
+A minimal implementation of Golang development plugin written in Lua for neovim 0.5+.
 
 Neovim 0.5 embeds a built-in LSP (Language Server Protocol) client so that
 we are able to do most of vim-go's features by LSP client,
@@ -41,7 +41,7 @@ This section can be considered as a guide or common practice to develop with `nv
 ## Installation
 
 Prerequisites:
-- Neovim nightly (0.5)
+- Neovim (>= 0.5)
 - [yarn](http://yarnpkg.com) (for quicktype)
 
 Install with vim-plug:
