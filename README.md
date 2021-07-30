@@ -24,6 +24,7 @@ Language server provides useful language features to make Golang development eas
 `nvim-go` does not provide these features but collaborates with them.
 
 This section can be considered as a guide or common practice to develop with `nvim-go` and `gopls`:
+
 - Code Completion via `nvim-compe` or `completion.nvim`
 - Declaration: `vim.lsp.buf.declaration()`
 - Definition: `vim.lsp.buf.definition()` and `vim.lsp.buf.type_definition()`
@@ -41,10 +42,12 @@ This section can be considered as a guide or common practice to develop with `nv
 ## Installation
 
 Prerequisites:
+
 - Neovim (>= 0.5)
 - [yarn](http://yarnpkg.com) (for quicktype)
 
 Install with vim-plug:
+
 ```viml
 " dependencies
 Plug 'nvim-lua/plenary.nvim'
@@ -56,6 +59,7 @@ Plug 'neovim/nvim-lspconfig'
 ```
 
 Run:
+
 ```shell
 nvim +PlugInstall
 ```
@@ -108,6 +112,7 @@ require('go').setup{
 ### Manual
 
 Display within neovim with:
+
 ```vim
 :help nvim-go
 ```
