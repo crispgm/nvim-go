@@ -42,7 +42,8 @@ version 0.5+.
 ==============================================================================
 LIMITATIONS AND KNOWN ISSUES                                  *nvim-go-issues*
 
-* Upstream Issue: `golangci-lint` may mess up quickfix dute to stderr output.
+* Upstream Issue: `golangci-lint` may not run linters successfully if your
+  project cannot be built.
 
 ==============================================================================
 USAGE                                                          *nvim-go-usage*
@@ -91,8 +92,11 @@ Commands~
 
 `:Golangcilint`                                                *:Golangcilint*
     Lint with `golangci-lint`. Notice that we recommend `golangci-lint`, because
-    it is able to run multiple linters including all the following linters and
-    easier to apply custom configurations.
+    it is able to run multiple linters including all the following linters
+    and easier to apply custom configurations.
+
+    Notice: It may not run linters successfully if your project cannot be
+    built.
 
 `:Golint`                                                            *:Golint*
     Lint with `golint`.
