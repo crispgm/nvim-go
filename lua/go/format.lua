@@ -28,6 +28,9 @@ local function do_fmt(formatter, args)
             end
         end,
         on_stderr = function(_, data, _)
+            if #data == 0 or #data[1] == 0 then
+                return
+            end
             local results = 'File is not formatted due to error.\n'
                 .. table.concat(data, '\n')
             output.show_error('GoFormat', results)
