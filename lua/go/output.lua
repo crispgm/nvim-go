@@ -48,8 +48,8 @@ function M.calc_popup_size()
     }
     -- config first, if config is none then follows colorcolumn
     if
-        config.options.test_popup_width and config.options.test_popup_width
-            > 0
+        config.options.test_popup_width
+        and config.options.test_popup_width > 0
     then
         opts.width = tonumber(config.options.test_popup_width)
     else

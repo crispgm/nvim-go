@@ -59,7 +59,7 @@ settings:
     require('go').setup{
         auto_format = true,
         auto_lint = true,
-        linter = 'golint',
+        linter = 'revive',
         lint_prompt_style = 'qf',
         formatter = 'goimports',
         test_flags = {'-v'},
@@ -87,7 +87,7 @@ Commands~
     Perform updates for dependent binaries.
 
 `:GoLint`                                                            *:GoLint*
-    Lint with linter. Default linter is `golint`. If there are issues,
+    Lint with linter. Default linter is `revive`. If there are issues,
     it will be prompt with quickfixes.
 
 `:Golangcilint`                                                *:Golangcilint*
@@ -97,6 +97,9 @@ Commands~
 
     Notice: It may not run linters successfully if your project cannot be
     built.
+
+`:Gorevive`                                                        *:Gorevive*
+    Lint with `revive`.
 
 `:Golint`                                                            *:Golint*
     Lint with `golint`.

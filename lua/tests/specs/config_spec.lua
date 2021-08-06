@@ -4,7 +4,7 @@ local config = require('go.config')
 describe('setup', function()
     it('shoule init with default', function()
         go.setup({})
-        assert.are.same('golint', config.options.linter)
+        assert.are.same('revive', config.options.linter)
     end)
 
     it('should setup with customized value', function()

@@ -11,7 +11,7 @@ we are able to do most of vim-go's features by LSP client,
 ## Plugin Features
 
 - Auto format with `:GoFormat` when saving. (LSP supports this but it lacks `goimports`)
-- Run linters with `:GoLint` (via `golint`) automatically.
+- Run linters with `:GoLint` (via `revive`) automatically.
 - Quickly test with `:GoTest`, `:GoTestFunc`, `:GoTestFile` and `:GoTestAll`.
 - Import packages with `:GoGet` and `:GoImport`.
 - Modify struct tags with `:GoAddTags`, `:GoRemoveTags`, `:GoClearTags`, `:GoAddTagOptions`, `:GoRemoveTagOptions` and `:GoClearTagOptions`.
@@ -85,8 +85,8 @@ require('go').setup{
     -- auto commands
     auto_format = true,
     auto_lint = true,
-    -- linters: golint, errcheck, staticcheck, golangci-lint
-    linter = 'golint',
+    -- linters: revive, errcheck, staticcheck, golangci-lint
+    linter = 'revive',
     -- lint_prompt_style: qf (quickfix), vt (virtual text)
     lint_prompt_style = 'qf',
     -- formatter: goimports, gofmt, gofumpt
