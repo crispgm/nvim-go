@@ -55,73 +55,57 @@ local function do_lint(linter, args)
     -- clear former prompt
     clear_virtual_text()
     local qf_list = {}
+    local function on_event(_, data, _)
+        local err_list = {}
+        for _, v in ipairs(data) do
+            local o = vim.fn.split(v, ':')
+            if type(o) == 'table' and #o >= 4 then
+                local fn, ln, col, msg = o[1], o[2], o[3], ''
+                for i = 4, #o do
+                    msg = msg .. o[i]
+                end
+                if config.options.lint_prompt_style == 'vt' then
+                    ns_id = vim.api.nvim_create_namespace('NvimGoLint')
+                    vim.api.nvim_buf_set_virtual_text(buf_nr, ns_id, ln - 1, {
+                        { msg, 'WarningMsg' },
+                    }, {})
+                else
+                    table.insert(qf_list, {
+                        buf_nr = buf_nr,
+                        filename = fn,
+                        type = 'W',
+                        lnum = ln,
+                        col = col,
+                        text = msg,
+                    })
+                end
+            else
+                if string.len(v) > 0 then
+                    table.insert(qf_list, {
+                        buf_nr = buf_nr,
+                        filename = file_path,
+                        type = 'W',
+                        text = v,
+                    })
+                end
+            end
+        end
+        if #err_list > 0 then
+            output.show_error(linter, table.concat(err_list, '\n'))
+        end
+        if config.options.lint_prompt_style == 'qf' then
+            if #qf_list > 0 then
+                show_quickfix(qf_list)
+            else
+                clear_quickfix()
+            end
+        end
+    end
+
     -- job
     vim.fn.jobstart(cmd, {
-        on_exit = function(_, code, _)
-            if code ~= 0 then
-                output.show_warning(
-                    linter,
-                    string.format('error code: %d', code)
-                )
-            end
-        end,
-        on_stderr = function(_, data, _)
-            if #data == 1 and data[1] == '' then
-                return
-            end
-            local err_list = {}
-            for _, v in ipairs(data) do
-                if string.len(v) > 0 then
-                    table.insert(err_list, v)
-                end
-            end
-            if #err_list > 0 then
-                output.show_error(linter, table.concat(err_list, '\n'))
-            end
-        end,
-        on_stdout = function(_, data, _)
-            local err_list = {}
-            for _, v in ipairs(data) do
-                local o = vim.fn.split(v, ':')
-                if type(o) == 'table' and #o > 0 then
-                    local ln, col, msg = o[2], o[3], vim.trim(o[4])
-                    if config.options.lint_prompt_style == 'vt' then
-                        ns_id = vim.api.nvim_create_namespace('NvimGoLint')
-                        vim.api.nvim_buf_set_virtual_text(buf_nr, ns_id, ln - 1, {
-                            { msg, 'WarningMsg' },
-                        }, {})
-                    else
-                        table.insert(qf_list, {
-                            buf_nr = buf_nr,
-                            filename = file_path,
-                            type = 'W',
-                            lnum = ln,
-                            col = col,
-                            text = msg,
-                        })
-                    end
-                else
-                    if string.len(v) > 0 then
-                        table.insert(qf_list, {
-                            buf_nr = buf_nr,
-                            filename = file_path,
-                            type = 'W',
-                            text = v,
-                        })
-                    end
-                end
-            end
-            if #err_list > 0 then
-                output.show_error(linter, table.concat(err_list, '\n'))
-            end
-            if config.options.lint_prompt_style == 'qf' then
-                if #qf_list > 0 then
-                    show_quickfix(qf_list)
-                else
-                    clear_quickfix()
-                end
-            end
-        end,
+        on_stdout = on_event,
+        on_stderr = on_event,
         stdout_buffered = true,
         stderr_buffered = true,
     })
