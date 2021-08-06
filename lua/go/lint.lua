@@ -119,7 +119,7 @@ function M.golangci_lint()
     })
 end
 
-function M.gorevive()
+function M.revive()
     do_lint('revive', {})
 end
 
