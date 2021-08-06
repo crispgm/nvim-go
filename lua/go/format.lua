@@ -21,13 +21,16 @@ local function do_fmt(formatter, args)
     vim.api.nvim_exec('write', true)
     local cmd = system.wrap_file_command(formatter, args, file_path)
     vim.fn.jobstart(cmd, {
-        on_exit = function(_, code)
+        on_exit = function(_, code, _)
             if code == 0 then
                 vim.api.nvim_exec('edit!', true)
                 vim.fn.winrestview(view)
-            else
-                output.show_error(formatter, string.format('Error: %d', code))
             end
+        end,
+        on_stderr = function(_, data, _)
+            local results = 'File is not formatted due to error.\n'
+                .. table.concat(data, '\n')
+            output.show_error('GoFormat', results)
         end,
     })
 end

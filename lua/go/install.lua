@@ -55,7 +55,7 @@ function M.install_binaries()
             )
         end
         vim.fn.jobstart(cmd, {
-            on_exit = function(_, code)
+            on_exit = function(_, code, _)
                 if code == 0 then
                     output.show_success(
                         prefix,
@@ -63,7 +63,7 @@ function M.install_binaries()
                     )
                 end
             end,
-            on_stderr = function(_, data)
+            on_stderr = function(_, data, _)
                 local results = table.concat(data, '\n')
                 output.show_error(prefix, results)
             end,
@@ -92,7 +92,7 @@ function M.update_binaries()
             )
         end
         vim.fn.jobstart(cmd, {
-            on_exit = function(_, code)
+            on_exit = function(_, code, _)
                 if code == 0 then
                     output.show_success(
                         prefix,
@@ -100,7 +100,7 @@ function M.update_binaries()
                     )
                 end
             end,
-            on_stderr = function(_, data)
+            on_stderr = function(_, data, _)
                 local results = table.concat(data, '\n')
                 output.show_error(prefix, results)
             end,

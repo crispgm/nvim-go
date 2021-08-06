@@ -90,14 +90,14 @@ local function modify_tags(prefix, args)
     local view = vim.fn.winsaveview()
     vim.api.nvim_exec('noautocmd write', true)
     vim.fn.jobstart(cmd, {
-        on_exit = function(_, code)
+        on_exit = function(_, code, _)
             if code == 0 then
                 output.show_success(prefix, 'Success')
                 vim.api.nvim_exec('edit!', true)
                 vim.fn.winrestview(view)
             end
         end,
-        on_stderr = function(_, data)
+        on_stderr = function(_, data, _)
             local results = table.concat(data, '\n')
             output.show_error(prefix, results)
         end,
