@@ -117,10 +117,6 @@ Display within neovim with:
 :help nvim-go
 ```
 
-## Known Issues
-
-- Upstream Issue: `golangci-lint` may mess up quickfix due to stderr output [#3](https://github.com/crispgm/nvim-go/issues/3)
-
 ## License
 
 [MIT](/LICENSE)
