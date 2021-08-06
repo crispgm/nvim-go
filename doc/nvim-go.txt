@@ -90,6 +90,10 @@ Commands~
     Lint with linter. Default linter is `revive`. If there are issues,
     it will be prompt with quickfixes.
 
+    Notice: You may notice that `go vet` is not listed in linters, because
+    Language Server (`gopls`) has done that and it will show on virtual text
+    area as diag issues.
+
 `:Golangcilint`                                                *:Golangcilint*
     Lint with `golangci-lint`. Notice that we recommend `golangci-lint`, because
     it is able to run multiple linters including all the following linters
