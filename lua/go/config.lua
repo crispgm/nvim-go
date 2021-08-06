@@ -4,8 +4,8 @@ M.options = {
     -- auto commands
     auto_lint = true,
     auto_format = true,
-    -- linter: golint, errcheck, golangci-lint
-    linter = 'golint',
+    -- linter: revive, staticcheck, errcheck, golangci-lint
+    linter = 'revive',
     -- lint_prompt_style: qf (quickfix), vt (virtual text)
     lint_prompt_style = 'qf',
     -- formatter: goimports, gofmt, gofumpt
@@ -30,6 +30,7 @@ M.options = {
 M.tools = {
     { name = 'gopls', src = 'golang.org/x/tools/gopls@latest' },
     { name = 'golint', src = 'golang.org/x/lint/golint' },
+    { name = 'revive', src = 'github.com/mgechev/revive' },
     { name = 'goimports', src = 'golang.org/x/tools/cmd/goimports' },
     { name = 'gofumpt', src = 'mvdan.cc/gofumpt' },
     { name = 'errcheck', src = 'github.com/kisielk/errcheck' },

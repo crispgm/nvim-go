@@ -131,6 +131,10 @@ function M.golangci_lint()
     })
 end
 
+function M.gorevive()
+    do_lint('revive', {})
+end
+
 function M.golint()
     do_lint('golint', { '-set_exit_status' })
 end
