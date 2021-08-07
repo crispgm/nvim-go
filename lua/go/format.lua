@@ -6,9 +6,9 @@ local system = require('go.system')
 local output = require('go.output')
 local util = require('go.util')
 
-function M.format(opt)
+function M.format()
     local formatter = config.options.formatter
-    return pcall(M[formatter], opt)
+    return pcall(M[formatter])
 end
 
 local function do_fmt(formatter, args)
