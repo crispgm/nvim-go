@@ -132,6 +132,7 @@ function M.test_func(opt)
 
     local prefix = 'GoTestFunc'
     local func_name = ''
+    -- this is not available now actually
     if opt and opt.func then
         func_name = opt.func
     else
