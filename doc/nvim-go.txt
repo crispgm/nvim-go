@@ -68,6 +68,7 @@ settings:
         test_popup = true,
         test_popup_width = 80,
         test_popup_height = 10,
+        test_open_cmd = 'edit',
         tags_name = 'json',
         tags_options = {'json=omitempty'},
         tags_transform = 'snakecase',
@@ -145,9 +146,10 @@ Commands~
 `:GoTestFile`                                                    *:GoTestFile*
     Run current `*_test.go` file.
 
-`:GoToTest`                                                        *:GoToTest*
+`:GoToTest(cmd)`                                                   *:GoToTest*
     Go from `*.go` to `*_test.go` or go back. It will create new file if
-    `*_test.go` does not exist.
+    `*_test.go` does not exist. The default command is `edit`, you may pass
+    `vsplit`, `split`, `tabedit` or commands like that.
 
 `:GoAddTags([tag, [args...]])`                                    *:GoAddTags*
     Add struct tag to an object or selected fields.

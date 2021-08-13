@@ -4,9 +4,6 @@ set rtp+=../popup.nvim/
 set rtp+=../vader.vim/
 
 runtime! plugin/plenary.vim
-runtime! autoload/go.vim
-runtime! plugin/go.vim
-runtime! ftplugin/go.vim
 runtime! plugin/vader.vim
 
 set noet
