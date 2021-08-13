@@ -208,7 +208,7 @@ local function valid_file(fn)
     return -1
 end
 
-function M.test_open()
+function M.test_open(cmd)
     local buf_nr = vim.api.nvim_get_current_buf()
     local file_path = vim.api.nvim_buf_get_name(buf_nr)
     local new_fn
@@ -222,7 +222,10 @@ function M.test_open()
         return
     end
 
-    vim.api.nvim_command('edit' .. new_fn)
+    if cmd == nil or cmd == '' then
+        cmd = config.options.test_open_cmd
+    end
+    vim.api.nvim_command(string.format('%s %s', cmd, new_fn))
 end
 
 -- export for testing
