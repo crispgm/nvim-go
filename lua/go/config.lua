@@ -18,6 +18,8 @@ M.options = {
     test_popup = true,
     test_popup_width = 80,
     test_popup_height = 10,
+    -- test open
+    test_open_cmd = 'edit',
     -- struct tags
     tags_name = 'json',
     tags_options = { 'json=omitempty' },
