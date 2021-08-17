@@ -87,45 +87,27 @@ Commands~
 `:GoUpdateBinaries`                                        *:GoUpdateBinaries*
     Perform updates for dependent binaries.
 
-`:GoLint`                                                            *:GoLint*
-    Lint with linter. Default linter is `revive`. If there are issues,
-    it will be prompt with quickfixes.
+`:GoLint([linter])`                                                  *:GoLint*
+    Lint with linter, If linter is not specified, then lint with default
+    linter. Default linter is `revive`, and other linters are `golangci_lint`
+    (use underline when calling with `GoLint`), `errcheck`, `staticcheck` and,
+    `golint` (deprecated). If there are issues, it will be prompt with
+    quickfix or virtual text.
 
-    Notice: You may notice that `go vet` is not listed in linters, because
-    Language Server (`gopls`) has done that and it will show on virtual text
-    area as diag issues.
+    You may notice that `go vet` is not listed in linters, because Language
+    Server (`gopls`) has done that and it will show on virtual text area as
+    diagnostic issues.
 
-`:Golangcilint`                                                *:Golangcilint*
-    Lint with `golangci-lint`. Notice that we recommend `golangci-lint`, because
-    it is able to run multiple linters including all the following linters
-    and easier to apply custom configurations.
+    Notice for `golangci-lint`: We recommend `golangci-lint` if you do not
+    prefer `revive`, because it is highly customizable and capable to run
+    multiple linters including all the linters that supported by nvim-go
+    and a bunch of other linters. It may not run linters successfully if
+    your project cannot be built.
 
-    Notice: It may not run linters successfully if your project cannot be
-    built.
-
-`:Gorevive`                                                        *:Gorevive*
-    Lint with `revive`.
-
-`:Golint`                                                            *:Golint*
-    Lint with `golint`.
-
-`:Goerrcheck`                                                    *:Goerrcheck*
-    Lint with `errcheck`.
-
-`:Gostaticcheck`                                              *:Gostaticcheck*
-    Lint with `staticcheck`.
-
-`:GoFormat`                                                        *:GoFormat*
-    Format with formatter. Default formatter is `goimports`.
-
-`:Goimports`                                                      *:Goimports*
-    Format with `goimports`.
-
-`:Gofmt`                                                              *:GoFmt*
-    Format with `gofmt`.
-
-`:Gofumpt`                                                          *:GoFumpt*
-    Format with `gofumpt`.
+`:GoFormat([formatter])`                                           *:GoFormat*
+    Format with formatter. If formatter is not specified, then format with
+    default formatter. Default formatter is `goimports`, and other formatters
+    are `golint` and `gofumpt`.
 
 `:GoGet(pkg)`                                                         *:GoGet*
     Get a Go package in a project.
