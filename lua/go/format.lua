@@ -6,8 +6,11 @@ local system = require('go.system')
 local output = require('go.output')
 local util = require('go.util')
 
-function M.format()
+function M.format(fmt)
     local formatter = config.options.formatter
+    if fmt ~= nil then
+        formatter = fmt
+    end
     return pcall(M[formatter])
 end
 

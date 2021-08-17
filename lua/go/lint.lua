@@ -9,8 +9,11 @@ local util = require('go.util')
 -- virtual text ns_id
 local ns_id = 0
 
-function M.lint()
+function M.lint(lnt)
     local linter = config.options.linter:gsub('-', '_')
+    if lnt ~= nil then
+        linter = lnt
+    end
     pcall(M[linter], {})
 end
 
