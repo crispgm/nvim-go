@@ -44,7 +44,7 @@ This section can be considered as a guide or common practice to develop with `nv
 Prerequisites:
 
 - Neovim (>= 0.5)
-- [yarn](http://yarnpkg.com) or [npm]() (for quicktype)
+- [yarn](http://yarnpkg.com) or [npm](https://www.npmjs.com) (for quicktype)
 
 Install with vim-plug or any package manager:
 
@@ -66,7 +66,7 @@ nvim +PlugInstall
 
 Finally, run `:GoInstallBinaries` after plugin installed.
 
-Install `quicktype` by npm:
+Install `quicktype` with npm:
 
 ```lua
 require('go').config.update_tool('quicktype', function(tool)
