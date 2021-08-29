@@ -4,28 +4,28 @@
 
 A minimal implementation of Golang development plugin written in Lua for neovim 0.5+.
 
-Neovim 0.5 embeds a built-in LSP (Language Server Protocol) client so that
-we are able to do most of vim-go's features by LSP client,
-`nvim-go` collaborates with these features to get Golang development done.
+Neovim 0.5 embeds a built-in Language Server Protocol (LSP) client so that
+we are able to do most of vim-go's features by LSP client.
+`nvim-go` collaborates with it and provides additional features,
+and leverages community toolchains to get Golang development done.
 
-## Plugin Features
+## Features
 
-- Auto format with `:GoFormat` when saving. (LSP supports this but it lacks `goimports`)
+- Auto format with `:GoFormat` when saving.
 - Run linters with `:GoLint` (via `revive`) automatically.
 - Quickly test with `:GoTest`, `:GoTestFunc`, `:GoTestFile` and `:GoTestAll`.
 - Import packages with `:GoGet` and `:GoImport`.
 - Modify struct tags with `:GoAddTags`, `:GoRemoveTags`, `:GoClearTags`, `:GoAddTagOptions`, `:GoRemoveTagOptions` and `:GoClearTagOptions`.
 - Generates JSON models with `:GoQuickType` (via `quicktype`).
-- And more features are under development.
 
-## Language Features
+### Recommended Language Features
 
 Language server provides useful language features to make Golang development easy.
 `nvim-go` does not provide these features but collaborates with them.
 
 This section can be considered as a guide or common practice to develop with `nvim-go` and `gopls`:
 
-- Code Completion via `nvim-compe` or `completion.nvim`
+- Code Completion via `nvim-cmp` or other completion engine you like
 - Declaration: `vim.lsp.buf.declaration()`
 - Definition: `vim.lsp.buf.definition()` and `vim.lsp.buf.type_definition()`
 - Implementation: `vim.lsp.buf.implementation()`
@@ -35,18 +35,18 @@ This section can be considered as a guide or common practice to develop with `nv
 - Symbols: `vim.lsp.buf.document_symbol()` and `vim.lsp.buf.workspace_symbol()`
 - Rename: `vim.lsp.buf.rename()`
 
-## Other Features
+### Other Recommends
 
-- Debug: we recommend [vim-delve](https://github.com/sebdah/vim-delve)
+- Debug: we recommend [vim-delve](https://github.com/sebdah/vim-delve) or [nvim-dap](https://github.com/mfussenegger/nvim-dap).
 
 ## Installation
 
 Prerequisites:
 
 - Neovim (>= 0.5)
-- [yarn](http://yarnpkg.com) (for quicktype)
+- [yarn](http://yarnpkg.com) or [npm]() (for quicktype)
 
-Install with vim-plug:
+Install with vim-plug or any package manager:
 
 ```viml
 " dependencies
@@ -66,16 +66,24 @@ nvim +PlugInstall
 
 Finally, run `:GoInstallBinaries` after plugin installed.
 
+Install `quicktype` by npm:
+
+```lua
+require('go').config.update_tool('quicktype', function(tool)
+    tool.pkg_mgr = 'npm'
+end)
+```
+
 ## Usage
 
 ### Setup
 
 ```lua
 -- setup nvim-go
-require('go').setup{}
+require('go').setup({})
 
 -- setup lsp client
-require('lspconfig').gopls.setup{}
+require('lspconfig').gopls.setup({})
 ```
 
 ### Defaults

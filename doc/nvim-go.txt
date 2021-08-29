@@ -84,6 +84,9 @@ Commands~
     advance. It will not install again if binary exists. And you may also
     install them manually.
 
+    If you want to install the binaries with different URL or package
+    manager, please use `:nvim-go.update_tool` to change the config.
+
 `:GoUpdateBinaries`                                        *:GoUpdateBinaries*
     Perform updates for dependent binaries.
 
@@ -163,13 +166,21 @@ Commands~
                                                              *nvim-go-lua-api*
 Lua API~
 
-`go.setup(`{opts}`)`                                               *nvim-go.setup*
+`go.setup(`{opts}`)`                                             *nvim-go.setup*
     Setup the library with options.
 
     This functional will setup the Lua API and commands in a way that respects
     the options you pass.
 
     The list of available options is available in the |nvim-go-config| section.
+
+`go.config.get_tool(`tool_name`)`                             *nvim-go.get_tool*
+    Get tool info from config by tool name.
+
+
+`go.config.update_tool(`tool_name, callback`)`             *nvim-go.update_tool*
+    Update tool by tool name. The callback will pass tool object and you may
+    modify the info there.
 
 ==============================================================================
 LICENSE                                                      *nvim-go-license*

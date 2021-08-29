@@ -22,6 +22,12 @@ local function build_cmd(tool, update)
         else
             cmd = { 'yarn', 'global', 'add', tool.src }
         end
+    elseif pkg_mgr == 'npm' then
+        if update then
+            cmd = { 'npm', 'update', '-g', tool.src }
+        else
+            cmd = { 'npm', 'install', '-g', tool.src }
+        end
     else
         return nil
     end

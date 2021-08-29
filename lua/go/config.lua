@@ -45,4 +45,27 @@ M.tools = {
     { name = 'quicktype', src = 'quicktype', pkg_mgr = 'yarn' },
 }
 
+function M.get_tool(name)
+    for _, value in ipairs(M.tools) do
+        if value.name == name then
+            return value
+        end
+    end
+
+    return nil
+end
+
+function M.update_tool(name, callback)
+    for _, value in ipairs(M.tools) do
+        if value.name == name then
+            if type(callback) == 'function' then
+                callback(value)
+                return true
+            end
+        end
+    end
+
+    return false
+end
+
 return M
