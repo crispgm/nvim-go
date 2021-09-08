@@ -57,9 +57,9 @@ local opt = require('go.config').options
 local cmd = vim.api.nvim_command
 
 cmd([[augroup nvim_go]])
-cmd([[  autocmd!]])
+cmd([[  autocmd! * <buffer>]])
 if opt.auto_format then
-  cmd([[autocmd BufWritePre  <buffer> GoFormat]])
+  cmd([[autocmd BufWritePre <buffer> GoFormat]])
 end
 if opt.auto_lint then
   cmd([[autocmd BufWritePost <buffer> GoLint]])
