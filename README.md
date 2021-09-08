@@ -18,6 +18,8 @@ and leverages community toolchains to get Golang development done.
 - Modify struct tags with `:GoAddTags`, `:GoRemoveTags`, `:GoClearTags`, `:GoAddTagOptions`, `:GoRemoveTagOptions` and `:GoClearTagOptions`.
 - Generates JSON models with `:GoQuickType` (via `quicktype`).
 
+[Screenshots](https://github.com/crispgm/nvim-go/wiki#screenshots)
+
 ### Recommended Language Features
 
 Language server provides useful language features to make Golang development easy.
