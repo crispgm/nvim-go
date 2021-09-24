@@ -93,7 +93,7 @@ local function modify_tags(prefix, args)
         on_exit = function(_, code, _)
             if code == 0 then
                 output.show_success(prefix, 'Success')
-                vim.api.nvim_exec('edit!', true)
+                vim.api.nvim_exec('edit', true)
                 vim.fn.winrestview(view)
             end
         end,

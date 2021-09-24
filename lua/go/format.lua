@@ -21,12 +21,13 @@ local function do_fmt(formatter, args)
     local buf_nr = vim.api.nvim_get_current_buf()
     local file_path = vim.api.nvim_buf_get_name(buf_nr)
     local view = vim.fn.winsaveview()
-    vim.api.nvim_exec('write', true)
+    vim.api.nvim_exec('noautocmd write', true)
     local cmd = system.wrap_file_command(formatter, args, file_path)
     vim.fn.jobstart(cmd, {
         on_exit = function(_, code, _)
             if code == 0 then
-                vim.api.nvim_exec('edit!', true)
+                output.show_success('GoFormat', 'Success')
+                vim.api.nvim_exec('edit', true)
                 vim.fn.winrestview(view)
             end
         end,
