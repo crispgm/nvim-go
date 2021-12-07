@@ -91,7 +91,7 @@ require('lspconfig').gopls.setup({})
 ### Defaults
 
 ```lua
-require('go').setup{
+require('go').setup({
     -- auto commands
     auto_format = true,
     auto_lint = true,
@@ -118,7 +118,7 @@ require('go').setup{
     tags_flags = {'-skip-unexported'},
     -- quick type
     quick_type_flags = {'--just-types'},
-}
+})
 ```
 
 ### Manual

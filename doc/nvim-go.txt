@@ -51,12 +51,12 @@ USAGE                                                          *nvim-go-usage*
                                                               *nvim-go-config*
 For basic setup:
 >
-    require('go').setup{}
+    require('go').setup({})
 <
 Configuration can be passed to the setup function. Here is the default
 settings:
 >
-    require('go').setup{
+    require('go').setup({
         auto_format = true,
         auto_lint = true,
         linter = 'revive',
@@ -74,7 +74,7 @@ settings:
         tags_transform = 'snakecase',
         tags_flags = {'-skip-unexported'},
         quick_type_flags = {'--just-types'},
-    }
+    })
 <
                                                             *nvim-go-commands*
 Commands~
@@ -162,6 +162,12 @@ Commands~
 `:GoQuickType(src, [package, [top_level]])`                     *:GoQuickType*
     Generates strongly-typed models and serializers from JSON via quicktype.
     Other format that supported by quicktype has not been implemented yet.
+
+                                                           *nvim-go-variables*
+Variables~
+
+`g:nvim_go#lint_issues_count`                             *:GoLintIssuesCount*
+    Issues count after executing Go linters.
 
                                                              *nvim-go-lua-api*
 Lua API~

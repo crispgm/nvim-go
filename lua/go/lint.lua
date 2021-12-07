@@ -58,6 +58,7 @@ local function do_lint(linter, args)
     -- clear former prompt
     clear_virtual_text()
     local qf_list = {}
+    local issues_count = 0
     local function on_event(_, data, _)
         local err_list = {}
         for _, v in ipairs(data) do
@@ -82,6 +83,7 @@ local function do_lint(linter, args)
                         text = msg,
                     })
                 end
+                issues_count = issues_count + 1
             else
                 if string.len(v) > 0 then
                     table.insert(qf_list, {
@@ -90,9 +92,11 @@ local function do_lint(linter, args)
                         type = 'W',
                         text = v,
                     })
+                    issues_count = issues_count + 1
                 end
             end
         end
+        vim.g['nvim_go#lint_issues_count'] = issues_count
         if #err_list > 0 then
             output.show_error(linter, table.concat(err_list, '\n'))
         end
