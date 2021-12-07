@@ -193,7 +193,9 @@ function M.test_file()
         'go',
         'test',
         '-run',
-        vim.fn.shellescape(string.format('^%s$', table.concat(func_names, '|'))),
+        vim.fn.shellescape(
+            string.format('^%s$', table.concat(func_names, '|'))
+        ),
     }
     do_test(prefix, build_args(cmd))
 end
