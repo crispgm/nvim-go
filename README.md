@@ -129,6 +129,61 @@ Display within neovim with:
 :help nvim-go
 ```
 
+## Statusline Count
+
+[vim-airline](https://github.com/vim-airline/vim-airline):
+```lua
+function! LintIssuesCount()
+    if exists('g:nvim_go#lint_issues_count')
+        return g:nvim_go#lint_issues_count
+    endif
+endfunction
+call airline#parts#define_function('nvim_go', 'LintIssuesCount')
+call airline#parts#define_condition('nvim_go', '&filetype == "go"')
+let g:airline_section_warning = airline#section#create_right(['nvim_go'])
+```
+
+[lightline](https://github.com/itchyny/lightline.vim):
+```lua
+function! LintIssuesCount()
+    if exists('g:nvim_go#lint_issues_count') && &filetype == 'go'
+        return g:nvim_go#lint_issues_count
+    endif
+endfunction
+let g:lightline = {
+  \ 'colorscheme': 'wombat',
+  \ 'active': {
+  \   'left': [ [ 'mode', 'paste' ],
+  \             [ 'readonly', 'filename', 'modified', 'lintcount' ] ]
+  \ },
+  \ 'component_function': {
+  \   'lintcount': 'LintIssuesCount'
+  \ },
+  \ }
+```
+
+[nvim-hardline](https://github.com/ojroques/nvim-hardline):
+```lua
+require('hardline').setup({
+    -- ...
+    sections = {
+        {
+            class = 'error',
+            item = function()
+                if
+                    vim.bo.filetype == 'go'
+                    and vim.g['nvim_go#lint_issues_count'] ~= nil
+                then
+                    return vim.g['nvim_go#lint_issues_count']
+                else
+                    return ''
+                end
+            end,
+        },
+    -- ...
+    }
+```
+
 ## License
 
 [MIT](/LICENSE)
