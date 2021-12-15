@@ -15,10 +15,14 @@ local function is_go_install()
             major = tonumber(major)
             minor = tonumber(minor)
             patch = tonumber(patch)
-            _ = patch
         end
     end
 
+    vim.api.nvim_echo(
+        { { string.format('Go version is %d.%d.%d', major, minor, patch) } },
+        true,
+        {}
+    )
     if major == 1 and minor < 17 then
         return false
     end
