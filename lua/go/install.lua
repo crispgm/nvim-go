@@ -4,6 +4,31 @@ local vim = vim
 local config = require('go.config')
 local output = require('go.output')
 
+local function is_go_install()
+    local cmd = 'go version'
+    local out = vim.fn.system(cmd)
+    local major, minor, patch = 0, 0, 0
+    if out ~= nil then
+        local version = out:match('go version go(%d+%.%d+%.%d+)')
+        if version ~= nil then
+            major, minor, patch = version:match('(%d+).(%d+).(%d+)')
+            major = tonumber(major)
+            minor = tonumber(minor)
+            patch = tonumber(patch)
+        end
+    end
+
+    vim.api.nvim_echo(
+        { { string.format('Go version is %d.%d.%d', major, minor, patch) } },
+        true,
+        {}
+    )
+    if major == 1 and minor < 17 then
+        return false
+    end
+    return true
+end
+
 local function build_cmd(tool, update)
     local cmd
     local pkg_mgr = 'go'
@@ -11,10 +36,12 @@ local function build_cmd(tool, update)
         pkg_mgr = tool.pkg_mgr
     end
     if pkg_mgr == 'go' then
-        if update then
-            cmd = { 'go', 'get', '-u', tool.src }
+        local src = tool.src
+        if is_go_install() then
+            src = tool.src .. '@latest'
+            cmd = { 'go', 'install', src }
         else
-            cmd = { 'go', 'get', tool.src }
+            cmd = { 'go', 'get', '-u', src }
         end
     elseif pkg_mgr == 'yarn' then
         if update then
@@ -81,7 +108,7 @@ end
 
 -- Update binaries
 function M.update_binaries()
-    local prefix = 'GoInstallBinaries'
+    local prefix = 'GoUpdateBinaries'
     for _, tool in ipairs(config.tools) do
         local msg = string.format(
             '[%s] Installing %s: %s ...',
