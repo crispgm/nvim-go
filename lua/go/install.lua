@@ -15,6 +15,7 @@ local function is_go_install()
             major = tonumber(major)
             minor = tonumber(minor)
             patch = tonumber(patch)
+            _ = patch
         end
     end
 
