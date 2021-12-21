@@ -68,4 +68,11 @@ function M.update_tool(name, callback)
     return false
 end
 
+function M.is_set(val)
+    if val ~= nil and val ~= '' then
+        return true
+    end
+    return false
+end
+
 return M

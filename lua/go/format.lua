@@ -7,6 +7,9 @@ local output = require('go.output')
 local util = require('go.util')
 
 function M.format(fmt)
+    if not config.is_set(config.options.formatter) then
+        return
+    end
     local formatter = config.options.formatter
     if fmt ~= nil then
         formatter = fmt

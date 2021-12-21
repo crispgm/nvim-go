@@ -10,6 +10,9 @@ local util = require('go.util')
 local ns_id = 0
 
 function M.lint(lnt)
+    if not config.is_set(config.options.linter) then
+        return
+    end
     local linter = config.options.linter:gsub('-', '_')
     if lnt ~= nil then
         linter = lnt
