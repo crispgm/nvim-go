@@ -169,6 +169,21 @@ Variables~
 `g:nvim_go#lint_issues_count`                             *:GoLintIssuesCount*
     Issues count after executing Go linters.
 
+                                                              *nvim-go-events*
+Events~
+
+`NvimGoTestPopupPre`                                        *NvimGoTestPopupPre*
+    Before popping up location list for |:GoTest|.
+
+`NvimGoTestPopupPost`                                      *NvimGoTestPopupPost*
+    After popping up location list for |:GoTest|.
+
+`NvimGoLintPopupPre`                                        *NvimGoLintPopupPre*
+    Before popping up location list for |:GoLint|.
+
+`NvimGoLintPopupPost`                                      *NvimGoLintPopupPost*
+    After popping up location list for |:GoLint|.
+
                                                              *nvim-go-lua-api*
 Lua API~
 

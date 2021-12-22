@@ -97,7 +97,6 @@ function M.close_popups(popup_win, popup_buf, border_win, border_buf)
 end
 
 function M.popup_job_result(results, opts)
-    vim.cmd([[doautocmd User NvimGoPopupPre]])
     local win_height = vim.fn.winheight(0)
     local buf_nr = vim.api.nvim_create_buf(false, true)
     vim.api.nvim_buf_set_option(buf_nr, 'bufhidden', 'wipe')

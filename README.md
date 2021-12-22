@@ -129,7 +129,9 @@ Display within neovim with:
 :help nvim-go
 ```
 
-## Statusline Count
+## Advanced Configuration
+
+### Statusline Count
 
 [vim-airline](https://github.com/vim-airline/vim-airline):
 ```lua
@@ -182,6 +184,15 @@ require('hardline').setup({
         },
     -- ...
     }
+```
+
+### Show Lint Issues without Focusing
+
+```viml
+augroup NvimGo
+  autocmd!
+  autocmd User NvimGoLintPopupPost wincmd p
+augroup END
 ```
 
 ## License
