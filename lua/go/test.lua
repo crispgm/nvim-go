@@ -144,7 +144,7 @@ function M.test_func(opt)
             )
             return
         end
-        local cur_line = util.current_line()
+        local cur_line = vim.fn.getline(line)
         func_name = split_file_name(cur_line)
     end
     if not valid_func_name(func_name) then
