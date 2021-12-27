@@ -12,8 +12,8 @@ Expect (generate a struct from json):
 
 
   type JSON struct {
-  	Hello     string `json:"hello"`    
-  	Greetting int64  `json:"greetting"`
+  	Hello    string `json:"hello"`   
+  	Greeting int64  `json:"greeting"`
   }
   
 
@@ -28,8 +28,8 @@ Expect:
   package json
 
   type JSON struct {
-  	Hello     string `json:"hello"`    
-  	Greetting int64  `json:"greetting"`
+  	Hello    string `json:"hello"`   
+  	Greeting int64  `json:"greeting"`
   }
   
 
@@ -43,8 +43,8 @@ Expect:
 
 
   type JSON struct {
-  	Hello     string `json:"hello"`    
-  	Greetting int64  `json:"greetting"`
+  	Hello    string `json:"hello"`   
+  	Greeting int64  `json:"greeting"`
   }
   
 
@@ -58,7 +58,7 @@ Expect:
 
 
   type MyObject struct {
-  	Hello     string `json:"hello"`    
-  	Greetting int64  `json:"greetting"`
+  	Hello    string `json:"hello"`   
+  	Greeting int64  `json:"greeting"`
   }
   
