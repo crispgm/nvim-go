@@ -49,6 +49,26 @@ local function clear_virtual_text()
     end
 end
 
+local function combine_args(linter, args)
+    local result = args
+
+    if config.options.linter_flags == nil then
+        return result
+    end
+    if config.options.linter_flags[linter] == nil then
+        return result
+    end
+    local linter_flags = config.options.linter_flags[linter]
+    if #linter_flags > 0 and next(linter_flags, #linter_flags) == nil then
+        -- check if it is an array
+        for _, flag in ipairs(linter_flags) do
+            table.insert(result, flag)
+        end
+    end
+
+    return result
+end
+
 local function do_lint(linter, args)
     if not util.binary_exists(linter) then
         return
@@ -59,7 +79,11 @@ local function do_lint(linter, args)
     if linter == 'golangci-lint' then
         file_path = vim.fn.expand('%:p:h')
     end
-    local cmd = system.wrap_file_command(linter, args, file_path)
+    local cmd = system.wrap_file_command(
+        linter,
+        combine_args(linter, args),
+        file_path
+    )
     -- clear former prompt
     clear_virtual_text()
     local qf_list = {}

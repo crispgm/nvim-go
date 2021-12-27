@@ -97,6 +97,8 @@ require('go').setup({
     auto_lint = true,
     -- linters: revive, errcheck, staticcheck, golangci-lint
     linter = 'revive',
+    -- linter_flags: e.g., {revive = {'-config', '/path/to/config.yml'}}
+    linter_flags = {},
     -- lint_prompt_style: qf (quickfix), vt (virtual text)
     lint_prompt_style = 'qf',
     -- formatter: goimports, gofmt, gofumpt
