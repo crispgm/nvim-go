@@ -137,27 +137,27 @@ Commands~
     `*_test.go` does not exist. The default command is `edit`, you may pass
     `vsplit`, `split`, `tabedit` or commands like that.
 
-`:GoAddTags([tag, [args...]])`                                    *:GoAddTags*
+`:{range}GoAddTags([tag, [args...]])`                             *:GoAddTags*
     Add struct tag to an object or selected fields.
     Extra arguments would be passed to command line arguments. e.g. `-sort`.
 
-`:GoRemoveTags([args...])`                                     *:GoRemoveTags*
+`:{range}GoRemoveTags([args...])`                              *:GoRemoveTags*
     Remove struct tag from an object or selected fields.
     Extra arguments would be passed to command line arguments.
 
-`:GoClearTags`                                                  *:GoClearTags*
+`:{range}GoClearTags`                                           *:GoClearTags*
     Clear struct tag of an object or selected fields.
 
-`:GoAddTagOptions(option_name)`                             *:GoAddTagOptions*
+`:{range}GoAddTagOptions(option_name)`                      *:GoAddTagOptions*
     Add struct tag options (e.g. json=omitempty) to an object or selected
     fields.
     Extra arguments would be passed to command line arguments.
 
-`:GoRemoveTagOptions(option_name)`                       *:GoRemoveTagOptions*
+`:{range}GoRemoveTagOptions(option_name)`                *:GoRemoveTagOptions*
     Remove struct tag options from an object or selected fields.
     Extra arguments would be passed to command line arguments.
 
-`:GoClearTagOptions`                                      *:GoClearTagOptions*
+`:{range}GoClearTagOptions`                               *:GoClearTagOptions*
     Clear struct tag options of an object or selected fields.
 
 `:GoQuickType(src, [package, [top_level]])`                     *:GoQuickType*
