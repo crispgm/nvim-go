@@ -60,6 +60,7 @@ settings:
         auto_format = true,
         auto_lint = true,
         linter = 'revive',
+        linter_flags = {},
         lint_prompt_style = 'qf',
         formatter = 'goimports',
         test_flags = {'-v'},

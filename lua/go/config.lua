@@ -6,6 +6,8 @@ M.options = {
     auto_format = true,
     -- linter: revive, staticcheck, errcheck, golangci-lint
     linter = 'revive',
+    -- linter_flags: e.g., {revive = {'-config', '/path/to/config.yml'}}
+    linter_flags = {},
     -- lint_prompt_style: qf (quickfix), vt (virtual text)
     lint_prompt_style = 'qf',
     -- formatter: goimports, gofmt, gofumpt
