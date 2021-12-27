@@ -19,6 +19,8 @@ CONTENTS                                                    *nvim-go-contents*
   Limitations and known issues ······························ |nvim-go-issues|
   Usage ······················································ |nvim-go-usage|
     Commands ·············································· |nvim-go-commands|
+    Events ·················································· |nvim-go-events|
+    Variables ············································ |nvim-go-variables|
     Lua API ················································ |nvim-go-lua-api|
   Configuration ············································· |nvim-go-config|
   License ·················································· |nvim-go-license|
