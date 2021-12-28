@@ -38,7 +38,7 @@ M.tools = {
     { name = 'goimports', src = 'golang.org/x/tools/cmd/goimports' },
     { name = 'gofumpt', src = 'mvdan.cc/gofumpt' },
     { name = 'errcheck', src = 'github.com/kisielk/errcheck' },
-    { name = 'staticheck', src = 'honnef.co/go/tools/cmd/staticcheck' },
+    { name = 'staticcheck', src = 'honnef.co/go/tools/cmd/staticcheck' },
     {
         name = 'golangci-lint',
         src = 'github.com/golangci/golangci-lint/cmd/golangci-lint',
