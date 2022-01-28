@@ -32,7 +32,7 @@ M.options = {
 }
 
 M.tools = {
-    { name = 'gopls', src = 'golang.org/x/tools/gopls@latest' },
+    { name = 'gopls', src = 'golang.org/x/tools/gopls' },
     { name = 'golint', src = 'golang.org/x/lint/golint' },
     { name = 'revive', src = 'github.com/mgechev/revive' },
     { name = 'goimports', src = 'golang.org/x/tools/cmd/goimports' },
