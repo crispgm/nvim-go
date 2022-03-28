@@ -17,6 +17,17 @@ function M.format(fmt)
     return pcall(M[formatter])
 end
 
+local function get_new_line_nr(original_file_len)
+    local line_offset = vim.fn.line('$') - original_file_len
+    local cur_line_nr = vim.fn.line('.')
+    return cur_line_nr + line_offset
+end
+
+local function get_new_col_nr(new_line, original_line, original_col_nr)
+    local col_offset = vim.fn.len(new_line) - vim.fn.len(original_line)
+    return original_col_nr + col_offset
+end
+
 local function do_fmt(formatter, args)
     if not util.binary_exists(formatter) then
         return
@@ -25,6 +36,9 @@ local function do_fmt(formatter, args)
     local file_path = vim.api.nvim_buf_get_name(buf_nr)
     local view = vim.fn.winsaveview()
     vim.api.nvim_exec('noautocmd write', true)
+    local original_file_len = vim.fn.line('$')
+    local original_line = vim.fn.getline('.')
+    local original_col_nr = vim.fn.col('.')
     local cmd = system.wrap_file_command(formatter, args, file_path)
     vim.fn.jobstart(cmd, {
         on_exit = function(_, code, _)
@@ -32,6 +46,16 @@ local function do_fmt(formatter, args)
                 output.show_success('GoFormat', 'Success')
                 vim.api.nvim_exec('edit', true)
                 vim.fn.winrestview(view)
+                if config.options.maintain_cursor_pos then
+                    local new_line_nr = get_new_line_nr(original_file_len)
+                    local new_line = vim.fn.getline(new_line_nr)
+                    local new_col_nr = get_new_col_nr(
+                        new_line,
+                        original_line,
+                        original_col_nr
+                    )
+                    vim.fn.cursor(new_line_nr, new_col_nr)
+                end
             end
         end,
         on_stderr = function(_, data, _)

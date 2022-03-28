@@ -12,6 +12,8 @@ M.options = {
     lint_prompt_style = 'qf',
     -- formatter: goimports, gofmt, gofumpt
     formatter = 'goimports',
+    -- maintain cursor position after formatting loaded buffer
+    maintain_cursor_pos = true,
     -- test flags: -count=1 will disable cache
     test_flags = { '-v' },
     test_timeout = '30s',

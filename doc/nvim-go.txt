@@ -65,6 +65,7 @@ settings:
         linter_flags = {},
         lint_prompt_style = 'qf',
         formatter = 'goimports',
+        maintain_cursor_pos = false,
         test_flags = {'-v'},
         test_timeout = '30s',
         test_env = {},
@@ -114,6 +115,11 @@ Commands~
     Format with formatter. If formatter is not specified, then format with
     default formatter. Default formatter is `goimports`, and other formatters
     are `golint` and `gofumpt`.
+
+    If `maintain_cursor_pos` is `true`, then nvim-go will take extra steps to
+    keep the cursor where it is after the buffer is formatted. By default,
+    this value is `true`, but users who do not need this can set the value to
+    `false`.
 
 `:GoGet(pkg)`                                                         *:GoGet*
     Get a Go package in a project.

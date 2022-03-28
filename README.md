@@ -104,6 +104,8 @@ require('go').setup({
     -- formatter: goimports, gofmt, gofumpt
     formatter = 'goimports',
     -- test flags: -count=1 will disable cache
+    -- maintain cursor position after formatting loaded buffer
+    maintain_cursor_pos = true,
     test_flags = {'-v'},
     test_timeout = '30s',
     test_env = {},
