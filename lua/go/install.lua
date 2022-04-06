@@ -55,6 +55,12 @@ local function build_cmd(tool, update)
         else
             cmd = { 'npm', 'install', '-g', tool.src }
         end
+    elseif pkg_mgr == 'pnpm' then
+        if update then
+            cmd = { 'pnpm', 'update', '--global', tool.src }
+        else
+            cmd = { 'pnpm', 'add', '--global', tool.src }
+        end
     else
         return nil
     end

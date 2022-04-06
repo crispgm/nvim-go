@@ -44,7 +44,7 @@ M.tools = {
         src = 'github.com/golangci/golangci-lint/cmd/golangci-lint',
     },
     { name = 'gomodifytags', src = 'github.com/fatih/gomodifytags' },
-    { name = 'quicktype', src = 'quicktype', pkg_mgr = 'yarn' },
+    { name = 'quicktype', src = 'quicktype', pkg_mgr = 'npm' },
 }
 
 function M.get_tool(name)
