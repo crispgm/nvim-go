@@ -3,9 +3,21 @@ local M = {}
 local vim = vim
 local popup = require('popup')
 local config = require('go.config')
+local is_notify_installed, notify = pcall(require, 'notify')
+
+local function should_notify()
+    if is_notify_installed and config.options.notify then
+        return true
+    end
+    return false
+end
 
 function M.show_info(prefix, msg)
-    vim.api.nvim_echo({ { prefix }, { ' ' .. msg } }, true, {})
+    if should_notify() then
+        notify(msg, 'info', { title = prefix })
+    else
+        vim.api.nvim_echo({ { prefix }, { ' ' .. msg } }, true, {})
+    end
 end
 
 function M.show_success(prefix, msg)
@@ -13,15 +25,31 @@ function M.show_success(prefix, msg)
     if msg ~= nil then
         succ = msg
     end
-    vim.api.nvim_echo({ { prefix, 'Function' }, { ' ' .. succ } }, true, {})
+    if should_notify() then
+        notify(msg, 'info', { title = prefix })
+    else
+        vim.api.nvim_echo({ { prefix, 'Function' }, { ' ' .. succ } }, true, {})
+    end
 end
 
 function M.show_error(prefix, msg)
-    vim.api.nvim_echo({ { prefix, 'ErrorMsg' }, { ' ' .. msg } }, true, {})
+    if should_notify() then
+        notify(msg, 'error', { title = prefix })
+    else
+        vim.api.nvim_echo({ { prefix, 'ErrorMsg' }, { ' ' .. msg } }, true, {})
+    end
 end
 
 function M.show_warning(prefix, msg)
-    vim.api.nvim_echo({ { prefix, 'WarningMsg' }, { ' ' .. msg } }, true, {})
+    if should_notify() then
+        notify(msg, 'warn', { title = prefix })
+    else
+        vim.api.nvim_echo(
+            { { prefix, 'WarningMsg' }, { ' ' .. msg } },
+            true,
+            {}
+        )
+    end
 end
 
 function M.show_job_success(prefix, results)

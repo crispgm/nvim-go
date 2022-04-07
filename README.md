@@ -48,16 +48,16 @@ Prerequisites:
 - Neovim (>= 0.5)
 - [npm](https://www.npmjs.com) (for quicktype)
 
-Install with vim-plug or any package manager:
+Install with your favorite package manager:
 
-```viml
+```lua
 " dependencies
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-lua/popup.nvim'
+use('nvim-lua/plenary.nvim')
+use('nvim-lua/popup.nvim')
 " nvim-go
-Plug 'crispgm/nvim-go'
+use('crispgm/nvim-go')
 " (recommend) LSP config
-Plug 'neovim/nvim-lspconfig'
+use('neovim/nvim-lspconfig')
 ```
 
 Run:
@@ -76,6 +76,12 @@ require('go').config.update_tool('quicktype', function(tool)
 end)
 ```
 
+> Use `nvim-notify`
+
+```lua
+use('rcarriga/nvim-notify')
+```
+
 ## Usage
 
 ### Setup
@@ -92,6 +98,8 @@ require('lspconfig').gopls.setup({})
 
 ```lua
 require('go').setup({
+    -- notify: use nvim-notify
+    notify = false,
     -- auto commands
     auto_format = true,
     auto_lint = true,
