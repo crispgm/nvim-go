@@ -1,6 +1,8 @@
 local M = {}
 
 M.options = {
+    -- notify
+    notify = false,
     -- auto commands
     auto_lint = true,
     auto_format = true,
