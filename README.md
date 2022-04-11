@@ -25,7 +25,8 @@ and leverages community toolchains to get Golang development done.
 Language server provides useful language features to make Golang development easy.
 `nvim-go` does not provide these features but collaborates with them.
 
-This section can be considered as a guide or common practice to develop with `nvim-go` and `gopls`:
+This section can be considered as a guide or common practice to develop with `nvim-go` and `gopls`.
+If you are familiar with language server or other equivalent, you may skip this chapter.
 
 - Code Completion via `nvim-cmp` or other completion engine you like
 - Declaration: `vim.lsp.buf.declaration()`
@@ -54,32 +55,27 @@ Install with your favorite package manager:
 " dependencies
 use('nvim-lua/plenary.nvim')
 use('nvim-lua/popup.nvim')
+
 " nvim-go
 use('crispgm/nvim-go')
+
+" (optional) if you enable nvim-notify
+use('rcarriga/nvim-notify')
+
 " (recommend) LSP config
 use('neovim/nvim-lspconfig')
-```
-
-Run:
-
-```shell
-nvim +PlugInstall
 ```
 
 Finally, run `:GoInstallBinaries` after plugin installed.
 
 > Install `quicktype` with `yarn` or `pnpm`:
 
+`nvim-go` install `quicktype` with `npm` by default, you may replace it with `yarn` or `pnpm`.
+
 ```lua
 require('go').config.update_tool('quicktype', function(tool)
     tool.pkg_mgr = 'yarn'
 end)
-```
-
-> Use `nvim-notify`
-
-```lua
-use('rcarriga/nvim-notify')
 ```
 
 ## Usage
