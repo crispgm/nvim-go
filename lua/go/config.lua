@@ -1,7 +1,7 @@
 local M = {}
 
 M.options = {
-    -- notify
+    -- notify: use nvim-notify
     notify = false,
     -- auto commands
     auto_lint = true,
@@ -20,6 +20,7 @@ M.options = {
     test_env = {},
     -- show test result with popup window
     test_popup = true,
+    test_popup_auto_leave = false,
     test_popup_width = 80,
     test_popup_height = 10,
     -- test open

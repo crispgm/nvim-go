@@ -113,6 +113,7 @@ require('go').setup({
     test_env = {},
     -- show test result with popup window
     test_popup = true,
+    test_popup_auto_leave = false,
     test_popup_width = 80,
     test_popup_height = 10,
     -- test open
