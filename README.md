@@ -54,7 +54,6 @@ Install with your favorite package manager:
 ```lua
 " dependencies
 use('nvim-lua/plenary.nvim')
-use('nvim-lua/popup.nvim')
 
 " nvim-go
 use('crispgm/nvim-go')

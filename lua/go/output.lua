@@ -1,7 +1,7 @@
 local M = {}
 
 local vim = vim
-local popup = require('popup')
+local popup = require('plenary.popup')
 local config = require('go.config')
 local is_notify_installed, notify = pcall(require, 'notify')
 
@@ -139,6 +139,7 @@ function M.popup_job_result(results, opts)
         col = 2,
         border = { 1, 1, 1, 1 },
         cursorline = true,
+        focusable = true,
         maxheight = pos.height,
         minwidth = 80,
         width = pos.width,
