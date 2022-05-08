@@ -126,7 +126,7 @@ Commands~
 `:GoFormat([formatter])`                                           *:GoFormat*
     Format with formatter. If formatter is not specified, then format with
     default formatter. Default formatter is `goimports`, and other formatters
-    are `golint` and `gofumpt`.
+    are `gofmt` and `gofumpt`.
 
 `:GoGet(pkg)`                                                         *:GoGet*
     Get a Go package in a project.
