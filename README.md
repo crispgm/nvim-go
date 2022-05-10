@@ -11,7 +11,7 @@ and leverages community toolchains to get Golang development done.
 
 ## Features
 
-- Auto format with `:GoFormat` (via `goimports`, gofmt`, and `gofumpt`) when saving.
+- Auto format with `:GoFormat` (via `goimports`, `gofmt`, and `gofumpt`) when saving.
 - Run linters with `:GoLint` (via `revive`) automatically.
 - Quickly test with `:GoTest`, `:GoTestFunc`, `:GoTestFile` and `:GoTestAll`.
 - Import packages with `:GoGet` and `:GoImport`.
