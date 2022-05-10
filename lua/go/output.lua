@@ -128,7 +128,11 @@ function M.popup_job_result(results, opts)
     local win_height = vim.fn.winheight(0)
     local buf_nr = vim.api.nvim_create_buf(false, true)
     vim.api.nvim_buf_set_option(buf_nr, 'bufhidden', 'wipe')
+    vim.api.nvim_buf_set_option(buf_nr, 'buftype', 'nofile')
+    vim.api.nvim_buf_set_option(buf_nr, 'filetype', opts.filetype)
     vim.api.nvim_buf_set_lines(buf_nr, 0, -1, true, results)
+    -- modifiable at first, then set readonly
+    vim.api.nvim_buf_set_option(buf_nr, 'modifiable', true)
     local actual_content_height = vim.api.nvim_buf_line_count(buf_nr)
     local title = opts.title
     local pos = opts.pos
@@ -146,6 +150,7 @@ function M.popup_job_result(results, opts)
         highlight = 'GoTestResult',
     })
     vim.api.nvim_win_set_option(popup_win, 'wrap', false)
+    vim.api.nvim_buf_set_option(buf_nr, 'modifiable', false)
     local popup_bufnr = buf_nr
     local border_bufnr = popup_opts.border and popup_opts.border.bufnr
     local border_win = popup_opts.border and popup_opts.border.win_id
