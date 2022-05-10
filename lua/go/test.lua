@@ -64,6 +64,7 @@ local function do_test(prefix, cmd)
             output.popup_job_result(data, {
                 title = prefix,
                 pos = pos,
+                filetype = 'nvimgo-test-popup',
             })
             vim.cmd([[doautocmd User NvimGoTestPopupPost]])
             return
