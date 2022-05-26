@@ -8,7 +8,7 @@ A minimal implementation of Golang development plugin written in Lua for Neovim.
 
 Neovim (from v0.5) embeds a built-in Language Server Protocol (LSP) client. And Debug Adapter Protocol (DAP) are also brought into Neovim as a general debugger. With the power of them, we are able to easily turn Neovim into a powerful editor.
 
-`nvim-go` is designed to collaborate with them, provides additional sufficient features, and leverages community toolchains to get Golang development done.
+`nvim-go` is designed to collaborate with them, provides sufficient features, and leverages community toolchains to get Golang development done.
 
 ## Features
 
@@ -27,7 +27,7 @@ This section can be regarded as a guide or common practice to develop with `nvim
 If you are familiar with these tools or other equivalent, you may skip this chapter.
 
 <details>
-<summary>Show...</summary>
+<summary>Show/Hide the guide.</summary>
 
 ### Language Server
 
@@ -36,7 +36,7 @@ We highly recommend you to use LSP client together with `nvim-go`.
 
 1. Setup `gopls` with [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig).
 2. Setup your favorite completion engine such as [nvim-cmp](https://github.com/hrsh7th/nvim-cmp).
-3. Mapping the following based on what your need:
+3. Map the following methods based on what you need:
 
 - Declaration: `vim.lsp.buf.declaration()`
 - Definition: `vim.lsp.buf.definition()` and `vim.lsp.buf.type_definition()`
