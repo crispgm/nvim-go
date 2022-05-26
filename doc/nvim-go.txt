@@ -31,14 +31,18 @@ INTRODUCTION                                  *nvim-go* *nvim-go-introduction*
 A minimal implementation of Golang development plugin written in Lua for
 Neovim.
 
-Neovim starts to embed a built-in LSP (Language Server Protocol) client from
-v0.5 so that we are able to do most of vim-go's features by LSP client,
-`nvim-go` collaborates with these features to get Golang development done.
+Neovim (from v0.5) embeds a built-in Language Server Protocol (LSP) client.
+And Debug Adapter Protocol (DAP) are also brought into Neovim as a general
+debugger. With the power of them, we are able to easily turn Neovim into a
+powerful editor.
+
+nvim-go is designed to collaborate with them, provides additional sufficient
+features, and leverages community toolchains to get Golang development done.
 
 ==============================================================================
 REQUIREMENTS                                            *nvim-go-requirements*
 
-nvim-go works only with Neovim and was written in Lua, so it requires Neovim
+nvim-go works only with Neovim and is written in Lua, it requires Neovim
 version 0.5+.
 
 ==============================================================================
