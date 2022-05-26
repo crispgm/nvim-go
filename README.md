@@ -27,7 +27,7 @@ This section can be regarded as a guide or common practice to develop with `nvim
 If you are familiar with these tools or other equivalent, you may skip this chapter.
 
 <details>
-<summary>Show/Hide the guide.</summary>
+<summary>&lt;Show/Hide the guide&gt;</summary>
 
 ### Language Server
 
