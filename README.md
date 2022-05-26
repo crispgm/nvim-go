@@ -2,12 +2,13 @@
 
 [![build](https://github.com/crispgm/nvim-go/actions/workflows/ci.yml/badge.svg)](https://github.com/crispgm/nvim-go/actions/workflows/ci.yml)
 
-A minimal implementation of Golang development plugin written in Lua for neovim 0.5+.
+A minimal implementation of Golang development plugin written in Lua for Neovim.
 
-Neovim 0.5 embeds a built-in Language Server Protocol (LSP) client so that
-we are able to do most of vim-go's features by LSP client.
-`nvim-go` collaborates with it and provides additional features,
-and leverages community toolchains to get Golang development done.
+## Introduction
+
+Neovim (from v0.5) embeds a built-in Language Server Protocol (LSP) client. And Debug Adapter Protocol (DAP) are also brought into Neovim as a general debugger. With the power of them, we are able to easily turn Neovim into a powerful editor.
+
+`nvim-go` is designed to collaborate with them, provides additional sufficient features, and leverages community toolchains to get Golang development done.
 
 ## Features
 
@@ -20,15 +21,23 @@ and leverages community toolchains to get Golang development done.
 
 [Screenshots](https://github.com/crispgm/nvim-go/wiki#screenshots)
 
-### Recommended Language Features
+## Recommended Features
 
-Language server provides useful language features to make Golang development easy.
-`nvim-go` does not provide these features but collaborates with them.
+This section can be regarded as a guide or common practice to develop with `nvim-go`, LSP (`gopls`) and DAP.
+If you are familiar with these tools or other equivalent, you may skip this chapter.
 
-This section can be considered as a guide or common practice to develop with `nvim-go` and `gopls`.
-If you are familiar with language server or other equivalent, you may skip this chapter.
+<details>
+<summary>Show...</summary>
 
-- Code Completion via `nvim-cmp` or other completion engine you like
+### Language Server
+
+Language server provides vital language features to make Golang development easy.
+We highly recommend you to use LSP client together with `nvim-go`.
+
+1. Setup `gopls` with [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig).
+2. Setup your favorite completion engine such as [nvim-cmp](https://github.com/hrsh7th/nvim-cmp).
+3. Mapping the following based on what your need:
+
 - Declaration: `vim.lsp.buf.declaration()`
 - Definition: `vim.lsp.buf.definition()` and `vim.lsp.buf.type_definition()`
 - Implementation: `vim.lsp.buf.implementation()`
@@ -38,9 +47,11 @@ If you are familiar with language server or other equivalent, you may skip this 
 - Symbols: `vim.lsp.buf.document_symbol()` and `vim.lsp.buf.workspace_symbol()`
 - Rename: `vim.lsp.buf.rename()`
 
-### Other Recommends
+### Debugger
 
-- Debug: we recommend [vim-delve](https://github.com/sebdah/vim-delve) or [nvim-dap](https://github.com/mfussenegger/nvim-dap).
+- [nvim-dap](https://github.com/mfussenegger/nvim-dap)
+
+</details>
 
 ## Installation
 
@@ -129,7 +140,7 @@ require('go').setup({
 
 ### Manual
 
-Display within neovim with:
+Display within Neovim with:
 
 ```vim
 :help nvim-go
@@ -140,6 +151,7 @@ Display within neovim with:
 ### Statusline Count
 
 [vim-airline](https://github.com/vim-airline/vim-airline):
+
 ```lua
 function! LintIssuesCount()
     if exists('g:nvim_go#lint_issues_count')
@@ -152,6 +164,7 @@ let g:airline_section_warning = airline#section#create_right(['nvim_go'])
 ```
 
 [lightline](https://github.com/itchyny/lightline.vim):
+
 ```lua
 function! LintIssuesCount()
     if exists('g:nvim_go#lint_issues_count') && &filetype == 'go'
@@ -171,6 +184,7 @@ let g:lightline = {
 ```
 
 [nvim-hardline](https://github.com/ojroques/nvim-hardline):
+
 ```lua
 require('hardline').setup({
     -- ...
