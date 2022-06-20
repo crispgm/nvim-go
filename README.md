@@ -57,7 +57,7 @@ We highly recommend you to use LSP client together with `nvim-go`.
 
 Prerequisites:
 
-- Neovim (>= 0.5)
+- Neovim (>= 0.7)
 - [npm](https://www.npmjs.com) (for quicktype)
 
 Install with your favorite package manager:
