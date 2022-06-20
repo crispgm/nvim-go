@@ -163,18 +163,18 @@ function M.popup_job_result(results, opts)
     end
 
     if config.options.test_popup_auto_leave then
-        local on_buf_leave = string.format(
-            [[  autocmd BufLeave <buffer> ++nested ++once :silent lua require('go.output').close_popups(%s,%s,%s,%s)]],
-            popup_win,
-            popup_bufnr,
-            border_win,
-            border_bufnr
+        local group = vim.api.nvim_create_augroup(
+            'NvimGoInternal',
+            { clear = true }
         )
-
-        vim.cmd([[augroup NvimGoInternal]])
-        vim.cmd([[  autocmd!]])
-        vim.cmd(on_buf_leave)
-        vim.cmd([[augroup END]])
+        vim.api.nvim_create_autocmd({ 'BufLeave' }, {
+            group = group,
+            pattern = { '<buffer>' },
+            once = true,
+            callback = function(_)
+                M.close_popups(popup_win, popup_bufnr, border_win, border_bufnr)
+            end,
+        })
     end
 end
 

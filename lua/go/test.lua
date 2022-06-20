@@ -60,13 +60,19 @@ local function do_test(prefix, cmd)
     local pos = output.calc_popup_size()
     local function on_event(_, data, event)
         if config.options.test_popup and not util.empty_output(data) then
-            vim.cmd([[doautocmd User NvimGoTestPopupPre]])
+            vim.api.nvim_exec_autocmds(
+                'User',
+                { pattern = 'NvimGoTestPopupPre' }
+            )
             output.popup_job_result(data, {
                 title = prefix,
                 pos = pos,
                 filetype = 'nvimgo-test-popup',
             })
-            vim.cmd([[doautocmd User NvimGoTestPopupPost]])
+            vim.api.nvim_exec_autocmds(
+                'User',
+                { pattern = 'NvimGoTestPopupPost' }
+            )
             return
         else
             local outputs = {}
