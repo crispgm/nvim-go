@@ -43,7 +43,7 @@ features, and leverages community toolchains to get Golang development done.
 REQUIREMENTS                                            *nvim-go-requirements*
 
 nvim-go works only with Neovim and is written in Lua, it requires Neovim
-version 0.5+.
+version 0.7+.
 
 ==============================================================================
 LIMITATIONS AND KNOWN ISSUES                                  *nvim-go-issues*

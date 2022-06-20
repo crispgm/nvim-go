@@ -25,7 +25,7 @@ local function show_quickfix(qf_list)
         return
     end
 
-    vim.cmd([[doautocmd User NvimGoLintPopupPre]])
+    vim.api.nvim_exec_autocmds('User', { pattern = 'NvimGoLintPopupPre' })
     local win_nr = vim.fn.winnr()
     local height = 4
     if #qf_list > 0 and #qf_list < height then
@@ -33,7 +33,7 @@ local function show_quickfix(qf_list)
     end
     vim.fn.setloclist(win_nr, qf_list, 'r')
     vim.api.nvim_command(string.format('lopen %d', height))
-    vim.cmd([[doautocmd User NvimGoLintPopupPost]])
+    vim.api.nvim_exec_autocmds('User', { pattern = 'NvimGoLintPopupPost' })
 end
 
 local function clear_quickfix()
