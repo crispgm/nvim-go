@@ -15,8 +15,7 @@ local function function_surrounding_cursor()
     local func = current_node
 
     while func do
-        if
-            func:type() == 'method_declaration'
+        if func:type() == 'method_declaration'
             or func:type() == 'function_declaration'
         then
             break
@@ -35,13 +34,11 @@ local function function_surrounding_cursor()
             local child = node:named_child(i)
             local type = child:type()
 
-            if
-                func:type() == 'method_declaration'
+            if func:type() == 'method_declaration'
                 and type == 'field_identifier'
             then
                 return (ts_utils.get_node_text(child))[1]
-            elseif
-                func:type() == 'function_declaration'
+            elseif func:type() == 'function_declaration'
                 and type == 'identifier'
             then
                 return (ts_utils.get_node_text(child))[1]
@@ -77,7 +74,7 @@ function M.add_test(_)
 
     local funame = function_surrounding_cursor()
     if funame == nil or funame == '' then
-        print('no function found')
+        output.show_error('no function found')
         return
     end
 
