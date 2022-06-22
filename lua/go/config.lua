@@ -32,6 +32,7 @@ M.options = {
     tags_flags = { '-skip-unexported' },
     -- quick type
     quick_type_flags = { '--just-types' },
+    -- gotests
     gotests_template = '', -- sets gotests -template parameter (see gotests for details)
     gotests_template_dir = '', -- sets gotests -template_dir parameter (see gotests for details)
 }
