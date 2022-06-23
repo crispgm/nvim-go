@@ -61,7 +61,7 @@ local function function_surrounding_cursor()
     return find_name(func)
 end
 
-function M.add_test(_)
+function M.add_test()
     if not util.binary_exists('gotests') then
         return
     end
