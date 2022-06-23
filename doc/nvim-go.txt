@@ -94,6 +94,9 @@ settings:
         tags_flags = {'-skip-unexported'},
         -- quick type
         quick_type_flags = {'--just-types'},
+        -- gotests
+        gotests_template = '',
+        gotests_template_dir = '',
     })
 <
                                                             *nvim-go-commands*
@@ -150,6 +153,9 @@ Commands~
 
 `:GoTestFile`                                                    *:GoTestFile*
     Run current `*_test.go` file.
+
+`:GoAddTest`                                                      *:GoAddTest*
+    Generate unit test for current function.
 
 `:GoToTest(cmd)`                                                   *:GoToTest*
     Go from `*.go` to `*_test.go` or go back. It will create new file if

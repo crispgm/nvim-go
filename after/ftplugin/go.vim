@@ -34,6 +34,7 @@ command! GoTestAll lua require('go.test').test_all()
 command! GoTestFunc lua require('go.test').test_func()
 command! GoTestFile lua require('go.test').test_file()
 command! -nargs=? -complete=command GoToTest lua require('go.test').test_open(<f-args>)
+command! GoAddTest lua require('go.gotests').add_test()
 
 " import
 command! -nargs=1 GoGet lua require('go.import').get(<f-args>)

@@ -32,6 +32,9 @@ M.options = {
     tags_flags = { '-skip-unexported' },
     -- quick type
     quick_type_flags = { '--just-types' },
+    -- gotests
+    gotests_template = '', -- sets gotests -template parameter (see gotests for details)
+    gotests_template_dir = '', -- sets gotests -template_dir parameter (see gotests for details)
 }
 
 M.tools = {
@@ -48,6 +51,7 @@ M.tools = {
     },
     { name = 'gomodifytags', src = 'github.com/fatih/gomodifytags' },
     { name = 'quicktype', src = 'quicktype', pkg_mgr = 'npm' },
+    { name = 'gotests', src = 'github.com/cweill/gotests/gotests' },
 }
 
 function M.get_tool(name)
