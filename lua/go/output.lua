@@ -151,6 +151,13 @@ function M.popup_job_result(results, opts)
     })
     vim.api.nvim_win_set_option(popup_win, 'wrap', false)
     vim.api.nvim_buf_set_option(buf_nr, 'modifiable', false)
+    vim.api.nvim_buf_set_keymap(
+        buf_nr,
+        'n',
+        'q',
+        ':q!<cr>',
+        { noremap = true, silent = true }
+    )
     local popup_bufnr = buf_nr
     local border_bufnr = popup_opts.border and popup_opts.border.bufnr
     local border_win = popup_opts.border and popup_opts.border.win_id
