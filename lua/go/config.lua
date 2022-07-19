@@ -52,6 +52,7 @@ M.tools = {
     { name = 'gomodifytags', src = 'github.com/fatih/gomodifytags' },
     { name = 'quicktype', src = 'quicktype', pkg_mgr = 'npm' },
     { name = 'gotests', src = 'github.com/cweill/gotests/gotests' },
+    { name = 'iferr', src = 'github.com/koron/iferr' },
 }
 
 function M.get_tool(name)
