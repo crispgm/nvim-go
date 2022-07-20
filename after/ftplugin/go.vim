@@ -54,7 +54,7 @@ command! -nargs=* -range GoClearTagOptions lua require('go.struct_tag').clear_op
 command! -nargs=* -complete=file GoQuickType lua require('go.quick_type').quick_type(<count>, <f-args>)
 
 " iferr
-command! -nargs=* -complete=file GoIfErr lua require('go.iferr').add_iferr()
+command! GoIfErr lua require('go.iferr').add_iferr()
 
 lua << EOB
 local opt = require('go.config').options
