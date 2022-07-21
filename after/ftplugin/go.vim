@@ -53,6 +53,9 @@ command! -nargs=* -range GoClearTagOptions lua require('go.struct_tag').clear_op
 " quicktype
 command! -nargs=* -complete=file GoQuickType lua require('go.quick_type').quick_type(<count>, <f-args>)
 
+" iferr
+command! GoIfErr lua require('go.iferr').add_iferr()
+
 lua << EOB
 local opt = require('go.config').options
 local cmd = vim.api.nvim_command
