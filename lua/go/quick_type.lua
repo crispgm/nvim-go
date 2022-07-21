@@ -22,10 +22,8 @@ function M.quick_type(_, src, pkg_name, top_level)
     else
         -- auto detect package name
         local first_line = vim.fn.getline(1)
-        local matches = vim.fn.matchlist(
-            first_line,
-            '^package\\s\\+\\(\\S\\+\\)$'
-        )
+        local matches =
+            vim.fn.matchlist(first_line, '^package\\s\\+\\(\\S\\+\\)$')
         if matches ~= nil and #matches >= 2 then
             pkg_name = matches[2]
             table.insert(cmd, '--package')

@@ -79,11 +79,8 @@ local function do_lint(linter, args)
     if linter == 'golangci-lint' then
         file_path = vim.fn.expand('%:p:h')
     end
-    local cmd = system.wrap_file_command(
-        linter,
-        combine_args(linter, args),
-        file_path
-    )
+    local cmd =
+        system.wrap_file_command(linter, combine_args(linter, args), file_path)
     -- clear former prompt
     clear_virtual_text()
     local qf_list = {}

@@ -170,10 +170,8 @@ function M.popup_job_result(results, opts)
     end
 
     if config.options.test_popup_auto_leave then
-        local group = vim.api.nvim_create_augroup(
-            'NvimGoInternal',
-            { clear = true }
-        )
+        local group =
+            vim.api.nvim_create_augroup('NvimGoInternal', { clear = true })
         vim.api.nvim_create_autocmd({ 'BufLeave' }, {
             group = group,
             pattern = { '<buffer>' },

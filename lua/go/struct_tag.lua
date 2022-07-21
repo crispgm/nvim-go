@@ -22,10 +22,8 @@ local function modify_tags(prefix, args)
     if line_start == line_end then
         -- this means it might be a `type SomeObject struct` line, so use -struct with struct name
         local line = vim.fn.getline(line_start)
-        local matches = vim.fn.matchlist(
-            line,
-            '^type\\s\\+\\(\\S\\+\\)\\s\\+struct'
-        )
+        local matches =
+            vim.fn.matchlist(line, '^type\\s\\+\\(\\S\\+\\)\\s\\+struct')
         if matches ~= nil and #matches >= 2 then
             table.insert(cmd, '-struct')
             table.insert(cmd, matches[2])

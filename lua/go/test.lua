@@ -180,12 +180,8 @@ function M.test_file()
 
     local prefix = 'GoTestFile'
     local pattern = vim.regex('^func [Test|Example]')
-    local lines = vim.api.nvim_buf_get_lines(
-        vim.api.nvim_get_current_buf(),
-        1,
-        -1,
-        false
-    )
+    local lines =
+        vim.api.nvim_buf_get_lines(vim.api.nvim_get_current_buf(), 1, -1, false)
     local func_names = {}
     if #lines == 0 then
         return
