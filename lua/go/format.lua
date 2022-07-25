@@ -49,11 +49,8 @@ local function do_fmt(formatter, args)
                 if config.options.maintain_cursor_pos then
                     local new_line_nr = get_new_line_nr(original_file_len)
                     local new_line = vim.fn.getline(new_line_nr)
-                    local new_col_nr = get_new_col_nr(
-                        new_line,
-                        original_line,
-                        original_col_nr
-                    )
+                    local new_col_nr =
+                        get_new_col_nr(new_line, original_line, original_col_nr)
                     vim.fn.cursor(new_line_nr, new_col_nr)
                 end
             end
