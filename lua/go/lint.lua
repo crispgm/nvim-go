@@ -9,6 +9,10 @@ local util = require('go.util')
 -- virtual text ns_id
 local ns_id = 0
 
+function M.linters()
+    return { 'revive', 'golangci_lint', 'errcheck', 'staticcheck', 'golint' }
+end
+
 function M.lint(lnt)
     if not config.is_set(config.options.linter) then
         return
