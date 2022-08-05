@@ -108,6 +108,7 @@ vim.api.nvim_create_user_command(
     'lua require("go.struct_tag").add_tags({<line1>, <line2>, <count>, <f-args>})',
     {
         nargs = '*',
+        range = true,
     }
 )
 vim.api.nvim_create_user_command(
@@ -115,6 +116,7 @@ vim.api.nvim_create_user_command(
     'lua require("go.struct_tag").remove_tags({<line1>, <line2>, <count>, <f-args>})',
     {
         nargs = '*',
+        range = true,
     }
 )
 vim.api.nvim_create_user_command(
@@ -122,6 +124,7 @@ vim.api.nvim_create_user_command(
     'lua require("go.struct_tag").clear_tags({<line1>, <line2>, <count>, <f-args>})',
     {
         nargs = '*',
+        range = true,
     }
 )
 
@@ -131,6 +134,7 @@ vim.api.nvim_create_user_command(
     'lua require("go.struct_tag").add_options({<line1>, <line2>, <count>, <f-args>})',
     {
         nargs = '*',
+        range = true,
     }
 )
 vim.api.nvim_create_user_command(
@@ -138,6 +142,7 @@ vim.api.nvim_create_user_command(
     'lua require("go.struct_tag").remove_options({<line1>, <line2>, <count>, <f-args>})',
     {
         nargs = '*',
+        range = true,
     }
 )
 vim.api.nvim_create_user_command(
@@ -145,6 +150,7 @@ vim.api.nvim_create_user_command(
     'lua require("go.struct_tag").clear_options({<line1>, <line2>, <count>, <f-args>})',
     {
         nargs = '*',
+        range = true,
     }
 )
 
@@ -176,12 +182,14 @@ vim.api.nvim_clear_autocmds({
 })
 if opt.auto_format then
     vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
+        group = group,
         pattern = '<buffer>',
         command = 'GoFormat',
     })
 end
 if opt.auto_lint then
     vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
+        group = group,
         pattern = '<buffer>',
         command = 'GoLint',
     })
