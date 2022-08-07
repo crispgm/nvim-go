@@ -6,6 +6,10 @@ local system = require('go.system')
 local output = require('go.output')
 local util = require('go.util')
 
+function M.formatters()
+    return { 'gofmt', 'goimports', 'gofumpt' }
+end
+
 function M.format(fmt)
     if not config.is_set(config.options.formatter) then
         return
