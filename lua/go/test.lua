@@ -4,6 +4,9 @@ local vim = vim
 local config = require('go.config')
 local util = require('go.util')
 local output = require('go.output')
+local async = require('go.async_test')
+
+local use_qf_output = false
 
 local function build_args(args)
     local test_timeout = config.options.test_timeout
@@ -13,6 +16,9 @@ local function build_args(args)
     local test_flags = config.options.test_flags
     if test_flags then
         for _, f in ipairs(test_flags) do
+            if string.match(f, "-json") then
+                use_qf_output = true
+            end
             table.insert(args, f)
         end
     end
@@ -40,20 +46,8 @@ local function split_file_name(str)
     return vim.fn.split(vim.fn.split(str, ' ')[2], '(')[1]
 end
 
-local function valid_buf()
-    local buf_nr = vim.api.nvim_get_current_buf()
-    if
-        vim.api.nvim_buf_is_valid(buf_nr)
-        and vim.api.nvim_buf_get_option(buf_nr, 'buflisted')
-    then
-        return true
-    end
-
-    return false
-end
-
-local function do_test(prefix, cmd)
-    if not valid_buf() then
+local function sync_do_test(prefix, cmd)
+    if not util.valid_buf() then
         return
     end
     -- calc popup window size here
@@ -113,6 +107,14 @@ local function do_test(prefix, cmd)
         opts['env'] = env
     end
     vim.fn.jobstart(cmd, opts)
+end
+
+local function do_test(prefix, cmd)
+    if use_qf_output then
+        async.do_test(prefix, cmd)
+    else
+        sync_do_test(prefix, cmd)
+    end
 end
 
 function M.test()
@@ -200,7 +202,7 @@ function M.test_file()
         'test',
         '-run',
         vim.fn.shellescape(
-            string.format('^%s$', table.concat(func_names, '|'))
+            table.concat(func_names, '|') -- we need sub tests as well
         ),
     }
     do_test(prefix, build_args(cmd))
