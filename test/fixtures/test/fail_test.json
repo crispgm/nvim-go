@@ -1,0 +1,64 @@
+{"Time":"2022-07-16T13:31:03.420632+03:00","Action":"output","Package":"test","Output":"?   \tgithub.com/lainio/ic\t[no test files]\n"}
+{"Time":"2022-07-16T13:31:03.420838+03:00","Action":"skip","Package":"test","Elapsed":0}
+{"Time":"2022-07-16T13:31:03.431083+03:00","Action":"run","Package":"test","Test":"TestNewChain"}
+{"Time":"2022-07-16T13:31:03.431116+03:00","Action":"output","Package":"test","Test":"TestNewChain","Output":"=== RUN   TestNewChain\n"}
+{"Time":"2022-07-16T13:31:03.431137+03:00","Action":"output","Package":"test","Test":"TestNewChain","Output":"--- PASS: TestNewChain (0.00s)\n"}
+{"Time":"2022-07-16T13:31:03.431143+03:00","Action":"pass","Package":"test","Test":"TestNewChain","Elapsed":0}
+{"Time":"2022-07-16T13:31:03.431149+03:00","Action":"run","Package":"test","Test":"TestRead"}
+{"Time":"2022-07-16T13:31:03.431153+03:00","Action":"output","Package":"test","Test":"TestRead","Output":"=== RUN   TestRead\n"}
+{"Time":"2022-07-16T13:31:03.431158+03:00","Action":"output","Package":"test","Test":"TestRead","Output":"--- PASS: TestRead (0.00s)\n"}
+{"Time":"2022-07-16T13:31:03.431162+03:00","Action":"pass","Package":"test","Test":"TestRead","Elapsed":0}
+{"Time":"2022-07-16T13:31:03.431172+03:00","Action":"run","Package":"test","Test":"TestVerifyChainFail"}
+{"Time":"2022-07-16T13:31:03.431176+03:00","Action":"output","Package":"test","Test":"TestVerifyChainFail","Output":"=== RUN   TestVerifyChainFail\n"}
+{"Time":"2022-07-16T13:31:03.431181+03:00","Action":"output","Package":"test","Test":"TestVerifyChainFail","Output":"--- PASS: TestVerifyChainFail (0.00s)\n"}
+{"Time":"2022-07-16T13:31:03.431188+03:00","Action":"pass","Package":"test","Test":"TestVerifyChainFail","Elapsed":0}
+{"Time":"2022-07-16T13:31:03.431192+03:00","Action":"run","Package":"test","Test":"TestVerifyChain"}
+{"Time":"2022-07-16T13:31:03.431196+03:00","Action":"output","Package":"test","Test":"TestVerifyChain","Output":"=== RUN   TestVerifyChain\n"}
+{"Time":"2022-07-16T13:31:03.431201+03:00","Action":"output","Package":"test","Test":"TestVerifyChain","Output":"--- PASS: TestVerifyChain (0.00s)\n"}
+{"Time":"2022-07-16T13:31:03.431205+03:00","Action":"pass","Package":"test","Test":"TestVerifyChain","Elapsed":0}
+{"Time":"2022-07-16T13:31:03.431209+03:00","Action":"run","Package":"test","Test":"TestInvitation"}
+{"Time":"2022-07-16T13:31:03.431212+03:00","Action":"output","Package":"test","Test":"TestInvitation","Output":"=== RUN   TestInvitation\n"}
+{"Time":"2022-07-16T13:31:03.431217+03:00","Action":"output","Package":"test","Test":"TestInvitation","Output":"--- PASS: TestInvitation (0.00s)\n"}
+{"Time":"2022-07-16T13:31:03.431221+03:00","Action":"pass","Package":"test","Test":"TestInvitation","Elapsed":0}
+{"Time":"2022-07-16T13:31:03.431225+03:00","Action":"run","Package":"test","Test":"TestCommonInviter"}
+{"Time":"2022-07-16T13:31:03.431228+03:00","Action":"output","Package":"test","Test":"TestCommonInviter","Output":"=== RUN   TestCommonInviter\n"}
+{"Time":"2022-07-16T13:31:03.431232+03:00","Action":"output","Package":"test","Test":"TestCommonInviter","Output":"--- PASS: TestCommonInviter (0.00s)\n"}
+{"Time":"2022-07-16T13:31:03.431243+03:00","Action":"pass","Package":"test","Test":"TestCommonInviter","Elapsed":0}
+{"Time":"2022-07-16T13:31:03.431247+03:00","Action":"run","Package":"test","Test":"TestSameInviter"}
+{"Time":"2022-07-16T13:31:03.431251+03:00","Action":"output","Package":"test","Test":"TestSameInviter","Output":"=== RUN   TestSameInviter\n"}
+{"Time":"2022-07-16T13:31:03.43127+03:00","Action":"output","Package":"test","Test":"TestSameInviter","Output":"--- PASS: TestSameInviter (0.00s)\n"}
+{"Time":"2022-07-16T13:31:03.431274+03:00","Action":"pass","Package":"test","Test":"TestSameInviter","Elapsed":0}
+{"Time":"2022-07-16T13:31:03.431276+03:00","Action":"run","Package":"test","Test":"TestHops"}
+{"Time":"2022-07-16T13:31:03.431279+03:00","Action":"output","Package":"test","Test":"TestHops","Output":"=== RUN   TestHops\n"}
+{"Time":"2022-07-16T13:31:03.431282+03:00","Action":"output","Package":"test","Test":"TestHops","Output":"--- PASS: TestHops (0.00s)\n"}
+{"Time":"2022-07-16T13:31:03.431285+03:00","Action":"pass","Package":"test","Test":"TestHops","Elapsed":0}
+{"Time":"2022-07-16T13:31:03.431287+03:00","Action":"run","Package":"test","Test":"TestChallengeInvitee"}
+{"Time":"2022-07-16T13:31:03.43129+03:00","Action":"output","Package":"test","Test":"TestChallengeInvitee","Output":"=== RUN   TestChallengeInvitee\n"}
+{"Time":"2022-07-16T13:31:03.431293+03:00","Action":"output","Package":"test","Test":"TestChallengeInvitee","Output":"--- PASS: TestChallengeInvitee (0.00s)\n"}
+{"Time":"2022-07-16T13:31:03.431295+03:00","Action":"pass","Package":"test","Test":"TestChallengeInvitee","Elapsed":0}
+{"Time":"2022-07-16T13:31:03.431298+03:00","Action":"output","Package":"test","Output":"PASS\n"}
+{"Time":"2022-07-16T13:31:03.431301+03:00","Action":"output","Package":"test","Output":"ok  \tgithub.com/lainio/ic/chain\t(cached)\n"}
+{"Time":"2022-07-16T13:31:03.431307+03:00","Action":"pass","Package":"test","Elapsed":0}
+{"Time":"2022-07-16T13:31:03.431521+03:00","Action":"output","Package":"test","Output":"?   \tgithub.com/lainio/ic/crypto\t[no test files]\n"}
+{"Time":"2022-07-16T13:31:03.431526+03:00","Action":"skip","Package":"test","Elapsed":0}
+{"Time":"2022-07-16T13:31:03.612405+03:00","Action":"run","Package":"test","Test":"TestNewRootNode"}
+{"Time":"2022-07-16T13:31:03.612451+03:00","Action":"output","Package":"test","Test":"TestNewRootNode","Output":"=== RUN   TestNewRootNode\n"}
+{"Time":"2022-07-16T13:31:03.612525+03:00","Action":"output","Package":"test","Test":"TestNewRootNode","Output":"    node_test.go:52: got 1, want 0\n"}
+{"Time":"2022-07-16T13:31:03.612525+03:00","Action":"output","Package":"test","Test":"TestNewRootNode","Output":"    node_test.go:56: got 1, want 0\n"}
+{"Time":"2022-07-16T13:31:03.612537+03:00","Action":"output","Package":"test","Test":"TestNewRootNode","Output":"--- FAIL: TestNewRootNode (0.00s)\n"}
+{"Time":"2022-07-16T13:31:03.612542+03:00","Action":"fail","Package":"test","Test":"TestNewRootNode","Elapsed":0}
+{"Time":"2022-07-16T13:31:03.612548+03:00","Action":"run","Package":"test","Test":"TestInvite"}
+{"Time":"2022-07-16T13:31:03.612552+03:00","Action":"output","Package":"test","Test":"TestInvite","Output":"=== RUN   TestInvite\n"}
+{"Time":"2022-07-16T13:31:03.614851+03:00","Action":"output","Package":"test","Test":"TestInvite","Output":"--- PASS: TestInvite (0.00s)\n"}
+{"Time":"2022-07-16T13:31:03.614859+03:00","Action":"pass","Package":"test","Test":"TestInvite","Elapsed":0}
+{"Time":"2022-07-16T13:31:03.614864+03:00","Action":"run","Package":"test","Test":"TestCommonChains"}
+{"Time":"2022-07-16T13:31:03.614867+03:00","Action":"output","Package":"test","Test":"TestCommonChains","Output":"=== RUN   TestCommonChains\n"}
+{"Time":"2022-07-16T13:31:03.615324+03:00","Action":"output","Package":"test","Test":"TestCommonChains","Output":"--- PASS: TestCommonChains (0.00s)\n"}
+{"Time":"2022-07-16T13:31:03.615331+03:00","Action":"pass","Package":"test","Test":"TestCommonChains","Elapsed":0}
+{"Time":"2022-07-16T13:31:03.615336+03:00","Action":"run","Package":"test","Test":"TestWebOfTrustInfo"}
+{"Time":"2022-07-16T13:31:03.615351+03:00","Action":"output","Package":"test","Test":"TestWebOfTrustInfo","Output":"=== RUN   TestWebOfTrustInfo\n"}
+{"Time":"2022-07-16T13:31:03.625008+03:00","Action":"output","Package":"test","Test":"TestWebOfTrustInfo","Output":"--- PASS: TestWebOfTrustInfo (0.01s)\n"}
+{"Time":"2022-07-16T13:31:03.62502+03:00","Action":"pass","Package":"test","Test":"TestWebOfTrustInfo","Elapsed":0.01}
+{"Time":"2022-07-16T13:31:03.625027+03:00","Action":"output","Package":"test","Output":"FAIL\n"}
+{"Time":"2022-07-16T13:31:03.625334+03:00","Action":"output","Package":"test","Output":"FAIL\tgithub.com/lainio/ic/node\t0.112s\n"}
+{"Time":"2022-07-16T13:31:03.625352+03:00","Action":"fail","Package":"test","Elapsed":0.112}
