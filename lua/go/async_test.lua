@@ -195,7 +195,9 @@ local function quickfix(prefix)
         out.win_nr = win_nr
     end
     out.clear = function()
-        if not out.win_nr then return end
+        if not out.win_nr then
+            out.win_nr = vim.fn.winnr()
+        end
         vim.fn.setloclist(out.win_nr, {})
         vim.api.nvim_command('lclose')
     end
