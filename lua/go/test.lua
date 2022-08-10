@@ -22,8 +22,11 @@ local function build_args(args)
             table.insert(args, f)
         end
     end
-    -- redirect stderr to stdout so neovim won't crash
-    table.insert(args, '2>&1')
+    -- we need compiler error messages from stderr in -json output parsing
+    if not use_qf_output then
+        -- redirect stderr to stdout so neovim won't crash
+        table.insert(args, '2>&1')
+    end
 
     return table.concat(args, ' ')
 end
