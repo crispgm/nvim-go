@@ -28,9 +28,7 @@ end
 local function test()
     local out = { lines = queue() }
     out.add_msg = function(msg)
-        if string.match(msg, correctly_formatted) then
-            out.lines.push(msg)
-        end
+        out.lines.push(msg)
     end
     out.last_msgs = function()
         return out.lines.iterator()
@@ -105,15 +103,44 @@ end
 
 local function parse_output_lines(test_event)
     local qf_list = {}
-    for msg in test_event.Messages do
-        test_event.Msg = msg
-        parse_qf_line(qf_list, test_event)
+    if string.match(test_event.Name, "^Example.+$") then
+        local cur_testfile_bufnr = test_event.BufferNr
+        table.insert(qf_list, {
+            bufnr = cur_testfile_bufnr,
+            pattern = "^func " .. test_event.Name,
+            type = 'E',
+            module = test_event.Name,
+            text = "FAIL",
+        })
+        for msg in test_event.Messages do
+            local noise = string.match(msg, '^=== ') or string.match(msg, '^--- ')
+            if not noise then
+                table.insert(qf_list, {
+                    bufnr = cur_testfile_bufnr,
+                    module = ' ',
+                    text = msg,
+                    valid = false,
+                })
+            end
+        end
+
+    elseif string.match(test_event.Name, "^Test.+$") then
+        for msg in test_event.Messages do
+            test_event.Msg = msg
+            parse_qf_line(qf_list, test_event)
+        end
     end
     return qf_list
 end
 
 local function test_run()
-    local out = { current_test = {}, list = {} }
+    local out = {
+        current_test = {},
+        list = {},
+        -- Example tests doesn't log filename and line number. For all but
+        -- GoTestAll we can use current buffer and search pattern.
+        cur_testfile_bufnr = vim.api.nvim_get_current_buf(),
+    }
     out.parse_test_output_line = function(line, process)
         if not line or line == "" then return end
         local test_event = vim.fn.json_decode(line)
@@ -130,6 +157,7 @@ local function test_run()
                 Messages = out.current_test[tkey].last_msgs(),
                 Package = test_event.Package,
                 Name = test_event.Test,
+                BufferNr = out.cur_testfile_bufnr,
             })
             if qf_list ~= nil and #qf_list > 0 then
                 process(qf_list)
@@ -256,4 +284,3 @@ M._module_root = module_root
 M._test_run = test_run
 
 return M
-

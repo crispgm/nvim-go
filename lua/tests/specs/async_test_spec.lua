@@ -63,5 +63,10 @@ describe('async test run', function()
     it('should find failed ones for sub tests as well', function()
         run_pseudo_test("fail_include_sub_tests.json", 6)
     end)
+
+    it('should find failed ones from examples', function()
+        -- 8 errors 4 info lines 1 caption
+        run_pseudo_test("example-test-fail.json", 8*(4+1))
+    end)
 end)
 
