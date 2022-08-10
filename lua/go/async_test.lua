@@ -142,9 +142,11 @@ local function test_run()
         cur_testfile_bufnr = vim.api.nvim_get_current_buf(),
     }
     out.parse_test_output_line = function(line, process)
-        if not line or line == "" then return end
+        if not line or not string.match(line, '^{.*}$') then return end
         local test_event = vim.fn.json_decode(line)
-        if not test_event.Test or test_event.Test == "" then return end
+        if not test_event or not test_event.Test or test_event.Test == "" then
+            return
+        end
 
         local action = test_event.Action
         local tkey = test_event.Package .. test_event.Test
@@ -246,12 +248,32 @@ function M.do_test(prefix, cmd)
     end
     local qf_win = quickfix(prefix)
     local trun = test_run()
-    local function on_event(_, data, _)
+    local function on_event(_, data, stream)
         if not util.empty_output(data) then
-            for _, line in ipairs(data) do
-                trun.parse_test_output_line(line, function(qfl)
-                    qf_win.show(qfl)
-                end)
+            if stream == 'stdout' then
+                for _, line in ipairs(data) do
+                    trun.parse_test_output_line(line, function(qfl)
+                        qf_win.show(qfl)
+                    end)
+                end
+            elseif stream == 'stderr' then
+                local qf_list = {}
+                for _, line in ipairs(data) do
+                    local filename, lnum, col, text = string.match(
+                        line,
+                        "^(.+%.go):(%d+):(%d+): (.+)$"
+                    )
+                    if filename then
+                        table.insert(qf_list, {
+                            filename = filename,
+                            lnum = lnum,
+                            col = col,
+                            type = 'E',
+                            text = text,
+                        })
+                    end
+                end
+                qf_win.show(qf_list)
             end
         end
     end
