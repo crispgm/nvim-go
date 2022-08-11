@@ -16,7 +16,7 @@ local function build_args(args)
     local test_flags = config.options.test_flags
     if test_flags then
         for _, f in ipairs(test_flags) do
-            if string.match(f, "-json") then
+            if string.match(f, '-json') then
                 use_qf_output = true
             end
             table.insert(args, f)
