@@ -183,7 +183,7 @@ vim.api.nvim_clear_autocmds({
 if opt.auto_format then
     vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
         group = group,
-        pattern = '<buffer>',
+        pattern =  '*.go',
         command = 'GoFormat',
     })
 end
