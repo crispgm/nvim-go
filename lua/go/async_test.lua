@@ -240,11 +240,11 @@ local function module_root(cwd)
 end
 
 local function calc_working_dir(prefix)
-    local cwd = vim.fn.expand('%:p:h')
-    if prefix == 'GoTestAll' then
-        cwd = module_root()
+    -- Only 'go test' cmd is run in the buffer's dir
+    if prefix == 'GoTest' then
+        return vim.fn.expand('%:p:h')
     end
-    return cwd
+    return module_root()
 end
 
 function M.do_test(prefix, cmd)
