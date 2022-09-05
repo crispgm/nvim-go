@@ -31,6 +31,11 @@ local function build_args(args)
     return table.concat(args, ' ')
 end
 
+local function package_name_test_target()
+    local cwd = vim.fn.expand('%:p:h')
+    return cwd .. '/...'
+end
+
 local function valid_func_name(func_name)
     if not func_name then
         return false
@@ -174,6 +179,7 @@ function M.test_func(opt)
         'test',
         '-run',
         vim.fn.shellescape(string.format('^%s$', func_name)),
+        package_name_test_target(),
     }
     do_test(prefix, build_args(cmd))
 end
@@ -207,6 +213,7 @@ function M.test_file()
         vim.fn.shellescape(
             table.concat(func_names, '|') -- we need sub tests as well
         ),
+        package_name_test_target(),
     }
     do_test(prefix, build_args(cmd))
 end
