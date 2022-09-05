@@ -239,7 +239,7 @@ local function module_root(cwd)
     return working_dir
 end
 
-local function calc_working_dir(prefix)
+function M.calc_working_dir(prefix)
     -- Only 'go test' cmd is run in the buffer's dir
     if prefix == 'GoTest' then
         return vim.fn.expand('%:p:h')

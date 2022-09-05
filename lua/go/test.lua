@@ -94,7 +94,7 @@ local function sync_do_test(prefix, cmd)
         end
     end
 
-    local cwd = vim.fn.expand('%:p:h')
+    local cwd = async.calc_working_dir(prefix)
     local env = config.options.test_env
     local opts = {
         on_exit = function(_, code, _)
