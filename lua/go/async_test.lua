@@ -281,7 +281,7 @@ function M.do_test(prefix, cmd)
         end
     end
 
-    local cwd = calc_working_dir(prefix)
+    local cwd = M.calc_working_dir(prefix)
     local env = config.options.test_env
     local opts = {
         on_exit = function(_, code, _)
