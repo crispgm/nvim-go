@@ -29,7 +29,7 @@ local function is_go_install()
     return true
 end
 
-local function build_cmd(tool, update)
+local function build_cmd(tool, update, go_install)
     local cmd
     local pkg_mgr = 'go'
     if tool.pkg_mgr ~= nil then
@@ -37,7 +37,7 @@ local function build_cmd(tool, update)
     end
     if pkg_mgr == 'go' then
         local src = tool.src
-        if is_go_install() then
+        if go_install then
             src = tool.src .. '@latest'
             cmd = { 'go', 'install', src }
         else
@@ -68,15 +68,17 @@ local function build_cmd(tool, update)
     return cmd
 end
 
--- Install binaries
-function M.install_binaries()
-    local prefix = 'GoInstallBinaries'
+local function do_install(prefix, update)
     if vim.fn.executable('go') == 0 then
         output.show_error(prefix, 'Install Golang at first')
     end
+    local go_install = is_go_install()
 
     for _, tool in ipairs(config.tools) do
-        if vim.fn.executable(tool.name) == 1 then
+        if tool.enable == false then
+            goto skip_to_next
+        end
+        if update == false and vim.fn.executable(tool.name) == 1 then
             goto skip_to_next
         end
         local msg = string.format(
@@ -86,7 +88,7 @@ function M.install_binaries()
             tool.src
         )
         vim.api.nvim_echo({ { msg } }, true, {})
-        local cmd = build_cmd(tool, false)
+        local cmd = build_cmd(tool, update, go_install)
         if cmd == nil then
             output.show_error(
                 prefix,
@@ -112,39 +114,14 @@ function M.install_binaries()
     end
 end
 
+-- Install binaries
+function M.install_binaries()
+    do_install('GoInstallBinaries', false)
+end
+
 -- Update binaries
 function M.update_binaries()
-    local prefix = 'GoUpdateBinaries'
-    for _, tool in ipairs(config.tools) do
-        local msg = string.format(
-            '[%s] Installing %s: %s ...',
-            prefix,
-            tool.name,
-            tool.src
-        )
-        vim.api.nvim_echo({ { msg } }, true, {})
-        local cmd = build_cmd(tool, true)
-        if cmd == nil then
-            output.show_error(
-                prefix,
-                string.format('%s is not supported', tool.pkg_mgr)
-            )
-        end
-        vim.fn.jobstart(cmd, {
-            on_exit = function(_, code, _)
-                if code == 0 then
-                    output.show_success(
-                        prefix,
-                        string.format('Installed %s', tool.name)
-                    )
-                end
-            end,
-            on_stderr = function(_, data, _)
-                local results = table.concat(data, '\n')
-                output.show_error(prefix, results)
-            end,
-        })
-    end
+    do_install('GoUpdateBinaries', true)
 end
 
 return M
