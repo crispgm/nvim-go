@@ -80,7 +80,8 @@ local function do_lint(linter, args)
     local buf_nr = vim.api.nvim_get_current_buf()
     local file_path = vim.api.nvim_buf_get_name(buf_nr)
     -- `golangci-lint` requires package folder in some cases
-    if linter == 'golangci-lint' then
+    -- `revive` requires package folder to avoid package comment issue
+    if linter == 'golangci-lint' or linter == 'revive' then
         file_path = vim.fn.expand('%:p:h')
     end
     local cmd =
