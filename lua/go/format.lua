@@ -7,7 +7,7 @@ local output = require('go.output')
 local util = require('go.util')
 
 function M.formatters()
-    return { 'gofmt', 'goimports', 'gofumpt' }
+    return { 'gofmt', 'goimports', 'gofumpt', 'lsp' }
 end
 
 function M.format(fmt)
@@ -68,6 +68,17 @@ local function do_fmt(formatter, args)
             output.show_error('GoFormat', results)
         end,
     })
+end
+
+function M.lsp()
+    if vim.fn.has('nvim-0.8') then
+        require('vim.lsp.buf').format()
+    else
+        output.show_error(
+            'GoFormat',
+            '`vim.lsp.buf.format` requires neovim 0.8'
+        )
+    end
 end
 
 function M.gofmt()

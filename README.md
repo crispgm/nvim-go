@@ -12,7 +12,7 @@ Neovim (from v0.5) embeds a built-in Language Server Protocol (LSP) client. And 
 
 ## Features
 
-- Auto format with `:GoFormat` (via `goimports`, `gofmt`, and `gofumpt`) when saving.
+- Auto format with `:GoFormat` (via `goimports`, `gofmt`, `gofumpt` and `lsp`) when saving.
 - Run linters with `:GoLint` (via `revive`) automatically.
 - Quickly test with `:GoTest`, `:GoTestFunc`, `:GoTestFile` and `:GoTestAll`. Generate test with `:GoAddTest`.
 - Import packages with `:GoGet` and `:GoImport`.

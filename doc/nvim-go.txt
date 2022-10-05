@@ -135,7 +135,9 @@ Commands~
 `:GoFormat([formatter])`                                           *:GoFormat*
     Format with formatter. If formatter is not specified, then format with
     default formatter. Default formatter is `goimports`, and other formatters
-    are `gofmt` and `gofumpt`.
+    are `gofmt` and `gofumpt`. And `lsp` is supported after neovim v0.8 is
+    released, which formats with `textDocument/formatting` method by calling
+    `vim.lsp.buf.format`.
 
     If `maintain_cursor_pos` is `true`, then nvim-go will take extra steps to
     keep the cursor where it is after the buffer is formatted. By default,
