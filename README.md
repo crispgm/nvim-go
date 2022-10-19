@@ -37,7 +37,7 @@ We highly recommend you to use LSP client together with `nvim-go`.
 
 1. Setup `gopls` with [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig).
 2. Setup your favorite completion engine such as [nvim-cmp](https://github.com/hrsh7th/nvim-cmp).
-3. Map the following methods based on what you need:
+3. Setup and map the following methods based on what you need:
 
 - Declaration: `vim.lsp.buf.declaration()`
 - Definition: `vim.lsp.buf.definition()` and `vim.lsp.buf.type_definition()`
@@ -47,6 +47,10 @@ We highly recommend you to use LSP client together with `nvim-go`.
 - References: `vim.lsp.buf.reference()`
 - Symbols: `vim.lsp.buf.document_symbol()` and `vim.lsp.buf.workspace_symbol()`
 - Rename: `vim.lsp.buf.rename()`
+- Format: `vim.lsp.buf.format()`, also works with `GoFormat`.
+- Diagnostic: `vim.diagnostic` will also show lint issues with Virtual Text, which runs [`go/analysis`](https://github.com/golang/tools/tree/master/gopls/internal/lsp/analysis). You may disable `auto_lint` if this works well with your project.
+
+For details of `gopls`, please refer to <https://github.com/golang/tools/blob/master/gopls/doc/design/design.md#features>.
 
 ### Debugger
 
@@ -116,7 +120,7 @@ require('go').setup({
     linter_flags = {},
     -- lint_prompt_style: qf (quickfix), vt (virtual text)
     lint_prompt_style = 'qf',
-    -- formatter: goimports, gofmt, gofumpt
+    -- formatter: goimports, gofmt, gofumpt, lsp
     formatter = 'goimports',
     -- maintain cursor position after formatting loaded buffer
     maintain_cursor_pos = false,
