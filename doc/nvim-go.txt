@@ -1,6 +1,5 @@
 *nvim-go.txt* Go development plugin
 
-==============================================================================
      __    __  __     __  ______  __       __           ______    ______
     |  \  |  \|  \   |  \|      \|  \     /  \         /      \  /      \
     | ##\ | ##| ##   | ## \######| ##\   /  ##        |  ######\|  ######\
@@ -261,5 +260,5 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-==============================================================================
+
 vim:tw=78:sw=4:ts=8:ft=help:norl:
