@@ -1,6 +1,6 @@
 local M = {}
 
-local health = require('health')
+local health = vim.health or require('health')
 local tools = require('go.config').tools
 
 function M.check()
