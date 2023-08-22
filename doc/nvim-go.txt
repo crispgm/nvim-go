@@ -165,7 +165,8 @@ Commands~
 `:GoAddTest`                                                      *:GoAddTest*
     Generate unit test for current function.
 
-`:GoToTest(cmd)`                                                   *:GoToTest*
+`:GoToTest(cmd)`                                       *:GoTestOpen* *:GoToTest*
+`:GoTestOpen(cmd)`
     Go from `*.go` to `*_test.go` or go back. It will create new file if
     `*_test.go` does not exist. The default command is `edit`, you may pass
     `vsplit`, `split`, `tabedit` or commands like that.
