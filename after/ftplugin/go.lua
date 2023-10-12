@@ -78,7 +78,15 @@ vim.api.nvim_create_user_command(
     }
 )
 vim.api.nvim_create_user_command(
-    'GoToTest',
+    'GoTestOpen',
+    'lua require("go.test").test_open(<f-args>)',
+    {
+        nargs = '?',
+        complete = 'command',
+    }
+)
+vim.api.nvim_create_user_command(
+    'GoToTest', -- alias of GoTestOpen
     'lua require("go.test").test_open(<f-args>)',
     {
         nargs = '?',
@@ -190,7 +198,7 @@ vim.api.nvim_clear_autocmds({
 if opt.auto_format then
     vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
         group = group,
-        pattern =  '*.go',
+        pattern = '*.go',
         command = 'GoFormat',
     })
 end
