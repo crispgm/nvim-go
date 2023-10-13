@@ -174,12 +174,12 @@ function M.test_func(opt)
 end
 
 local function replace_spaces_with_underscore(str)
-    return str:gsub("%s", "_")
+    return str:gsub('%s', '_')
 end
 
 local function process_line_test_name()
     local line = vim.api.nvim_get_current_line()
-    local start_idx, end_idx = string.find(line, "%b\"\"")
+    local start_idx, end_idx = string.find(line, '%b""')
 
     if start_idx and end_idx then
         local value_inside_parentheses = line:sub(start_idx + 1, end_idx - 1)
@@ -201,8 +201,8 @@ function M.test_name(opt)
         local line = vim.fn.search([[func \(Test\|Example\)]], 'bcnW')
         if line == 0 then
             output.show_error(
-            prefix,
-            string.format('Test func not found: %s', func_name)
+                prefix,
+                string.format('Test func not found: %s', func_name)
             )
             return
         end
@@ -211,16 +211,14 @@ function M.test_name(opt)
     end
     if not valid_func_name(func_name) then
         output.show_error(
-        'GoTestFunc',
-        string.format('Invalid test func: %s', func_name)
+            'GoTestFunc',
+            string.format('Invalid test func: %s', func_name)
         )
         return
     end
 
     local name_test = process_line_test_name()
 
-    -- go test -run TestExample/Lorem_ipsum_dolor_sit_amet,_consectetur_adipiscing_elit 
-    -- name: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
     local cmd = {
         'go',
         'test',
