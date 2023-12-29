@@ -39,7 +39,7 @@ local function do_fmt(formatter, args)
     local buf_nr = vim.api.nvim_get_current_buf()
     local file_path = vim.api.nvim_buf_get_name(buf_nr)
     local view = vim.fn.winsaveview()
-    vim.api.nvim_exec('noautocmd write', true)
+    vim.api.nvim_exec2('noautocmd write', { output = true })
     local original_file_len = vim.fn.line('$')
     local original_line = vim.fn.getline('.')
     local original_col_nr = vim.fn.col('.')
@@ -48,14 +48,14 @@ local function do_fmt(formatter, args)
         on_exit = function(_, code, _)
             if code == 0 then
                 output.show_success('GoFormat', 'Success')
-                vim.api.nvim_exec('edit', true)
+                vim.api.nvim_exec2('edit', { output = true })
                 vim.fn.winrestview(view)
                 if config.options.maintain_cursor_pos then
                     local new_line_nr = get_new_line_nr(original_file_len)
                     local new_line = vim.fn.getline(new_line_nr)
                     local new_col_nr =
                         get_new_col_nr(new_line, original_line, original_col_nr)
-                    vim.fn.cursor(new_line_nr, new_col_nr)
+                    vim.fn.cursor({ new_line_nr, new_col_nr })
                 end
             end
         end,
