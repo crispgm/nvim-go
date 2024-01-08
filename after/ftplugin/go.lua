@@ -194,6 +194,11 @@ if opt.auto_format then
         pattern = '*.go',
         command = 'GoFormat',
     })
+    vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
+        group = group,
+        pattern = 'go.mod',
+        command = 'GoFormat',
+    })
 end
 if opt.auto_lint then
     vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
