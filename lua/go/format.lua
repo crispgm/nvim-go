@@ -38,6 +38,10 @@ local function do_fmt(formatter, args)
     end
     local buf_nr = vim.api.nvim_get_current_buf()
     local file_path = vim.api.nvim_buf_get_name(buf_nr)
+    if vim.endswith(file_path, 'go.mod') and formatter ~= 'lsp' then
+        -- output.show_warning('GoFormat', 'Only lsp formatter supports go.mod')
+        return
+    end
     local view = vim.fn.winsaveview()
     vim.api.nvim_exec2('noautocmd write', { output = true })
     local original_file_len = vim.fn.line('$')
