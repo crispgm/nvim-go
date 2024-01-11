@@ -48,7 +48,7 @@ local function do_fmt(formatter, args)
     local original_line = vim.fn.getline('.')
     local original_col_nr = vim.fn.col('.')
     local cmd = system.wrap_file_command(formatter, args, file_path)
-    vim.fn.jobstart(cmd, {
+    local job_id = vim.fn.jobstart(cmd, {
         on_exit = function(_, code, _)
             if code == 0 then
                 output.show_success('GoFormat', 'Success')
@@ -72,6 +72,8 @@ local function do_fmt(formatter, args)
             output.show_error('GoFormat', results)
         end,
     })
+    -- wait for the job so we don't race nvim writing out the buffer
+    vim.fn.jobwait({job_id})
 end
 
 function M.lsp()
