@@ -222,6 +222,19 @@ augroup NvimGo
 augroup END
 ```
 
+Or equivalently:
+
+```lua
+local NvimGo = vim.api.nvim_create_augroup("NvimGo", {
+  clear = true,
+})
+vim.api.nvim_create_autocmd({ "User" }, {
+  pattern = "NvimGoLintPopupPost",
+  group = NvimGo,
+  command = "wincmd p",
+})
+```
+
 ## License
 
 [MIT](/LICENSE)
