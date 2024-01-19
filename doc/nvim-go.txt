@@ -78,10 +78,12 @@ settings:
         -- maintain cursor position after formatting loaded buffer
         maintain_cursor_pos = false,
         -- test flags: -count=1 will disable cache
+        -- test flags: -json will replace test_popup with async loclist filling
         test_flags = {'-v'},
         test_timeout = '30s',
         test_env = {},
         -- show test result with popup window
+        -- note! '-json' go test flag replaces the popup with a loclist
         test_popup = true,
         test_popup_auto_leave = false,
         test_popup_width = 80,

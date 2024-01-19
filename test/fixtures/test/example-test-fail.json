@@ -1,0 +1,430 @@
+{"Time":"2022-08-09T20:26:30.807099+03:00","Action":"run","Package":"github.com/lainio/err2/internal/debug","Test":"TestFullName"}
+{"Time":"2022-08-09T20:26:30.807246+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestFullName","Output":"=== RUN   TestFullName\n"}
+{"Time":"2022-08-09T20:26:30.807257+03:00","Action":"run","Package":"github.com/lainio/err2/internal/debug","Test":"TestFullName/all_empty"}
+{"Time":"2022-08-09T20:26:30.807263+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestFullName/all_empty","Output":"=== RUN   TestFullName/all_empty\n"}
+{"Time":"2022-08-09T20:26:30.807269+03:00","Action":"run","Package":"github.com/lainio/err2/internal/debug","Test":"TestFullName/namespaces"}
+{"Time":"2022-08-09T20:26:30.807273+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestFullName/namespaces","Output":"=== RUN   TestFullName/namespaces\n"}
+{"Time":"2022-08-09T20:26:30.807278+03:00","Action":"run","Package":"github.com/lainio/err2/internal/debug","Test":"TestFullName/both"}
+{"Time":"2022-08-09T20:26:30.807282+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestFullName/both","Output":"=== RUN   TestFullName/both\n"}
+{"Time":"2022-08-09T20:26:30.807295+03:00","Action":"run","Package":"github.com/lainio/err2/internal/debug","Test":"TestFullName/func"}
+{"Time":"2022-08-09T20:26:30.8073+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestFullName/func","Output":"=== RUN   TestFullName/func\n"}
+{"Time":"2022-08-09T20:26:30.807307+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestFullName","Output":"--- PASS: TestFullName (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.807311+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestFullName/all_empty","Output":"    --- PASS: TestFullName/all_empty (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.807318+03:00","Action":"pass","Package":"github.com/lainio/err2/internal/debug","Test":"TestFullName/all_empty","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.80733+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestFullName/namespaces","Output":"    --- PASS: TestFullName/namespaces (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.807336+03:00","Action":"pass","Package":"github.com/lainio/err2/internal/debug","Test":"TestFullName/namespaces","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.80734+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestFullName/both","Output":"    --- PASS: TestFullName/both (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.807345+03:00","Action":"pass","Package":"github.com/lainio/err2/internal/debug","Test":"TestFullName/both","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.807351+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestFullName/func","Output":"    --- PASS: TestFullName/func (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.807358+03:00","Action":"pass","Package":"github.com/lainio/err2/internal/debug","Test":"TestFullName/func","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.807363+03:00","Action":"pass","Package":"github.com/lainio/err2/internal/debug","Test":"TestFullName","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.807367+03:00","Action":"run","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsAnchor"}
+{"Time":"2022-08-09T20:26:30.807371+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsAnchor","Output":"=== RUN   TestIsAnchor\n"}
+{"Time":"2022-08-09T20:26:30.807376+03:00","Action":"run","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsAnchor/panic_func_and_short_regexp"}
+{"Time":"2022-08-09T20:26:30.80738+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsAnchor/panic_func_and_short_regexp","Output":"=== RUN   TestIsAnchor/panic_func_and_short_regexp\n"}
+{"Time":"2022-08-09T20:26:30.807386+03:00","Action":"run","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsAnchor/func_hit_and_regexp_on"}
+{"Time":"2022-08-09T20:26:30.807402+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsAnchor/func_hit_and_regexp_on","Output":"=== RUN   TestIsAnchor/func_hit_and_regexp_on\n"}
+{"Time":"2022-08-09T20:26:30.807405+03:00","Action":"run","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsAnchor/short_regexp_no_match"}
+{"Time":"2022-08-09T20:26:30.807407+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsAnchor/short_regexp_no_match","Output":"=== RUN   TestIsAnchor/short_regexp_no_match\n"}
+{"Time":"2022-08-09T20:26:30.80741+03:00","Action":"run","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsAnchor/short_regexp"}
+{"Time":"2022-08-09T20:26:30.807412+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsAnchor/short_regexp","Output":"=== RUN   TestIsAnchor/short_regexp\n"}
+{"Time":"2022-08-09T20:26:30.807415+03:00","Action":"run","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsAnchor/short"}
+{"Time":"2022-08-09T20:26:30.807417+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsAnchor/short","Output":"=== RUN   TestIsAnchor/short\n"}
+{"Time":"2022-08-09T20:26:30.80742+03:00","Action":"run","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsAnchor/short-but-false"}
+{"Time":"2022-08-09T20:26:30.807422+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsAnchor/short-but-false","Output":"=== RUN   TestIsAnchor/short-but-false\n"}
+{"Time":"2022-08-09T20:26:30.807425+03:00","Action":"run","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsAnchor/medium"}
+{"Time":"2022-08-09T20:26:30.807427+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsAnchor/medium","Output":"=== RUN   TestIsAnchor/medium\n"}
+{"Time":"2022-08-09T20:26:30.80743+03:00","Action":"run","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsAnchor/medium-but-false"}
+{"Time":"2022-08-09T20:26:30.807433+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsAnchor/medium-but-false","Output":"=== RUN   TestIsAnchor/medium-but-false\n"}
+{"Time":"2022-08-09T20:26:30.807436+03:00","Action":"run","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsAnchor/long"}
+{"Time":"2022-08-09T20:26:30.807439+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsAnchor/long","Output":"=== RUN   TestIsAnchor/long\n"}
+{"Time":"2022-08-09T20:26:30.807442+03:00","Action":"run","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsAnchor/package_name_only"}
+{"Time":"2022-08-09T20:26:30.807444+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsAnchor/package_name_only","Output":"=== RUN   TestIsAnchor/package_name_only\n"}
+{"Time":"2022-08-09T20:26:30.807447+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsAnchor","Output":"--- PASS: TestIsAnchor (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.80745+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsAnchor/panic_func_and_short_regexp","Output":"    --- PASS: TestIsAnchor/panic_func_and_short_regexp (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.807456+03:00","Action":"pass","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsAnchor/panic_func_and_short_regexp","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.807459+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsAnchor/func_hit_and_regexp_on","Output":"    --- PASS: TestIsAnchor/func_hit_and_regexp_on (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.807463+03:00","Action":"pass","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsAnchor/func_hit_and_regexp_on","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.807465+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsAnchor/short_regexp_no_match","Output":"    --- PASS: TestIsAnchor/short_regexp_no_match (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.807474+03:00","Action":"pass","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsAnchor/short_regexp_no_match","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.807477+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsAnchor/short_regexp","Output":"    --- PASS: TestIsAnchor/short_regexp (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.80748+03:00","Action":"pass","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsAnchor/short_regexp","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.807482+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsAnchor/short","Output":"    --- PASS: TestIsAnchor/short (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.807485+03:00","Action":"pass","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsAnchor/short","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.807488+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsAnchor/short-but-false","Output":"    --- PASS: TestIsAnchor/short-but-false (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.807491+03:00","Action":"pass","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsAnchor/short-but-false","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.807494+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsAnchor/medium","Output":"    --- PASS: TestIsAnchor/medium (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.807497+03:00","Action":"pass","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsAnchor/medium","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.8075+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsAnchor/medium-but-false","Output":"    --- PASS: TestIsAnchor/medium-but-false (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.807502+03:00","Action":"pass","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsAnchor/medium-but-false","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.807507+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsAnchor/long","Output":"    --- PASS: TestIsAnchor/long (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.80751+03:00","Action":"pass","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsAnchor/long","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.807513+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsAnchor/package_name_only","Output":"    --- PASS: TestIsAnchor/package_name_only (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.807516+03:00","Action":"pass","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsAnchor/package_name_only","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.807519+03:00","Action":"pass","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsAnchor","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.807522+03:00","Action":"run","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsFuncAnchor"}
+{"Time":"2022-08-09T20:26:30.807524+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsFuncAnchor","Output":"=== RUN   TestIsFuncAnchor\n"}
+{"Time":"2022-08-09T20:26:30.807527+03:00","Action":"run","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsFuncAnchor/func_hit_and_regexp_on"}
+{"Time":"2022-08-09T20:26:30.80753+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsFuncAnchor/func_hit_and_regexp_on","Output":"=== RUN   TestIsFuncAnchor/func_hit_and_regexp_on\n"}
+{"Time":"2022-08-09T20:26:30.807533+03:00","Action":"run","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsFuncAnchor/short_regexp"}
+{"Time":"2022-08-09T20:26:30.807536+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsFuncAnchor/short_regexp","Output":"=== RUN   TestIsFuncAnchor/short_regexp\n"}
+{"Time":"2022-08-09T20:26:30.807539+03:00","Action":"run","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsFuncAnchor/short"}
+{"Time":"2022-08-09T20:26:30.807547+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsFuncAnchor/short","Output":"=== RUN   TestIsFuncAnchor/short\n"}
+{"Time":"2022-08-09T20:26:30.80755+03:00","Action":"run","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsFuncAnchor/short-but-false"}
+{"Time":"2022-08-09T20:26:30.807552+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsFuncAnchor/short-but-false","Output":"=== RUN   TestIsFuncAnchor/short-but-false\n"}
+{"Time":"2022-08-09T20:26:30.807555+03:00","Action":"run","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsFuncAnchor/medium"}
+{"Time":"2022-08-09T20:26:30.807558+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsFuncAnchor/medium","Output":"=== RUN   TestIsFuncAnchor/medium\n"}
+{"Time":"2022-08-09T20:26:30.807561+03:00","Action":"run","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsFuncAnchor/medium-but-false"}
+{"Time":"2022-08-09T20:26:30.807564+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsFuncAnchor/medium-but-false","Output":"=== RUN   TestIsFuncAnchor/medium-but-false\n"}
+{"Time":"2022-08-09T20:26:30.807567+03:00","Action":"run","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsFuncAnchor/long"}
+{"Time":"2022-08-09T20:26:30.807569+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsFuncAnchor/long","Output":"=== RUN   TestIsFuncAnchor/long\n"}
+{"Time":"2022-08-09T20:26:30.807573+03:00","Action":"run","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsFuncAnchor/package_name_only"}
+{"Time":"2022-08-09T20:26:30.807575+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsFuncAnchor/package_name_only","Output":"=== RUN   TestIsFuncAnchor/package_name_only\n"}
+{"Time":"2022-08-09T20:26:30.807578+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsFuncAnchor","Output":"--- PASS: TestIsFuncAnchor (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.807581+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsFuncAnchor/func_hit_and_regexp_on","Output":"    --- PASS: TestIsFuncAnchor/func_hit_and_regexp_on (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.807584+03:00","Action":"pass","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsFuncAnchor/func_hit_and_regexp_on","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.807586+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsFuncAnchor/short_regexp","Output":"    --- PASS: TestIsFuncAnchor/short_regexp (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.807589+03:00","Action":"pass","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsFuncAnchor/short_regexp","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.807592+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsFuncAnchor/short","Output":"    --- PASS: TestIsFuncAnchor/short (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.807595+03:00","Action":"pass","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsFuncAnchor/short","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.807598+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsFuncAnchor/short-but-false","Output":"    --- PASS: TestIsFuncAnchor/short-but-false (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.8076+03:00","Action":"pass","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsFuncAnchor/short-but-false","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.807603+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsFuncAnchor/medium","Output":"    --- PASS: TestIsFuncAnchor/medium (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.807606+03:00","Action":"pass","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsFuncAnchor/medium","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.807609+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsFuncAnchor/medium-but-false","Output":"    --- PASS: TestIsFuncAnchor/medium-but-false (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.807618+03:00","Action":"pass","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsFuncAnchor/medium-but-false","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.807621+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsFuncAnchor/long","Output":"    --- PASS: TestIsFuncAnchor/long (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.807624+03:00","Action":"pass","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsFuncAnchor/long","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.807627+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsFuncAnchor/package_name_only","Output":"    --- PASS: TestIsFuncAnchor/package_name_only (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.80763+03:00","Action":"pass","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsFuncAnchor/package_name_only","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.807632+03:00","Action":"pass","Package":"github.com/lainio/err2/internal/debug","Test":"TestIsFuncAnchor","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.807635+03:00","Action":"run","Package":"github.com/lainio/err2/internal/debug","Test":"TestStackPrint_noLimits"}
+{"Time":"2022-08-09T20:26:30.807637+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestStackPrint_noLimits","Output":"=== RUN   TestStackPrint_noLimits\n"}
+{"Time":"2022-08-09T20:26:30.80764+03:00","Action":"run","Package":"github.com/lainio/err2/internal/debug","Test":"TestStackPrint_noLimits/short"}
+{"Time":"2022-08-09T20:26:30.807643+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestStackPrint_noLimits/short","Output":"=== RUN   TestStackPrint_noLimits/short\n"}
+{"Time":"2022-08-09T20:26:30.80765+03:00","Action":"run","Package":"github.com/lainio/err2/internal/debug","Test":"TestStackPrint_noLimits/medium"}
+{"Time":"2022-08-09T20:26:30.807652+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestStackPrint_noLimits/medium","Output":"=== RUN   TestStackPrint_noLimits/medium\n"}
+{"Time":"2022-08-09T20:26:30.807655+03:00","Action":"run","Package":"github.com/lainio/err2/internal/debug","Test":"TestStackPrint_noLimits/long"}
+{"Time":"2022-08-09T20:26:30.807658+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestStackPrint_noLimits/long","Output":"=== RUN   TestStackPrint_noLimits/long\n"}
+{"Time":"2022-08-09T20:26:30.807661+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestStackPrint_noLimits","Output":"--- PASS: TestStackPrint_noLimits (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.807664+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestStackPrint_noLimits/short","Output":"    --- PASS: TestStackPrint_noLimits/short (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.807667+03:00","Action":"pass","Package":"github.com/lainio/err2/internal/debug","Test":"TestStackPrint_noLimits/short","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.807671+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestStackPrint_noLimits/medium","Output":"    --- PASS: TestStackPrint_noLimits/medium (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.807674+03:00","Action":"pass","Package":"github.com/lainio/err2/internal/debug","Test":"TestStackPrint_noLimits/medium","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.807676+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestStackPrint_noLimits/long","Output":"    --- PASS: TestStackPrint_noLimits/long (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.807679+03:00","Action":"pass","Package":"github.com/lainio/err2/internal/debug","Test":"TestStackPrint_noLimits/long","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.807681+03:00","Action":"pass","Package":"github.com/lainio/err2/internal/debug","Test":"TestStackPrint_noLimits","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.807689+03:00","Action":"run","Package":"github.com/lainio/err2/internal/debug","Test":"TestCalcAnchor"}
+{"Time":"2022-08-09T20:26:30.807691+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestCalcAnchor","Output":"=== RUN   TestCalcAnchor\n"}
+{"Time":"2022-08-09T20:26:30.807694+03:00","Action":"run","Package":"github.com/lainio/err2/internal/debug","Test":"TestCalcAnchor/macOS_from_test_using_regexp"}
+{"Time":"2022-08-09T20:26:30.807697+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestCalcAnchor/macOS_from_test_using_regexp","Output":"=== RUN   TestCalcAnchor/macOS_from_test_using_regexp\n"}
+{"Time":"2022-08-09T20:26:30.8077+03:00","Action":"run","Package":"github.com/lainio/err2/internal/debug","Test":"TestCalcAnchor/short"}
+{"Time":"2022-08-09T20:26:30.807702+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestCalcAnchor/short","Output":"=== RUN   TestCalcAnchor/short\n"}
+{"Time":"2022-08-09T20:26:30.807705+03:00","Action":"run","Package":"github.com/lainio/err2/internal/debug","Test":"TestCalcAnchor/short_error_stack"}
+{"Time":"2022-08-09T20:26:30.807707+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestCalcAnchor/short_error_stack","Output":"=== RUN   TestCalcAnchor/short_error_stack\n"}
+{"Time":"2022-08-09T20:26:30.80771+03:00","Action":"run","Package":"github.com/lainio/err2/internal/debug","Test":"TestCalcAnchor/short_and_nolimit"}
+{"Time":"2022-08-09T20:26:30.807712+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestCalcAnchor/short_and_nolimit","Output":"=== RUN   TestCalcAnchor/short_and_nolimit\n"}
+{"Time":"2022-08-09T20:26:30.807715+03:00","Action":"run","Package":"github.com/lainio/err2/internal/debug","Test":"TestCalcAnchor/medium"}
+{"Time":"2022-08-09T20:26:30.807717+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestCalcAnchor/medium","Output":"=== RUN   TestCalcAnchor/medium\n"}
+{"Time":"2022-08-09T20:26:30.80772+03:00","Action":"run","Package":"github.com/lainio/err2/internal/debug","Test":"TestCalcAnchor/from_test_using_panic"}
+{"Time":"2022-08-09T20:26:30.807723+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestCalcAnchor/from_test_using_panic","Output":"=== RUN   TestCalcAnchor/from_test_using_panic\n"}
+{"Time":"2022-08-09T20:26:30.807725+03:00","Action":"run","Package":"github.com/lainio/err2/internal/debug","Test":"TestCalcAnchor/from_test"}
+{"Time":"2022-08-09T20:26:30.807728+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestCalcAnchor/from_test","Output":"=== RUN   TestCalcAnchor/from_test\n"}
+{"Time":"2022-08-09T20:26:30.80773+03:00","Action":"run","Package":"github.com/lainio/err2/internal/debug","Test":"TestCalcAnchor/macOS_from_test_using_panic"}
+{"Time":"2022-08-09T20:26:30.807733+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestCalcAnchor/macOS_from_test_using_panic","Output":"=== RUN   TestCalcAnchor/macOS_from_test_using_panic\n"}
+{"Time":"2022-08-09T20:26:30.807736+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestCalcAnchor","Output":"--- PASS: TestCalcAnchor (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.807739+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestCalcAnchor/macOS_from_test_using_regexp","Output":"    --- PASS: TestCalcAnchor/macOS_from_test_using_regexp (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.807742+03:00","Action":"pass","Package":"github.com/lainio/err2/internal/debug","Test":"TestCalcAnchor/macOS_from_test_using_regexp","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.807745+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestCalcAnchor/short","Output":"    --- PASS: TestCalcAnchor/short (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.807747+03:00","Action":"pass","Package":"github.com/lainio/err2/internal/debug","Test":"TestCalcAnchor/short","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.807754+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestCalcAnchor/short_error_stack","Output":"    --- PASS: TestCalcAnchor/short_error_stack (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.807757+03:00","Action":"pass","Package":"github.com/lainio/err2/internal/debug","Test":"TestCalcAnchor/short_error_stack","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.807759+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestCalcAnchor/short_and_nolimit","Output":"    --- PASS: TestCalcAnchor/short_and_nolimit (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.807762+03:00","Action":"pass","Package":"github.com/lainio/err2/internal/debug","Test":"TestCalcAnchor/short_and_nolimit","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.807765+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestCalcAnchor/medium","Output":"    --- PASS: TestCalcAnchor/medium (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.807768+03:00","Action":"pass","Package":"github.com/lainio/err2/internal/debug","Test":"TestCalcAnchor/medium","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.80777+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestCalcAnchor/from_test_using_panic","Output":"    --- PASS: TestCalcAnchor/from_test_using_panic (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.807773+03:00","Action":"pass","Package":"github.com/lainio/err2/internal/debug","Test":"TestCalcAnchor/from_test_using_panic","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.807775+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestCalcAnchor/from_test","Output":"    --- PASS: TestCalcAnchor/from_test (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.80778+03:00","Action":"pass","Package":"github.com/lainio/err2/internal/debug","Test":"TestCalcAnchor/from_test","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.807783+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestCalcAnchor/macOS_from_test_using_panic","Output":"    --- PASS: TestCalcAnchor/macOS_from_test_using_panic (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.807786+03:00","Action":"pass","Package":"github.com/lainio/err2/internal/debug","Test":"TestCalcAnchor/macOS_from_test_using_panic","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.807788+03:00","Action":"pass","Package":"github.com/lainio/err2/internal/debug","Test":"TestCalcAnchor","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.807791+03:00","Action":"run","Package":"github.com/lainio/err2/internal/debug","Test":"TestStackPrint_limit"}
+{"Time":"2022-08-09T20:26:30.807794+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestStackPrint_limit","Output":"=== RUN   TestStackPrint_limit\n"}
+{"Time":"2022-08-09T20:26:30.807796+03:00","Action":"run","Package":"github.com/lainio/err2/internal/debug","Test":"TestStackPrint_limit/short"}
+{"Time":"2022-08-09T20:26:30.807801+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestStackPrint_limit/short","Output":"=== RUN   TestStackPrint_limit/short\n"}
+{"Time":"2022-08-09T20:26:30.807804+03:00","Action":"run","Package":"github.com/lainio/err2/internal/debug","Test":"TestStackPrint_limit/medium"}
+{"Time":"2022-08-09T20:26:30.807806+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestStackPrint_limit/medium","Output":"=== RUN   TestStackPrint_limit/medium\n"}
+{"Time":"2022-08-09T20:26:30.807809+03:00","Action":"run","Package":"github.com/lainio/err2/internal/debug","Test":"TestStackPrint_limit/medium_level_2"}
+{"Time":"2022-08-09T20:26:30.807813+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestStackPrint_limit/medium_level_2","Output":"=== RUN   TestStackPrint_limit/medium_level_2\n"}
+{"Time":"2022-08-09T20:26:30.807816+03:00","Action":"run","Package":"github.com/lainio/err2/internal/debug","Test":"TestStackPrint_limit/medium_panic"}
+{"Time":"2022-08-09T20:26:30.807818+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestStackPrint_limit/medium_panic","Output":"=== RUN   TestStackPrint_limit/medium_panic\n"}
+{"Time":"2022-08-09T20:26:30.807826+03:00","Action":"run","Package":"github.com/lainio/err2/internal/debug","Test":"TestStackPrint_limit/long"}
+{"Time":"2022-08-09T20:26:30.807829+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestStackPrint_limit/long","Output":"=== RUN   TestStackPrint_limit/long\n"}
+{"Time":"2022-08-09T20:26:30.807831+03:00","Action":"run","Package":"github.com/lainio/err2/internal/debug","Test":"TestStackPrint_limit/long_lvl_2"}
+{"Time":"2022-08-09T20:26:30.807834+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestStackPrint_limit/long_lvl_2","Output":"=== RUN   TestStackPrint_limit/long_lvl_2\n"}
+{"Time":"2022-08-09T20:26:30.807837+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestStackPrint_limit","Output":"--- PASS: TestStackPrint_limit (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.80784+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestStackPrint_limit/short","Output":"    --- PASS: TestStackPrint_limit/short (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.807844+03:00","Action":"pass","Package":"github.com/lainio/err2/internal/debug","Test":"TestStackPrint_limit/short","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.807847+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestStackPrint_limit/medium","Output":"    --- PASS: TestStackPrint_limit/medium (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.807851+03:00","Action":"pass","Package":"github.com/lainio/err2/internal/debug","Test":"TestStackPrint_limit/medium","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.807854+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestStackPrint_limit/medium_level_2","Output":"    --- PASS: TestStackPrint_limit/medium_level_2 (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.807857+03:00","Action":"pass","Package":"github.com/lainio/err2/internal/debug","Test":"TestStackPrint_limit/medium_level_2","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.807861+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestStackPrint_limit/medium_panic","Output":"    --- PASS: TestStackPrint_limit/medium_panic (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.807864+03:00","Action":"pass","Package":"github.com/lainio/err2/internal/debug","Test":"TestStackPrint_limit/medium_panic","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.807866+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestStackPrint_limit/long","Output":"    --- PASS: TestStackPrint_limit/long (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.807869+03:00","Action":"pass","Package":"github.com/lainio/err2/internal/debug","Test":"TestStackPrint_limit/long","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.807875+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Test":"TestStackPrint_limit/long_lvl_2","Output":"    --- PASS: TestStackPrint_limit/long_lvl_2 (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.807878+03:00","Action":"pass","Package":"github.com/lainio/err2/internal/debug","Test":"TestStackPrint_limit/long_lvl_2","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.807881+03:00","Action":"pass","Package":"github.com/lainio/err2/internal/debug","Test":"TestStackPrint_limit","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.807883+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Output":"PASS\n"}
+{"Time":"2022-08-09T20:26:30.807886+03:00","Action":"output","Package":"github.com/lainio/err2/internal/debug","Output":"ok  \tgithub.com/lainio/err2/internal/debug\t(cached)\n"}
+{"Time":"2022-08-09T20:26:30.807893+03:00","Action":"pass","Package":"github.com/lainio/err2/internal/debug","Elapsed":0.001}
+{"Time":"2022-08-09T20:26:30.817542+03:00","Action":"run","Package":"github.com/lainio/err2/try","Test":"ExampleIs_errorHappens"}
+{"Time":"2022-08-09T20:26:30.817591+03:00","Action":"output","Package":"github.com/lainio/err2/try","Test":"ExampleIs_errorHappens","Output":"=== RUN   ExampleIs_errorHappens\n"}
+{"Time":"2022-08-09T20:26:30.817611+03:00","Action":"output","Package":"github.com/lainio/err2/try","Test":"ExampleIs_errorHappens","Output":"--- PASS: ExampleIs_errorHappens (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.817619+03:00","Action":"pass","Package":"github.com/lainio/err2/try","Test":"ExampleIs_errorHappens","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.817625+03:00","Action":"run","Package":"github.com/lainio/err2/try","Test":"ExampleIs_errorHappensNot"}
+{"Time":"2022-08-09T20:26:30.817628+03:00","Action":"output","Package":"github.com/lainio/err2/try","Test":"ExampleIs_errorHappensNot","Output":"=== RUN   ExampleIs_errorHappensNot\n"}
+{"Time":"2022-08-09T20:26:30.817632+03:00","Action":"output","Package":"github.com/lainio/err2/try","Test":"ExampleIs_errorHappensNot","Output":"--- PASS: ExampleIs_errorHappensNot (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.81764+03:00","Action":"pass","Package":"github.com/lainio/err2/try","Test":"ExampleIs_errorHappensNot","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.817644+03:00","Action":"run","Package":"github.com/lainio/err2/try","Test":"ExampleIsEOF1"}
+{"Time":"2022-08-09T20:26:30.817647+03:00","Action":"output","Package":"github.com/lainio/err2/try","Test":"ExampleIsEOF1","Output":"=== RUN   ExampleIsEOF1\n"}
+{"Time":"2022-08-09T20:26:30.817656+03:00","Action":"output","Package":"github.com/lainio/err2/try","Test":"ExampleIsEOF1","Output":"--- PASS: ExampleIsEOF1 (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.817659+03:00","Action":"pass","Package":"github.com/lainio/err2/try","Test":"ExampleIsEOF1","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.817662+03:00","Action":"run","Package":"github.com/lainio/err2/try","Test":"Example_copyFile"}
+{"Time":"2022-08-09T20:26:30.817666+03:00","Action":"output","Package":"github.com/lainio/err2/try","Test":"Example_copyFile","Output":"=== RUN   Example_copyFile\n"}
+{"Time":"2022-08-09T20:26:30.817673+03:00","Action":"output","Package":"github.com/lainio/err2/try","Test":"Example_copyFile","Output":"--- PASS: Example_copyFile (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.817676+03:00","Action":"pass","Package":"github.com/lainio/err2/try","Test":"Example_copyFile","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.817679+03:00","Action":"output","Package":"github.com/lainio/err2/try","Output":"PASS\n"}
+{"Time":"2022-08-09T20:26:30.817682+03:00","Action":"output","Package":"github.com/lainio/err2/try","Output":"ok  \tgithub.com/lainio/err2/try\t(cached)\n"}
+{"Time":"2022-08-09T20:26:30.817687+03:00","Action":"pass","Package":"github.com/lainio/err2/try","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.819084+03:00","Action":"run","Package":"github.com/lainio/err2","Test":"TestTry_noError"}
+{"Time":"2022-08-09T20:26:30.81912+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"TestTry_noError","Output":"=== RUN   TestTry_noError\n"}
+{"Time":"2022-08-09T20:26:30.819126+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"TestTry_noError","Output":"--- PASS: TestTry_noError (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.819131+03:00","Action":"pass","Package":"github.com/lainio/err2","Test":"TestTry_noError","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.819135+03:00","Action":"run","Package":"github.com/lainio/err2","Test":"TestDefault_Error"}
+{"Time":"2022-08-09T20:26:30.819138+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"TestDefault_Error","Output":"=== RUN   TestDefault_Error\n"}
+{"Time":"2022-08-09T20:26:30.819141+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"TestDefault_Error","Output":"--- PASS: TestDefault_Error (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.819144+03:00","Action":"pass","Package":"github.com/lainio/err2","Test":"TestDefault_Error","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.819147+03:00","Action":"run","Package":"github.com/lainio/err2","Test":"TestTry_Error"}
+{"Time":"2022-08-09T20:26:30.81915+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"TestTry_Error","Output":"=== RUN   TestTry_Error\n"}
+{"Time":"2022-08-09T20:26:30.819153+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"TestTry_Error","Output":"--- PASS: TestTry_Error (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.819163+03:00","Action":"pass","Package":"github.com/lainio/err2","Test":"TestTry_Error","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.819165+03:00","Action":"run","Package":"github.com/lainio/err2","Test":"TestPanickingCatchAll"}
+{"Time":"2022-08-09T20:26:30.819168+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"TestPanickingCatchAll","Output":"=== RUN   TestPanickingCatchAll\n"}
+{"Time":"2022-08-09T20:26:30.819171+03:00","Action":"run","Package":"github.com/lainio/err2","Test":"TestPanickingCatchAll/general_panic"}
+{"Time":"2022-08-09T20:26:30.819173+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"TestPanickingCatchAll/general_panic","Output":"=== RUN   TestPanickingCatchAll/general_panic\n"}
+{"Time":"2022-08-09T20:26:30.819179+03:00","Action":"run","Package":"github.com/lainio/err2","Test":"TestPanickingCatchAll/runtime.error_panic"}
+{"Time":"2022-08-09T20:26:30.819182+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"TestPanickingCatchAll/runtime.error_panic","Output":"=== RUN   TestPanickingCatchAll/runtime.error_panic\n"}
+{"Time":"2022-08-09T20:26:30.819185+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"TestPanickingCatchAll","Output":"--- PASS: TestPanickingCatchAll (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.819188+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"TestPanickingCatchAll/general_panic","Output":"    --- PASS: TestPanickingCatchAll/general_panic (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.819191+03:00","Action":"pass","Package":"github.com/lainio/err2","Test":"TestPanickingCatchAll/general_panic","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.819194+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"TestPanickingCatchAll/runtime.error_panic","Output":"    --- PASS: TestPanickingCatchAll/runtime.error_panic (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.819198+03:00","Action":"pass","Package":"github.com/lainio/err2","Test":"TestPanickingCatchAll/runtime.error_panic","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.819201+03:00","Action":"pass","Package":"github.com/lainio/err2","Test":"TestPanickingCatchAll","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.819203+03:00","Action":"run","Package":"github.com/lainio/err2","Test":"TestPanickingCatchTrace"}
+{"Time":"2022-08-09T20:26:30.819206+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"TestPanickingCatchTrace","Output":"=== RUN   TestPanickingCatchTrace\n"}
+{"Time":"2022-08-09T20:26:30.81921+03:00","Action":"run","Package":"github.com/lainio/err2","Test":"TestPanickingCatchTrace/general_panic"}
+{"Time":"2022-08-09T20:26:30.819212+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"TestPanickingCatchTrace/general_panic","Output":"=== RUN   TestPanickingCatchTrace/general_panic\n"}
+{"Time":"2022-08-09T20:26:30.819215+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"TestPanickingCatchTrace/general_panic","Output":"---\n"}
+{"Time":"2022-08-09T20:26:30.819217+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"TestPanickingCatchTrace/general_panic","Output":"panic\n"}
+{"Time":"2022-08-09T20:26:30.81922+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"TestPanickingCatchTrace/general_panic","Output":"---\n"}
+{"Time":"2022-08-09T20:26:30.819222+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"TestPanickingCatchTrace/general_panic","Output":"goroutine 11 [running]:\n"}
+{"Time":"2022-08-09T20:26:30.819225+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"TestPanickingCatchTrace/general_panic","Output":"testing.tRunner(0x14000125d40, 0x14000061060)\n"}
+{"Time":"2022-08-09T20:26:30.819228+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"TestPanickingCatchTrace/general_panic","Output":"\t/opt/homebrew/Cellar/go/1.18/libexec/src/testing/testing.go:1439 +0x110\n"}
+{"Time":"2022-08-09T20:26:30.819237+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"TestPanickingCatchTrace/general_panic","Output":"created by testing.(*T).Run\n"}
+{"Time":"2022-08-09T20:26:30.819239+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"TestPanickingCatchTrace/general_panic","Output":"\t/opt/homebrew/Cellar/go/1.18/libexec/src/testing/testing.go:1486 +0x300\n"}
+{"Time":"2022-08-09T20:26:30.819242+03:00","Action":"run","Package":"github.com/lainio/err2","Test":"TestPanickingCatchTrace/runtime.error_panic"}
+{"Time":"2022-08-09T20:26:30.819245+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"TestPanickingCatchTrace/runtime.error_panic","Output":"=== RUN   TestPanickingCatchTrace/runtime.error_panic\n"}
+{"Time":"2022-08-09T20:26:30.819247+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"TestPanickingCatchTrace/runtime.error_panic","Output":"---\n"}
+{"Time":"2022-08-09T20:26:30.81925+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"TestPanickingCatchTrace/runtime.error_panic","Output":"runtime error: index out of range [0] with length 0\n"}
+{"Time":"2022-08-09T20:26:30.819252+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"TestPanickingCatchTrace/runtime.error_panic","Output":"---\n"}
+{"Time":"2022-08-09T20:26:30.819255+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"TestPanickingCatchTrace/runtime.error_panic","Output":"goroutine 12 [running]:\n"}
+{"Time":"2022-08-09T20:26:30.819258+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"TestPanickingCatchTrace/runtime.error_panic","Output":"testing.tRunner(0x14000176000, 0x14000061260)\n"}
+{"Time":"2022-08-09T20:26:30.81926+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"TestPanickingCatchTrace/runtime.error_panic","Output":"\t/opt/homebrew/Cellar/go/1.18/libexec/src/testing/testing.go:1439 +0x110\n"}
+{"Time":"2022-08-09T20:26:30.819263+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"TestPanickingCatchTrace/runtime.error_panic","Output":"created by testing.(*T).Run\n"}
+{"Time":"2022-08-09T20:26:30.819266+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"TestPanickingCatchTrace/runtime.error_panic","Output":"\t/opt/homebrew/Cellar/go/1.18/libexec/src/testing/testing.go:1486 +0x300\n"}
+{"Time":"2022-08-09T20:26:30.819269+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"TestPanickingCatchTrace","Output":"--- PASS: TestPanickingCatchTrace (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.819271+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"TestPanickingCatchTrace/general_panic","Output":"    --- PASS: TestPanickingCatchTrace/general_panic (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.819274+03:00","Action":"pass","Package":"github.com/lainio/err2","Test":"TestPanickingCatchTrace/general_panic","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.819277+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"TestPanickingCatchTrace/runtime.error_panic","Output":"    --- PASS: TestPanickingCatchTrace/runtime.error_panic (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.819279+03:00","Action":"pass","Package":"github.com/lainio/err2","Test":"TestPanickingCatchTrace/runtime.error_panic","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.819282+03:00","Action":"pass","Package":"github.com/lainio/err2","Test":"TestPanickingCatchTrace","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.819284+03:00","Action":"run","Package":"github.com/lainio/err2","Test":"TestPanickingCarryOn_Handle"}
+{"Time":"2022-08-09T20:26:30.819286+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"TestPanickingCarryOn_Handle","Output":"=== RUN   TestPanickingCarryOn_Handle\n"}
+{"Time":"2022-08-09T20:26:30.81929+03:00","Action":"run","Package":"github.com/lainio/err2","Test":"TestPanickingCarryOn_Handle/general_panic"}
+{"Time":"2022-08-09T20:26:30.819292+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"TestPanickingCarryOn_Handle/general_panic","Output":"=== RUN   TestPanickingCarryOn_Handle/general_panic\n"}
+{"Time":"2022-08-09T20:26:30.8193+03:00","Action":"run","Package":"github.com/lainio/err2","Test":"TestPanickingCarryOn_Handle/runtime.error_panic"}
+{"Time":"2022-08-09T20:26:30.819302+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"TestPanickingCarryOn_Handle/runtime.error_panic","Output":"=== RUN   TestPanickingCarryOn_Handle/runtime.error_panic\n"}
+{"Time":"2022-08-09T20:26:30.819305+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"TestPanickingCarryOn_Handle","Output":"--- PASS: TestPanickingCarryOn_Handle (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.819308+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"TestPanickingCarryOn_Handle/general_panic","Output":"    --- PASS: TestPanickingCarryOn_Handle/general_panic (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.819311+03:00","Action":"pass","Package":"github.com/lainio/err2","Test":"TestPanickingCarryOn_Handle/general_panic","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.819313+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"TestPanickingCarryOn_Handle/runtime.error_panic","Output":"    --- PASS: TestPanickingCarryOn_Handle/runtime.error_panic (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.819316+03:00","Action":"pass","Package":"github.com/lainio/err2","Test":"TestPanickingCarryOn_Handle/runtime.error_panic","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.819319+03:00","Action":"pass","Package":"github.com/lainio/err2","Test":"TestPanickingCarryOn_Handle","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.819321+03:00","Action":"run","Package":"github.com/lainio/err2","Test":"TestPanicking_Return"}
+{"Time":"2022-08-09T20:26:30.819323+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"TestPanicking_Return","Output":"=== RUN   TestPanicking_Return\n"}
+{"Time":"2022-08-09T20:26:30.819326+03:00","Action":"run","Package":"github.com/lainio/err2","Test":"TestPanicking_Return/general_panic"}
+{"Time":"2022-08-09T20:26:30.819328+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"TestPanicking_Return/general_panic","Output":"=== RUN   TestPanicking_Return/general_panic\n"}
+{"Time":"2022-08-09T20:26:30.819331+03:00","Action":"run","Package":"github.com/lainio/err2","Test":"TestPanicking_Return/runtime.error_panic"}
+{"Time":"2022-08-09T20:26:30.819333+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"TestPanicking_Return/runtime.error_panic","Output":"=== RUN   TestPanicking_Return/runtime.error_panic\n"}
+{"Time":"2022-08-09T20:26:30.819336+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"TestPanicking_Return","Output":"--- PASS: TestPanicking_Return (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.819339+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"TestPanicking_Return/general_panic","Output":"    --- PASS: TestPanicking_Return/general_panic (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.819343+03:00","Action":"pass","Package":"github.com/lainio/err2","Test":"TestPanicking_Return/general_panic","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.819345+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"TestPanicking_Return/runtime.error_panic","Output":"    --- PASS: TestPanicking_Return/runtime.error_panic (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.819348+03:00","Action":"pass","Package":"github.com/lainio/err2","Test":"TestPanicking_Return/runtime.error_panic","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.81935+03:00","Action":"pass","Package":"github.com/lainio/err2","Test":"TestPanicking_Return","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.819352+03:00","Action":"run","Package":"github.com/lainio/err2","Test":"TestPanicking_Catch"}
+{"Time":"2022-08-09T20:26:30.819355+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"TestPanicking_Catch","Output":"=== RUN   TestPanicking_Catch\n"}
+{"Time":"2022-08-09T20:26:30.819357+03:00","Action":"run","Package":"github.com/lainio/err2","Test":"TestPanicking_Catch/general_panic"}
+{"Time":"2022-08-09T20:26:30.819359+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"TestPanicking_Catch/general_panic","Output":"=== RUN   TestPanicking_Catch/general_panic\n"}
+{"Time":"2022-08-09T20:26:30.819368+03:00","Action":"run","Package":"github.com/lainio/err2","Test":"TestPanicking_Catch/runtime.error_panic"}
+{"Time":"2022-08-09T20:26:30.81937+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"TestPanicking_Catch/runtime.error_panic","Output":"=== RUN   TestPanicking_Catch/runtime.error_panic\n"}
+{"Time":"2022-08-09T20:26:30.819373+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"TestPanicking_Catch","Output":"--- PASS: TestPanicking_Catch (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.819377+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"TestPanicking_Catch/general_panic","Output":"    --- PASS: TestPanicking_Catch/general_panic (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.81938+03:00","Action":"pass","Package":"github.com/lainio/err2","Test":"TestPanicking_Catch/general_panic","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.819382+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"TestPanicking_Catch/runtime.error_panic","Output":"    --- PASS: TestPanicking_Catch/runtime.error_panic (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.819385+03:00","Action":"pass","Package":"github.com/lainio/err2","Test":"TestPanicking_Catch/runtime.error_panic","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.819387+03:00","Action":"pass","Package":"github.com/lainio/err2","Test":"TestPanicking_Catch","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.819389+03:00","Action":"run","Package":"github.com/lainio/err2","Test":"TestCatch_Error"}
+{"Time":"2022-08-09T20:26:30.819392+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"TestCatch_Error","Output":"=== RUN   TestCatch_Error\n"}
+{"Time":"2022-08-09T20:26:30.819394+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"TestCatch_Error","Output":"--- PASS: TestCatch_Error (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.819397+03:00","Action":"pass","Package":"github.com/lainio/err2","Test":"TestCatch_Error","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.819399+03:00","Action":"run","Package":"github.com/lainio/err2","Test":"ExampleFilterTry"}
+{"Time":"2022-08-09T20:26:30.819403+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"ExampleFilterTry","Output":"=== RUN   ExampleFilterTry\n"}
+{"Time":"2022-08-09T20:26:30.819406+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"ExampleFilterTry","Output":"--- PASS: ExampleFilterTry (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.819408+03:00","Action":"pass","Package":"github.com/lainio/err2","Test":"ExampleFilterTry","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.81941+03:00","Action":"run","Package":"github.com/lainio/err2","Test":"ExampleTryEOF"}
+{"Time":"2022-08-09T20:26:30.819412+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"ExampleTryEOF","Output":"=== RUN   ExampleTryEOF\n"}
+{"Time":"2022-08-09T20:26:30.819415+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"ExampleTryEOF","Output":"--- PASS: ExampleTryEOF (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.819417+03:00","Action":"pass","Package":"github.com/lainio/err2","Test":"ExampleTryEOF","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.81942+03:00","Action":"run","Package":"github.com/lainio/err2","Test":"Example_copyFile"}
+{"Time":"2022-08-09T20:26:30.819422+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"Example_copyFile","Output":"=== RUN   Example_copyFile\n"}
+{"Time":"2022-08-09T20:26:30.819425+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"Example_copyFile","Output":"--- PASS: Example_copyFile (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.819427+03:00","Action":"pass","Package":"github.com/lainio/err2","Test":"Example_copyFile","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.81943+03:00","Action":"run","Package":"github.com/lainio/err2","Test":"ExampleReturn"}
+{"Time":"2022-08-09T20:26:30.819432+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"ExampleReturn","Output":"=== RUN   ExampleReturn\n"}
+{"Time":"2022-08-09T20:26:30.819438+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"ExampleReturn","Output":"--- PASS: ExampleReturn (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.819441+03:00","Action":"pass","Package":"github.com/lainio/err2","Test":"ExampleReturn","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.819444+03:00","Action":"run","Package":"github.com/lainio/err2","Test":"ExampleAnnotate"}
+{"Time":"2022-08-09T20:26:30.819446+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"ExampleAnnotate","Output":"=== RUN   ExampleAnnotate\n"}
+{"Time":"2022-08-09T20:26:30.819449+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"ExampleAnnotate","Output":"--- PASS: ExampleAnnotate (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.819451+03:00","Action":"pass","Package":"github.com/lainio/err2","Test":"ExampleAnnotate","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.819453+03:00","Action":"run","Package":"github.com/lainio/err2","Test":"ExampleReturnf"}
+{"Time":"2022-08-09T20:26:30.819456+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"ExampleReturnf","Output":"=== RUN   ExampleReturnf\n"}
+{"Time":"2022-08-09T20:26:30.819458+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"ExampleReturnf","Output":"--- PASS: ExampleReturnf (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.819461+03:00","Action":"pass","Package":"github.com/lainio/err2","Test":"ExampleReturnf","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.819463+03:00","Action":"run","Package":"github.com/lainio/err2","Test":"ExampleThrowf"}
+{"Time":"2022-08-09T20:26:30.819465+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"ExampleThrowf","Output":"=== RUN   ExampleThrowf\n"}
+{"Time":"2022-08-09T20:26:30.819468+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"ExampleThrowf","Output":"--- PASS: ExampleThrowf (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.81947+03:00","Action":"pass","Package":"github.com/lainio/err2","Test":"ExampleThrowf","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.819473+03:00","Action":"run","Package":"github.com/lainio/err2","Test":"ExampleAnnotate_deferStack"}
+{"Time":"2022-08-09T20:26:30.819475+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"ExampleAnnotate_deferStack","Output":"=== RUN   ExampleAnnotate_deferStack\n"}
+{"Time":"2022-08-09T20:26:30.819479+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"ExampleAnnotate_deferStack","Output":"--- PASS: ExampleAnnotate_deferStack (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.819482+03:00","Action":"pass","Package":"github.com/lainio/err2","Test":"ExampleAnnotate_deferStack","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.819484+03:00","Action":"run","Package":"github.com/lainio/err2","Test":"ExampleHandle"}
+{"Time":"2022-08-09T20:26:30.819486+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"ExampleHandle","Output":"=== RUN   ExampleHandle\n"}
+{"Time":"2022-08-09T20:26:30.819489+03:00","Action":"output","Package":"github.com/lainio/err2","Test":"ExampleHandle","Output":"--- PASS: ExampleHandle (0.00s)\n"}
+{"Time":"2022-08-09T20:26:30.819491+03:00","Action":"pass","Package":"github.com/lainio/err2","Test":"ExampleHandle","Elapsed":0}
+{"Time":"2022-08-09T20:26:30.819494+03:00","Action":"output","Package":"github.com/lainio/err2","Output":"PASS\n"}
+{"Time":"2022-08-09T20:26:30.819496+03:00","Action":"output","Package":"github.com/lainio/err2","Output":"ok  \tgithub.com/lainio/err2\t(cached)\n"}
+{"Time":"2022-08-09T20:26:30.819503+03:00","Action":"pass","Package":"github.com/lainio/err2","Elapsed":0}
+{"Time":"2022-08-09T20:26:31.016196+03:00","Action":"run","Package":"github.com/lainio/err2/assert","Test":"ExampleAsserter_True"}
+{"Time":"2022-08-09T20:26:31.016237+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleAsserter_True","Output":"=== RUN   ExampleAsserter_True\n"}
+{"Time":"2022-08-09T20:26:31.016266+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleAsserter_True","Output":"--- PASS: ExampleAsserter_True (0.00s)\n"}
+{"Time":"2022-08-09T20:26:31.01628+03:00","Action":"pass","Package":"github.com/lainio/err2/assert","Test":"ExampleAsserter_True","Elapsed":0}
+{"Time":"2022-08-09T20:26:31.016285+03:00","Action":"run","Package":"github.com/lainio/err2/assert","Test":"ExampleAsserter_Truef"}
+{"Time":"2022-08-09T20:26:31.016289+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleAsserter_Truef","Output":"=== RUN   ExampleAsserter_Truef\n"}
+{"Time":"2022-08-09T20:26:31.016292+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleAsserter_Truef","Output":"--- PASS: ExampleAsserter_Truef (0.00s)\n"}
+{"Time":"2022-08-09T20:26:31.016296+03:00","Action":"pass","Package":"github.com/lainio/err2/assert","Test":"ExampleAsserter_Truef","Elapsed":0}
+{"Time":"2022-08-09T20:26:31.0163+03:00","Action":"run","Package":"github.com/lainio/err2/assert","Test":"ExampleAsserter_Len"}
+{"Time":"2022-08-09T20:26:31.016305+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleAsserter_Len","Output":"=== RUN   ExampleAsserter_Len\n"}
+{"Time":"2022-08-09T20:26:31.016311+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleAsserter_Len","Output":"--- PASS: ExampleAsserter_Len (0.00s)\n"}
+{"Time":"2022-08-09T20:26:31.016314+03:00","Action":"pass","Package":"github.com/lainio/err2/assert","Test":"ExampleAsserter_Len","Elapsed":0}
+{"Time":"2022-08-09T20:26:31.016317+03:00","Action":"run","Package":"github.com/lainio/err2/assert","Test":"ExampleAsserter_EqualInt"}
+{"Time":"2022-08-09T20:26:31.01632+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleAsserter_EqualInt","Output":"=== RUN   ExampleAsserter_EqualInt\n"}
+{"Time":"2022-08-09T20:26:31.016324+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleAsserter_EqualInt","Output":"--- PASS: ExampleAsserter_EqualInt (0.00s)\n"}
+{"Time":"2022-08-09T20:26:31.016329+03:00","Action":"pass","Package":"github.com/lainio/err2/assert","Test":"ExampleAsserter_EqualInt","Elapsed":0}
+{"Time":"2022-08-09T20:26:31.016334+03:00","Action":"run","Package":"github.com/lainio/err2/assert","Test":"ExampleNotNil"}
+{"Time":"2022-08-09T20:26:31.016337+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleNotNil","Output":"=== RUN   ExampleNotNil\n"}
+{"Time":"2022-08-09T20:26:31.016347+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleNotNil","Output":"--- FAIL: ExampleNotNil (0.00s)\n"}
+{"Time":"2022-08-09T20:26:31.016351+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleNotNil","Output":"got:\n"}
+{"Time":"2022-08-09T20:26:31.016354+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleNotNil","Output":"sample: assert_test.go:64 ExampleNotNil.func1 assertion violation: pointer is nil\n"}
+{"Time":"2022-08-09T20:26:31.016359+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleNotNil","Output":"want:\n"}
+{"Time":"2022-08-09T20:26:31.016362+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleNotNil","Output":"sample: assert_test.go:64 ExampleNotNil.func1 pointer is nil\n"}
+{"Time":"2022-08-09T20:26:31.016365+03:00","Action":"fail","Package":"github.com/lainio/err2/assert","Test":"ExampleNotNil","Elapsed":0}
+{"Time":"2022-08-09T20:26:31.016368+03:00","Action":"run","Package":"github.com/lainio/err2/assert","Test":"ExampleMNotNil"}
+{"Time":"2022-08-09T20:26:31.016371+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleMNotNil","Output":"=== RUN   ExampleMNotNil\n"}
+{"Time":"2022-08-09T20:26:31.016375+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleMNotNil","Output":"--- FAIL: ExampleMNotNil (0.00s)\n"}
+{"Time":"2022-08-09T20:26:31.016378+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleMNotNil","Output":"got:\n"}
+{"Time":"2022-08-09T20:26:31.016381+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleMNotNil","Output":"sample: assert_test.go:77 ExampleMNotNil.func1 assertion violation: map is nil\n"}
+{"Time":"2022-08-09T20:26:31.01639+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleMNotNil","Output":"want:\n"}
+{"Time":"2022-08-09T20:26:31.016393+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleMNotNil","Output":"sample: assert_test.go:77 ExampleMNotNil.func1 map is nil\n"}
+{"Time":"2022-08-09T20:26:31.016396+03:00","Action":"fail","Package":"github.com/lainio/err2/assert","Test":"ExampleMNotNil","Elapsed":0}
+{"Time":"2022-08-09T20:26:31.016399+03:00","Action":"run","Package":"github.com/lainio/err2/assert","Test":"ExampleCNotNil"}
+{"Time":"2022-08-09T20:26:31.016402+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleCNotNil","Output":"=== RUN   ExampleCNotNil\n"}
+{"Time":"2022-08-09T20:26:31.016418+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleCNotNil","Output":"--- FAIL: ExampleCNotNil (0.00s)\n"}
+{"Time":"2022-08-09T20:26:31.016422+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleCNotNil","Output":"got:\n"}
+{"Time":"2022-08-09T20:26:31.016425+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleCNotNil","Output":"sample: assert_test.go:90 ExampleCNotNil.func1 assertion violation: channel is nil\n"}
+{"Time":"2022-08-09T20:26:31.016428+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleCNotNil","Output":"want:\n"}
+{"Time":"2022-08-09T20:26:31.016431+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleCNotNil","Output":"sample: assert_test.go:90 ExampleCNotNil.func1 channel is nil\n"}
+{"Time":"2022-08-09T20:26:31.016435+03:00","Action":"fail","Package":"github.com/lainio/err2/assert","Test":"ExampleCNotNil","Elapsed":0}
+{"Time":"2022-08-09T20:26:31.016438+03:00","Action":"run","Package":"github.com/lainio/err2/assert","Test":"ExampleSNotNil"}
+{"Time":"2022-08-09T20:26:31.016441+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleSNotNil","Output":"=== RUN   ExampleSNotNil\n"}
+{"Time":"2022-08-09T20:26:31.016444+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleSNotNil","Output":"--- FAIL: ExampleSNotNil (0.00s)\n"}
+{"Time":"2022-08-09T20:26:31.016448+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleSNotNil","Output":"got:\n"}
+{"Time":"2022-08-09T20:26:31.01645+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleSNotNil","Output":"sample: assert_test.go:103 ExampleSNotNil.func1 assertion violation: slice is nil\n"}
+{"Time":"2022-08-09T20:26:31.016454+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleSNotNil","Output":"want:\n"}
+{"Time":"2022-08-09T20:26:31.016457+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleSNotNil","Output":"sample: assert_test.go:103 ExampleSNotNil.func1 slice is nil\n"}
+{"Time":"2022-08-09T20:26:31.01646+03:00","Action":"fail","Package":"github.com/lainio/err2/assert","Test":"ExampleSNotNil","Elapsed":0}
+{"Time":"2022-08-09T20:26:31.016462+03:00","Action":"run","Package":"github.com/lainio/err2/assert","Test":"ExampleEqual"}
+{"Time":"2022-08-09T20:26:31.016465+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleEqual","Output":"=== RUN   ExampleEqual\n"}
+{"Time":"2022-08-09T20:26:31.016486+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleEqual","Output":"--- FAIL: ExampleEqual (0.00s)\n"}
+{"Time":"2022-08-09T20:26:31.016491+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleEqual","Output":"got:\n"}
+{"Time":"2022-08-09T20:26:31.016494+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleEqual","Output":"sample: assert_test.go:116 ExampleEqual.func1 assertion violation: got 2, want 3\n"}
+{"Time":"2022-08-09T20:26:31.016506+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleEqual","Output":"want:\n"}
+{"Time":"2022-08-09T20:26:31.016509+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleEqual","Output":"sample: assert_test.go:116 ExampleEqual.func1 got 2, want 3\n"}
+{"Time":"2022-08-09T20:26:31.016513+03:00","Action":"fail","Package":"github.com/lainio/err2/assert","Test":"ExampleEqual","Elapsed":0}
+{"Time":"2022-08-09T20:26:31.016516+03:00","Action":"run","Package":"github.com/lainio/err2/assert","Test":"ExampleSLen"}
+{"Time":"2022-08-09T20:26:31.016519+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleSLen","Output":"=== RUN   ExampleSLen\n"}
+{"Time":"2022-08-09T20:26:31.016523+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleSLen","Output":"--- FAIL: ExampleSLen (0.00s)\n"}
+{"Time":"2022-08-09T20:26:31.016527+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleSLen","Output":"got:\n"}
+{"Time":"2022-08-09T20:26:31.01653+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleSLen","Output":"sample: assert_test.go:128 ExampleSLen.func1 assertion violation: got 2, want 3\n"}
+{"Time":"2022-08-09T20:26:31.016533+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleSLen","Output":"want:\n"}
+{"Time":"2022-08-09T20:26:31.016536+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleSLen","Output":"sample: assert_test.go:128 ExampleSLen.func1 got 2, want 3\n"}
+{"Time":"2022-08-09T20:26:31.016539+03:00","Action":"fail","Package":"github.com/lainio/err2/assert","Test":"ExampleSLen","Elapsed":0}
+{"Time":"2022-08-09T20:26:31.016542+03:00","Action":"run","Package":"github.com/lainio/err2/assert","Test":"ExampleAsserter_Lenf"}
+{"Time":"2022-08-09T20:26:31.016544+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleAsserter_Lenf","Output":"=== RUN   ExampleAsserter_Lenf\n"}
+{"Time":"2022-08-09T20:26:31.016554+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleAsserter_Lenf","Output":"--- PASS: ExampleAsserter_Lenf (0.00s)\n"}
+{"Time":"2022-08-09T20:26:31.016558+03:00","Action":"pass","Package":"github.com/lainio/err2/assert","Test":"ExampleAsserter_Lenf","Elapsed":0}
+{"Time":"2022-08-09T20:26:31.016561+03:00","Action":"run","Package":"github.com/lainio/err2/assert","Test":"ExampleAsserter_Empty"}
+{"Time":"2022-08-09T20:26:31.016574+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleAsserter_Empty","Output":"=== RUN   ExampleAsserter_Empty\n"}
+{"Time":"2022-08-09T20:26:31.016579+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleAsserter_Empty","Output":"--- PASS: ExampleAsserter_Empty (0.00s)\n"}
+{"Time":"2022-08-09T20:26:31.016582+03:00","Action":"pass","Package":"github.com/lainio/err2/assert","Test":"ExampleAsserter_Empty","Elapsed":0}
+{"Time":"2022-08-09T20:26:31.016585+03:00","Action":"run","Package":"github.com/lainio/err2/assert","Test":"ExampleAsserter_NoImplementation"}
+{"Time":"2022-08-09T20:26:31.016588+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleAsserter_NoImplementation","Output":"=== RUN   ExampleAsserter_NoImplementation\n"}
+{"Time":"2022-08-09T20:26:31.016592+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleAsserter_NoImplementation","Output":"--- PASS: ExampleAsserter_NoImplementation (0.00s)\n"}
+{"Time":"2022-08-09T20:26:31.016595+03:00","Action":"pass","Package":"github.com/lainio/err2/assert","Test":"ExampleAsserter_NoImplementation","Elapsed":0}
+{"Time":"2022-08-09T20:26:31.016599+03:00","Action":"run","Package":"github.com/lainio/err2/assert","Test":"ExampleSNotEmpty"}
+{"Time":"2022-08-09T20:26:31.016601+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleSNotEmpty","Output":"=== RUN   ExampleSNotEmpty\n"}
+{"Time":"2022-08-09T20:26:31.016616+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleSNotEmpty","Output":"--- FAIL: ExampleSNotEmpty (0.00s)\n"}
+{"Time":"2022-08-09T20:26:31.016626+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleSNotEmpty","Output":"got:\n"}
+{"Time":"2022-08-09T20:26:31.01663+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleSNotEmpty","Output":"sample: assert_test.go:181 ExampleSNotEmpty.func1 assertion violation: slice shouldn't be empty\n"}
+{"Time":"2022-08-09T20:26:31.016636+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleSNotEmpty","Output":"want:\n"}
+{"Time":"2022-08-09T20:26:31.016639+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleSNotEmpty","Output":"sample: assert_test.go:181 ExampleSNotEmpty.func1 slice shouldn't be empty\n"}
+{"Time":"2022-08-09T20:26:31.016643+03:00","Action":"fail","Package":"github.com/lainio/err2/assert","Test":"ExampleSNotEmpty","Elapsed":0}
+{"Time":"2022-08-09T20:26:31.016646+03:00","Action":"run","Package":"github.com/lainio/err2/assert","Test":"ExampleNotEmpty"}
+{"Time":"2022-08-09T20:26:31.016654+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleNotEmpty","Output":"=== RUN   ExampleNotEmpty\n"}
+{"Time":"2022-08-09T20:26:31.016659+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleNotEmpty","Output":"--- FAIL: ExampleNotEmpty (0.00s)\n"}
+{"Time":"2022-08-09T20:26:31.016673+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleNotEmpty","Output":"got:\n"}
+{"Time":"2022-08-09T20:26:31.016677+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleNotEmpty","Output":"sample: assert_test.go:193 ExampleNotEmpty.func1 assertion violation: string shouldn't be empty\n"}
+{"Time":"2022-08-09T20:26:31.01668+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleNotEmpty","Output":"want:\n"}
+{"Time":"2022-08-09T20:26:31.016684+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Test":"ExampleNotEmpty","Output":"sample: assert_test.go:193 ExampleNotEmpty.func1 string shouldn't be empty\n"}
+{"Time":"2022-08-09T20:26:31.016687+03:00","Action":"fail","Package":"github.com/lainio/err2/assert","Test":"ExampleNotEmpty","Elapsed":0}
+{"Time":"2022-08-09T20:26:31.016689+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Output":"FAIL\n"}
+{"Time":"2022-08-09T20:26:31.016988+03:00","Action":"output","Package":"github.com/lainio/err2/assert","Output":"FAIL\tgithub.com/lainio/err2/assert\t0.124s\n"}
+{"Time":"2022-08-09T20:26:31.017041+03:00","Action":"fail","Package":"github.com/lainio/err2/assert","Elapsed":0.125}
+{"Time":"2022-08-09T20:26:31.017566+03:00","Action":"output","Package":"github.com/lainio/err2/internal/handler","Output":"?   \tgithub.com/lainio/err2/internal/handler\t[no test files]\n"}
+{"Time":"2022-08-09T20:26:31.017577+03:00","Action":"skip","Package":"github.com/lainio/err2/internal/handler","Elapsed":0}

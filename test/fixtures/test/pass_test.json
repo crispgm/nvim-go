@@ -1,0 +1,18 @@
+{"Time":"2022-08-08T18:27:19.207877+03:00","Action":"run","Package":"test","Test":"TestHello"}
+{"Time":"2022-08-08T18:27:19.20799+03:00","Action":"output","Package":"test","Test":"TestHello","Output":"=== RUN   TestHello\n"}
+{"Time":"2022-08-08T18:27:19.207998+03:00","Action":"output","Package":"test","Test":"TestHello","Output":"    test_test.go:9: world\n"}
+{"Time":"2022-08-08T18:27:19.208005+03:00","Action":"output","Package":"test","Test":"TestHello","Output":"--- PASS: TestHello (0.00s)\n"}
+{"Time":"2022-08-08T18:27:19.20801+03:00","Action":"pass","Package":"test","Test":"TestHello","Elapsed":0}
+{"Time":"2022-08-08T18:27:19.208016+03:00","Action":"run","Package":"test","Test":"TestHello2"}
+{"Time":"2022-08-08T18:27:19.20802+03:00","Action":"output","Package":"test","Test":"TestHello2","Output":"=== RUN   TestHello2\n"}
+{"Time":"2022-08-08T18:27:19.208024+03:00","Action":"output","Package":"test","Test":"TestHello2","Output":"    test_test.go:13: world\n"}
+{"Time":"2022-08-08T18:27:19.208028+03:00","Action":"output","Package":"test","Test":"TestHello2","Output":"--- PASS: TestHello2 (0.00s)\n"}
+{"Time":"2022-08-08T18:27:19.208032+03:00","Action":"pass","Package":"test","Test":"TestHello2","Elapsed":0}
+{"Time":"2022-08-08T18:27:19.208036+03:00","Action":"run","Package":"test","Test":"TestWithEnv"}
+{"Time":"2022-08-08T18:27:19.20804+03:00","Action":"output","Package":"test","Test":"TestWithEnv","Output":"=== RUN   TestWithEnv\n"}
+{"Time":"2022-08-08T18:27:19.208044+03:00","Action":"output","Package":"test","Test":"TestWithEnv","Output":"    test_test.go:17: \n"}
+{"Time":"2022-08-08T18:27:19.208049+03:00","Action":"output","Package":"test","Test":"TestWithEnv","Output":"--- PASS: TestWithEnv (0.00s)\n"}
+{"Time":"2022-08-08T18:27:19.208052+03:00","Action":"pass","Package":"test","Test":"TestWithEnv","Elapsed":0}
+{"Time":"2022-08-08T18:27:19.208056+03:00","Action":"output","Package":"test","Output":"PASS\n"}
+{"Time":"2022-08-08T18:27:19.208061+03:00","Action":"output","Package":"test","Output":"ok  \ttest\t(cached)\n"}
+{"Time":"2022-08-08T18:27:19.208069+03:00","Action":"pass","Package":"test","Elapsed":0}
