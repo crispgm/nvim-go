@@ -156,19 +156,20 @@ function M.test_func(opt)
         end
         local cur_line = vim.fn.getline(line)
         func_name = split_file_name(cur_line)
-    end
-    if not valid_func_name(func_name) then
-        output.show_error(
-            'GoTestFunc',
-            string.format('Invalid test func: %s', func_name)
-        )
-        return
+        if not valid_func_name(func_name) then
+            output.show_error(
+                'GoTestFunc',
+                string.format('Invalid test func: %s', func_name)
+            )
+            return
+        end
+        func_name = vim.fn.shellescape(string.format('^%s$', func_name))
     end
     local cmd = {
         'go',
         'test',
         '-run',
-        vim.fn.shellescape(string.format('^%s$', func_name)),
+        func_name,
     }
     do_test(prefix, build_args(cmd))
 end
