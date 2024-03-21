@@ -52,7 +52,7 @@ local function valid_buf()
     return false
 end
 
-local function do_test(prefix, cmd)
+local function do_test(prefix, cmd, cwd)
     if not valid_buf() then
         return
     end
@@ -92,7 +92,7 @@ local function do_test(prefix, cmd)
         end
     end
 
-    local cwd = vim.fn.expand('%:p:h')
+    cwd = cwd or vim.fn.expand('%:p:h')
     local env = config.options.test_env
     local opts = {
         on_exit = function(_, code, _)
@@ -125,14 +125,14 @@ function M.test()
     do_test(prefix, build_args(cmd))
 end
 
-function M.test_all()
+function M.test_all(cwd)
     if not util.binary_exists('go') then
         return
     end
 
     local prefix = 'GoTestAll'
     local cmd = { 'go', 'test', './...' }
-    do_test(prefix, build_args(cmd))
+    do_test(prefix, build_args(cmd), cwd)
 end
 
 function M.test_func(opt)
