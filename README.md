@@ -19,6 +19,7 @@ Neovim (from v0.5) embeds a built-in Language Server Protocol (LSP) client. And 
 - Modify struct tags with `:GoAddTags`, `:GoRemoveTags`, `:GoClearTags`, `:GoAddTagOptions`, `:GoRemoveTagOptions` and `:GoClearTagOptions`.
 - Generates JSON models with `:GoQuickType` (via `quicktype`).
 - Generate if err based on function return values with `:GoIfErr` (via `iferr`).
+- Run `go mod` command with `:GoMod`.
 
 [Screenshots](https://github.com/crispgm/nvim-go/wiki#screenshots)
 

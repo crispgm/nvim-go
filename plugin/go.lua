@@ -14,3 +14,9 @@ vim.api.nvim_create_user_command('GoUpdateBinaries', function(_)
 end, {
     nargs = 0,
 })
+
+vim.api.nvim_create_user_command('GoMod', function(opts)
+    require('go.mod').mod(opts.fargs)
+end, {
+    nargs = '+',
+})
