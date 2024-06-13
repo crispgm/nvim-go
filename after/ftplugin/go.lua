@@ -64,6 +64,13 @@ vim.api.nvim_create_user_command(
     }
 )
 vim.api.nvim_create_user_command(
+    'GoTestName',
+    'lua require("go.test").test_name()',
+    {
+        nargs = 0,
+    }
+)
+vim.api.nvim_create_user_command(
     'GoTestFile',
     'lua require("go.test").test_file()',
     {
