@@ -14,7 +14,7 @@ Neovim (from v0.5) embeds a built-in Language Server Protocol (LSP) client. And 
 
 - Auto format with `:GoFormat` (via `goimports`, `gofmt`, `gofumpt` and `lsp`) when saving.
 - Run linters with `:GoLint` (via `revive`) automatically.
-- Quickly test with `:GoTest`, `:GoTestFunc`, `:GoTestFile` and `:GoTestAll`. Generate test with `:GoAddTest`.
+- Quickly test with `:GoTest`, `:GoTestFunc`, `:GoTestName`, `:GoTestFile` and `:GoTestAll`. Generate test with `:GoAddTest`.
 - Import packages with `:GoGet` and `:GoImport`.
 - Modify struct tags with `:GoAddTags`, `:GoRemoveTags`, `:GoClearTags`, `:GoAddTagOptions`, `:GoRemoveTagOptions` and `:GoClearTagOptions`.
 - Generates JSON models with `:GoQuickType` (via `quicktype`).
