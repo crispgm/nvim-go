@@ -151,9 +151,10 @@ end
 
 function M.golangci_lint()
     do_lint('golangci-lint', {
-        '--out-format=line-number',
-        '--print-issued-lines=false',
         'run',
+        '--output.text.colors=false',
+        '--output.text.print-issued-lines=false',
+        '--show-stats=false',
     })
 end
 
