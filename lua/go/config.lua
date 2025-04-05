@@ -49,7 +49,7 @@ M.tools = {
     { name = 'staticcheck', src = 'honnef.co/go/tools/cmd/staticcheck' },
     {
         name = 'golangci-lint',
-        src = 'github.com/golangci/golangci-lint/cmd/golangci-lint',
+        src = 'github.com/golangci/golangci-lint/v2/cmd/golangci-lint',
     },
     { name = 'gomodifytags', src = 'github.com/fatih/gomodifytags' },
     { name = 'quicktype', src = 'quicktype', pkg_mgr = 'npm' },
