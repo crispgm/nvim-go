@@ -154,6 +154,7 @@ function M.golangci_lint()
         local status = vim.system({'golangci-lint', 'version', '--short'}):wait()
         if status.code ~= 0 or string.sub(status.stdout,1,2) ~= "v2" then
             output.show_warning('GoLint', 'Incompatible golangci-lint version. Try running \'GoUpdateBinaries\'.')
+            return
         end
     end
     do_lint('golangci-lint', {
