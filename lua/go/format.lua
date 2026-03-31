@@ -76,9 +76,29 @@ local function do_fmt(formatter, args)
     vim.fn.jobwait({ job_id })
 end
 
+local function apply_code_actions_sync()
+    local params = vim.lsp.util.make_range_params()
+    params.context = { diagnostics = {} }
+    -- get code actions and return early if there is an error or timeout
+    local timeout_ms = 1000
+    local results = vim.lsp.buf_request_sync(vim.api.nvim_get_current_buf(), 'textDocument/codeAction', params, timeout_ms)
+    if not results then return end
+    -- apply the organizeImports and fixAll actions
+    for _, response in pairs(results) do
+        for _, action in pairs(response.result or {}) do
+            if action.kind == 'source.organizeImports' or action.kind == 'source.fixAll' then
+                vim.lsp.util.apply_workspace_edit(action.edit, 'utf-16')
+            end
+        end
+    end
+end
+
 function M.lsp()
     if vim.fn.has('nvim-0.8') then
-        require('vim.lsp.buf').format()
+        -- tidy imports and apply safe fixes
+        apply_code_actions_sync()
+        -- go fmt via gopls
+        vim.lsp.buf.format()
     else
         output.show_error(
             'GoFormat',
