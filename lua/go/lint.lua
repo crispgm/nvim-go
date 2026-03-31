@@ -151,10 +151,19 @@ end
 
 function M.golangci_lint()
     if util.binary_exists('golangci-lint') then
-        local status = vim.system({'golangci-lint', 'version', '--short'}):wait()
-        if status.code ~= 0 or
-            (string.sub(status.stdout,1,2) ~= "v2" and string.sub(status.stdout,1,1) ~= "2") then
-            output.show_warning('GoLint', 'Incompatible golangci-lint version. Try running \'GoUpdateBinaries\'.')
+        local status = vim.system({ 'golangci-lint', 'version', '--short' })
+            :wait()
+        if
+            status.code ~= 0
+            or (
+                string.sub(status.stdout, 1, 2) ~= 'v2'
+                and string.sub(status.stdout, 1, 1) ~= '2'
+            )
+        then
+            output.show_warning(
+                'GoLint',
+                "Incompatible golangci-lint version. Try running 'GoUpdateBinaries'."
+            )
             return
         end
     end
